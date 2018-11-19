@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:fragment="head">
+		<meta charset="UTF-8">
+		<title>Trang chủ Booking Room</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}">
+		<script type="text/javascript" src="/BookingRoom/src/main/resources/static/css/bootstrap.min.js" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+		<script type="text/javascript" src="/BookingRoom/src/main/resources/static/css/jquery.min.js" th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
+		<script type="text/javascript" src="/BookingRoom/src/main/resources/static/css/popper.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style.css"  th:href="@{css/style.css}">
+	</head>
+	<body>
+		<nav th:fragment="header" class="navbar navbar-inverse navbar-fixed-top">
+	      	<div class="container menu">
+		        <div class="menu-bar">
+			        <ul class="nav navbar-nav navbar-center">
+			            <li><a class="items" href="/BookingRoom/src/main/resources/templates/index.html">Trang chủ</a></li>
+			            <li><a class="items" href="#">Xem tin</a></li>
+			            <li><a class="items" href="#">Tìm kiếm phòng trọ</a></li>
+			            <li><a class="items" href="#">Tin khuyến mãi</a></li>
+			            <li><a class="items" href="#">Giới thiệu</a></li>
+			        </ul>
+			        <ul class="nav navbar-nav navbar-right">
+			            <li><a class="login-sign-up items" href="/BookingRoom/src/main/resources/templates/login.html"><div>Đăng nhập</div></a></li>
+			            <li><a class="login-sign-up items" href="/BookingRoom/src/main/resources/templates/register.html"><div>Đăng ký</div></a></li>
+			            <li><button class="btn btn-danger" href="#">Đăng tin</button></li>
+			        </ul>
+		        </div>
+		    </div>
+		</nav>
+		<div class="header-title">
+			<h1>Booking<span>Room</span></h1>
+		</div>
+		<footer th:fragment="footer">
+			<div class="container">
+				<div class="row">
+		        	<div class="col-xs-12 col-sm-12 col-md-3">
+		          		<div class="logo"><a class="logo" href="#"></a></div>
+		          		<p class="content-1-footer">We are BookingRoom. We are a online platform for operating events effectively. We're working on a web application for facilitating anonymous questions and answers sessions. The application is to be used mainly by corporate and government customers.</p>
+		        	</div>
+		        	<div class="col-xs-12 col-sm-12 col-md-2 col-md-offset-1 menu-footer">
+			        	<h3>Hữu ích</h3>
+			        	<span><a href="#">Trang chủ</a></span> 
+			        	<span><a href="#">Xem tin</a></span>
+			        	<span><a href="#">Tìm kiếm phòng trọ</a></span>
+			        	<span><a href="#">Đăng tin cho thuê trọ</a></span>
+			        	<span><a href="#">Terms and conditions</a></span>
+			        	<span><a href="#">Cookies policy</a></span>
+			        	<span><a href="#">Kết nối với chúng tôi</a></span>
+			        	<span><a href="#">Giới thiệu</a></span>
+		        	</div>
+		        	<div class="col-xs-12 col-sm-12 col-md-2 col-md-offset-0.5  menu-footer">
+		          		<h3>Tài khoản</h3>
+		          		<span><a href="/BookingRoom/src/main/resources/templates/register.html">Đăng ký tài khoản mới</a> </span>
+		          		<span><a href="#">Quản lý</a></span>
+		          		<span><a href="#">Đổi mật khẩu</a></span>
+		          		<span><a href="#">Xóa tài khoản</a> </span>
+		          		<span><a href="#">Bảng tin</a></span>
+		        	</div>
+		        	<div class="col-xs-12 col-sm-12 col-md-4 menu-footer">
+		          		<h3 class="center-h3">We are social</h3>
+		          		<a href="#"><span class="icon-in-footer icon-1-in-footer"></span></a>
+		          		<a href="#"><span class="icon-in-footer icon-2-in-footer"></span></a>
+		          		<a href="#"><span class="icon-in-footer icon-3-in-footer"></span></a>
+		          		<a href="#"><span class="icon-in-footer icon-4-in-footer"></span></a>
+		          		<p class="subcribe-label">Phản hồi cho chúng tôi</p>
+		          		<div class="form-group">
+		            		<input type="text" name="email" class="form-control" id="email" placeholder = "Email address">
+		          		</div>
+		        	</div>
+		    	</div>
+			</div>
+		    <p class="last-content">&copy; 2018 BookingRoom, all rights received</p>
+		</footer>
+		
+	</body>
+</html>

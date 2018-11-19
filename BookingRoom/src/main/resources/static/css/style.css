@@ -1,0 +1,187 @@
+body{
+	margin: 0;
+	padding: 0;
+	background-image: url(background.jpg);
+	background-size: cover;	
+}
+.navbar{
+ 	background-color: #161616;
+ 	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
+ }
+.menu{
+	background-color: #161616;
+}
+.navbar-nav{
+	padding-left: 50px;
+}
+.navbar-center li a{
+	font-size: 18px;
+}
+.navbar-inverse .navbar-nav>li>a{
+    color: #EE7C6B;
+    padding-top: 20px;
+}
+.btn-danger{
+	margin-top: 12px;
+}
+a.items:hover{
+	border-top: 1px solid white;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
+	background-color: #161616;
+}
+.login-sign-up{
+	font-size: 18px;
+}
+.header-title h1{
+	margin-top: 100px;
+	text-align: center;
+	color: #EE7C6B;
+	font-family: Calibri Light;
+	font-size: 55px;
+	font-weight: bold;
+}
+.header-title h1 span{
+	color: #EE7C6B;
+	padding-left: 10px;
+}
+.login{
+	margin-right: auto;
+	margin-left: auto;
+}
+.txt{
+	outline: none;
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
+    padding: 20px 13px 10px 44px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    width: 100%;
+    margin: 0 0 20px;
+    display: inline-block;
+    background: rgba(255,255,255,0);
+}
+.user{
+	background: url(user-icon.png) no-repeat 5px 15px;
+}
+.pass{
+	background: url(password-icon.png) no-repeat 5px 15px;
+}
+.email{
+	background: url(email-icon.png) no-repeat 6px 20px;
+}
+.phone{
+	background: url(phone-icon.png) no-repeat 6px 18px;
+}
+.btn-login{
+	background: #ff3366;
+    color: #FFF;
+    font-size: 26px;
+    padding: 0.3em 1.2em;
+    width: 100%;
+    font-weight: 500;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    font-family: Calibri Light;
+}
+.didnt-have-account{
+	text-align: center;
+	color: white;
+	padding-top: 20px;
+	font-size: 16px;
+	font-family: Calibri Light;
+}
+.didnt-have-account a{
+	text-decoration: none;
+	font-weight: bold;
+	color: #EE7C6B;
+}
+footer{
+	background-color: #161616;
+	height: 340px;
+	color: white;
+	padding-top: 35px;
+	font-weight: normal;
+	margin-top: 250px;
+}
+footer span{
+	color: #fff;
+	font-family: Calibri Light;
+	font-size: 15px;
+	text-align: left;
+	display: flex;
+}
+.content-1-footer{
+	text-align: center;
+    color: #fff;
+    font-family: Calibri Light;
+    font-size: 15px;
+    padding-top: 80px;
+}
+.col-md-2 span a{
+	text-decoration: none;
+	color: white;
+}
+.center-h3{
+	text-align: center;
+	padding-bottom: 5px;
+}
+.icon-in-footer{
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+	padding-right: 25px;
+    padding-left: 59px;
+    padding-bottom: 60px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.icon-in-footer:hover{
+	transform: scale(1.5);
+}
+.icon-1-in-footer{
+	background: url(icons8-facebook-40.png) no-repeat 23px 15px;
+}
+.icon-2-in-footer{
+	background: url(instagram-icon.png) no-repeat 21px 15px;
+}
+.icon-3-in-footer{
+	background: url(icons8-twitter-40.png) no-repeat 21px 15px;
+}
+.icon-4-in-footer{
+	background: url(linkedin-icon.png) no-repeat 21px 15px;
+}
+.subcribe-label{
+	text-align: center;
+	color: #dfdfdf;
+	font-size: 15px;
+	padding-top: 10px;
+}
+#email,select.form-control{
+  	border: none;
+  	border-bottom: 1px solid #FFF;
+  	box-shadow: none;
+  	outline: none;
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
+    width: 90%;
+    display: inline-block;
+    background: rgba(255,255,255,0);
+}
+#email:focus,select.form-control:focus{
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.last-content{
+	text-align: center;
+	padding-top: 30px;
+	font-size: 15px;
+}
