@@ -73,7 +73,7 @@ a.items:hover{
 .phone{
 	background: url(phone-icon.png) no-repeat 6px 18px;
 }
-.btn-login{
+.btn-submit{
 	background: #ff3366;
     color: #FFF;
     font-size: 26px;
@@ -123,7 +123,7 @@ footer span{
     color: #fff;
     font-family: Calibri Light;
     font-size: 15px;
-    padding-top: 80px;
+    padding-top: 20px;
 }
 .col-md-2 span a{
 	text-decoration: none;
@@ -147,16 +147,16 @@ footer span{
 	transform: scale(1.5);
 }
 .icon-1-in-footer{
-	background: url(icons8-facebook-40.png) no-repeat 23px 15px;
+	background: url(/BookingRoom/src/main/resources/static/img/icons8-facebook-40.png) no-repeat 23px 15px;
 }
 .icon-2-in-footer{
-	background: url(instagram-icon.png) no-repeat 21px 15px;
+	background: url(/BookingRoom/src/main/resources/static/img/instagram-icon.png) no-repeat 21px 15px;
 }
 .icon-3-in-footer{
-	background: url(icons8-twitter-40.png) no-repeat 21px 15px;
+	background: url(/BookingRoom/src/main/resources/static/img/icons8-twitter-40.png) no-repeat 21px 15px;
 }
 .icon-4-in-footer{
-	background: url(linkedin-icon.png) no-repeat 21px 15px;
+	background: url(/BookingRoom/src/main/resources/static/img/linkedin-icon.png) no-repeat 21px 15px;
 }
 .subcribe-label{
 	text-align: center;
