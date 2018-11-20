@@ -15,15 +15,15 @@
 	      	<div class="container menu">
 		        <div class="menu-bar">
 			        <ul class="nav navbar-nav navbar-center">
-			            <li><a class="items" href="/BookingRoom/src/main/resources/templates/index.html">Trang chủ</a></li>
+			            <li><a class="items" href="/BookingRoom/src/main/resources/templates/index.html" th:href="@{/templates/index.html}">Trang chủ</a></li>
 			            <li><a class="items" href="#">Xem tin</a></li>
 			            <li><a class="items" href="#">Tìm kiếm phòng trọ</a></li>
 			            <li><a class="items" href="#">Tin khuyến mãi</a></li>
 			            <li><a class="items" href="#">Giới thiệu</a></li>
 			        </ul>
 			        <ul class="nav navbar-nav navbar-right">
-			            <li><a class="login-sign-up items" href="/BookingRoom/src/main/resources/templates/login.html"><div>Đăng nhập</div></a></li>
-			            <li><a class="login-sign-up items" href="/BookingRoom/src/main/resources/templates/register.html"><div>Đăng ký</div></a></li>
+			            <li><a class="login-sign-up items" href="/BookingRoom/src/main/resources/templates/login.html"  th:href="@{resources/templates/login.html}"><div>Đăng nhập</div></a></li>
+			            <li><a class="login-sign-up items" href="/BookingRoom/src/main/resources/templates/register.html" th:href="@{resources/templates/register.html}"><div>Đăng ký</div></a></li>
 			            <li><button class="btn btn-danger" href="#">Đăng tin</button></li>
 			        </ul>
 		        </div>

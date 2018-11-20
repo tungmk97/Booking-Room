@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="layout :: head"></head>
+	<body>
+		<nav th:replace="layout :: header"></nav>
+		<div class="header-title">
+			<h1>Booking<span>Room</span></h1>
+		</div>
+		<div class="login container">
+			<div class="row">
+				<div class="col-sm-4 col-xs-3 col-md-4"></div>
+				<form class="col-sm-4 col-xs-6 col-md-4">
+					<input class="user txt" type="text" placeholder="Username" name="user"> <br>
+					<input class="pass txt" type="password" placeholder="Password" name="password"> <br>
+					<input class="btn-login" type="button" value="Đăng nhập">
+				</form>
+				<div class="col-sm-4 col-xs-3 col-md-4"></div>
+			</div>
+			<div class="didnt-have-account container">Bạn chưa có tài khoản? <a href="#" th:href="@{#}">Đăng ký ngay!</a></div>
+		</div>
+		<footer th:replace="layout :: footer"></footer>
+	</body>
+</html>
