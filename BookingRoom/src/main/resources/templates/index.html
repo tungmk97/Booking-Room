@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head th:fragment="head">
-		<meta charset="UTF-8">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<title>Trang chủ Booking Room</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}">
 		<script type="text/javascript" src="/BookingRoom/src/main/resources/static/css/bootstrap.min.js" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
 		<script type="text/javascript" src="/BookingRoom/src/main/resources/static/css/jquery.min.js" th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
 		<script type="text/javascript" src="/BookingRoom/src/main/resources/static/css/popper.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style.css"  th:href="@{css/style.css}">
+		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style.css" th:href="@{css/style.css}">
+		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-search.css" th:href="@{css/style-search.css}">
 	</head>
 	<body>
 		<nav th:fragment="header" class="navbar navbar-inverse navbar-fixed-top">
 	      	<div class="container menu">
 		        <div class="menu-bar">
 			        <ul class="nav navbar-nav navbar-center">
-			            <li><a class="items" href="/BookingRoom/src/main/resources/templates/index.html" th:href="@{/templates/index.html}">Trang chủ</a></li>
+			            <li><a class="items" href="/src/main/resources/templates/index.html" th:href="@{/templates/index.html}">Trang chủ</a></li>
 			            <li><a class="items" href="#">Xem tin</a></li>
 			            <li><a class="items" href="#">Tìm kiếm phòng trọ</a></li>
 			            <li><a class="items" href="#">Tin khuyến mãi</a></li>
 			            <li><a class="items" href="#">Giới thiệu</a></li>
 			        </ul>
 			        <ul class="nav navbar-nav navbar-right">
-			            <li><a class="login-sign-up items" href="/BookingRoom/src/main/resources/templates/login.html"  th:href="@{resources/templates/login.html}"><div>Đăng nhập</div></a></li>
-			            <li><a class="login-sign-up items" href="/BookingRoom/src/main/resources/templates/register.html" th:href="@{resources/templates/register.html}"><div>Đăng ký</div></a></li>
+			            <li><a class="login-sign-up items" href="/src/main/resources/templates/login.html"  th:href="@{resources/templates/login.html}"><div>Đăng nhập</div></a></li>
+			            <li><a class="login-sign-up items" href="/src/main/resources/templates/register.html" th:href="@{resources/templates/register.html}"><div>Đăng ký</div></a></li>
 			            <li><button class="btn btn-danger" href="#">Đăng tin</button></li>
 			        </ul>
 		        </div>

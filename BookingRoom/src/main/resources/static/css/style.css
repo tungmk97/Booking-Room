@@ -1,7 +1,7 @@
 body{
 	margin: 0;
 	padding: 0;
-	background-image: url(background.jpg);
+	background-image: url(/img/background.jpg);
 	background-size: cover;	
 }
 .navbar{
@@ -62,16 +62,16 @@ a.items:hover{
     background: rgba(255,255,255,0);
 }
 .user{
-	background: url(user-icon.png) no-repeat 5px 15px;
+	background: url(/img/user-icon.png) no-repeat 5px 15px;
 }
 .pass{
-	background: url(password-icon.png) no-repeat 5px 15px;
+	background: url(/img/password-icon.png) no-repeat 5px 15px;
 }
 .email{
-	background: url(email-icon.png) no-repeat 6px 20px;
+	background: url(/img/email-icon.png) no-repeat 6px 20px;
 }
 .phone{
-	background: url(phone-icon.png) no-repeat 6px 18px;
+	background: url(/img/phone-icon.png) no-repeat 6px 18px;
 }
 .btn-submit{
 	background: #ff3366;
@@ -147,16 +147,16 @@ footer span{
 	transform: scale(1.5);
 }
 .icon-1-in-footer{
-	background: url(/BookingRoom/src/main/resources/static/img/icons8-facebook-40.png) no-repeat 23px 15px;
+	background: url(/img/icons8-facebook-40.png) no-repeat 23px 15px;
 }
 .icon-2-in-footer{
-	background: url(/BookingRoom/src/main/resources/static/img/instagram-icon.png) no-repeat 21px 15px;
+	background: url(/img/instagram-icon.png) no-repeat 21px 15px;
 }
 .icon-3-in-footer{
-	background: url(/BookingRoom/src/main/resources/static/img/icons8-twitter-40.png) no-repeat 21px 15px;
+	background: url(/img/icons8-twitter-40.png) no-repeat 21px 15px;
 }
 .icon-4-in-footer{
-	background: url(/BookingRoom/src/main/resources/static/img/linkedin-icon.png) no-repeat 21px 15px;
+	background: url(/img/linkedin-icon.png) no-repeat 21px 15px;
 }
 .subcribe-label{
 	text-align: center;

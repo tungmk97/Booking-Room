@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head th:replace="layout :: head"></head>
+	<head th:replace="index :: head"></head>
 	<body>
-		<nav th:replace="layout :: header"></nav>
+		<nav th:replace="index :: header"></nav>
 		<div class="header-title">
 			<h1>Booking<span>Room</span></h1>
 		</div>
@@ -18,6 +18,6 @@
 			</div>
 			<div class="didnt-have-account container">Bạn chưa có tài khoản? <a href="#" th:href="@{#}">Đăng ký ngay!</a></div>
 		</div>
-		<footer th:replace="layout :: footer"></footer>
+		<footer th:replace="index :: footer"></footer>
 	</body>
 </html>
