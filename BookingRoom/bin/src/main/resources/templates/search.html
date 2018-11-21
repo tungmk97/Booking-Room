@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="index :: head"></head>
+	<body>
+		<nav th:replace="index :: header"></nav>
+		<div class="header">
+			<h1>Tìm kiếm khu vực</h1>
+		</div>
+		<div class="search-address container">
+			<div class="row">
+				<div class="col-sm-4 col-xs-3 col-md-4"></div>
+				<form class="col-sm-4 col-xs-6 col-md-4 form-group form-search-group">
+					<label for="sel1">Chọn thành phố:</label>
+					<select class="form-control" id="sel1">
+						<option disabled selected hidden>--- Vui lòng chọn tỉnh/thành ---</option>
+				        <option>Hà Nội</option>
+				        <option>Hồ Chí Minh</option>
+				        <option>Hải Phòng</option>
+				        <option>Nha Trang</option>
+				    </select>
+				    <label for="sel1">Chọn quận/huyện:</label>
+					<select class="form-control" id="sel1">
+						<option disabled selected hidden>--- Vui lòng chọn quận/huyện ---</option>
+				        <option>Hoàn Kiếm</option>
+				        <option>Cầu giấy</option>
+				        <option>Hà Đông</option>
+				        <option>Bắc Từ Liêm</option>
+				    </select>
+				    <label for="sel1">Chọn phường/xã:</label>
+					<select class="form-control" id="sel1">
+						<option disabled selected hidden>--- Vui lòng chọn phường/xã ---</option>
+				        <option>Quan Hoa</option>
+				        <option>Dịch Vọng</option>
+				        <option>Cầu diễn</option>
+				    </select>
+				    <label for="id-room">Mã phòng <span  class="note-label">(Nếu có)</span>:</label>
+				    <input id="id-room" class="id-txt txt" type="text" placeholder="--- Vui lòng nhập mã phòng ---" name="id-room">
+				    <br>
+					<input class="btn-submit btn-search" type="button" value="Tìm kiếm ngay">
+				</form>
+				<div class="col-sm-4 col-xs-3 col-md-4"></div>
+			</div>
+		</div>
+		<footer th:replace="index :: footer"></footer>
+	</body>
+</html>
