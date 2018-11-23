@@ -185,3 +185,69 @@ footer span{
 	padding-top: 30px;
 	font-size: 15px;
 }
+
+/*Tìm kiếm*/
+select.form-control{
+	width: 100%;
+}
+label{
+	color: #EE7C6B;
+	font-family: Calibri Light;
+	padding-top: 20px;
+	font-size: 20px; 
+}
+.btn-search{
+	margin-top: 20px;
+}
+.form-control option{
+	color: #000;
+}
+.id-txt{
+	background: url(/img/id-icon.png) no-repeat 5px 18px;
+}
+.note-label{
+	color: #898989;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+
+
+/* Đăng tin */
+.title{
+	font-family: Calibri Light;
+	font-weight: bold;
+	color: #eef10d;
+	margin-bottom: 50px;
+}
+.border-table{
+	border: 1px solid #0c0e0b;
+}
+.note{
+	font-family: Calibri Light;
+	font-style: italic;
+}
+.note-1{
+	color: red;
+	font-weight: bold;
+}
+.note > p {
+	color: white;
+}
+.control{
+	padding-top: 100px;
+}
+.text-p{
+	color: white;
+	font-family: Calibri Light;
+}
+.address{
+	background: url(/img/address-icon.png) no-repeat -3px 8px;
+}
+.control {
+	padding: 26px 12px;
+}
+select.form-control{
+	width: 100%;
+	padding: 26px 12px;
+}
