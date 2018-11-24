@@ -11,21 +11,22 @@
 		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style.css" th:href="@{css/style.css}">
 		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-search.css" th:href="@{css/style-search.css}">
 		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-postNews.css" th:href="@{css/style-postNews.css}">
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<nav th:fragment="header" class="navbar navbar-inverse navbar-fixed-top">
 	      	<div class="container menu">
 		        <div class="menu-bar">
 			        <ul class="nav navbar-nav navbar-center">
-			            <li><a class="items" href="/src/main/resources/templates/index.html" th:href="@{/templates/index.html}">Trang chủ</a></li>
+			            <li><a class="items" href="index.html" th:href="@{/templates/index.html}">Trang chủ</a></li>
 			            <li><a class="items" href="#">Xem tin</a></li>
 			            <li><a class="items" href="#">Tìm kiếm phòng trọ</a></li>
 			            <li><a class="items" href="#">Tin khuyến mãi</a></li>
 			            <li><a class="items" href="#">Giới thiệu</a></li>
 			        </ul>
 			        <ul class="nav navbar-nav navbar-right">
-			            <li><a class="login-sign-up items" href="/src/main/resources/templates/login.html"  th:href="@{resources/templates/login.html}"><div>Đăng nhập</div></a></li>
-			            <li><a class="login-sign-up items" href="/src/main/resources/templates/register.html" th:href="@{resources/templates/register.html}"><div>Đăng ký</div></a></li>
+			            <li><a class="login-sign-up items" href="login.html"  th:href="@{resources/templates/login.html}"><div>Đăng nhập</div></a></li>
+			            <li><a class="login-sign-up items" href="register.html" th:href="@{resources/templates/register.html}"><div>Đăng ký</div></a></li>
 			            <li><button class="btn btn-danger" href="#">Đăng tin</button></li>
 			        </ul>
 		        </div>

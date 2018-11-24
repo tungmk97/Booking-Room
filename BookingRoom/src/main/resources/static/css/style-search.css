@@ -1,0 +1,24 @@
+/*Tìm kiếm*/
+select.form-control{
+	width: 100%;
+}
+label{
+	color: #EE7C6B;
+	font-family: Calibri Light;
+	padding-top: 20px;
+	font-size: 20px; 
+}
+.btn-search{
+	margin-top: 20px;
+}
+.form-control option{
+	color: #000;
+}
+.id-txt{
+	background: url(/img/id-icon.png) no-repeat 5px 18px;
+}
+.note-label{
+	color: #898989;
+	font-size: 14px;
+	font-weight: normal;
+}
