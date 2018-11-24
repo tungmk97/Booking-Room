@@ -6,7 +6,7 @@
 	      	<div class="container menu">
 		        <div class="menu-bar">
 			        <ul class="nav navbar-nav navbar-center">
-			            <li><a class="items" href="/src/main/resources/templates/index.html" th:href="@{/templates/index.html}">Trang chủ</a></li>
+			            <li><a class="items" href="/src/main/resources/templates/index.html" th:href="@{/templates/index.html}">Trang chá»§</a></li>
 			            <li><a class="items" href="#">Xem tin</a></li>
 			            <li><a class="items" href="#">Tìm kiếm phòng trọ</a></li>
 			            <li><a class="items" href="#">Tin khuyến mãi</a></li>
@@ -24,244 +24,93 @@
 		<div class="header-title container-fluid">
 			<div class="container">
 				<div class="row">
-					<table class="col-md-12 table-bordered table border-table">
-						<tr>
-							<th class="title"><h4 class="text-uppercase">Thông tin cơ bản</h4></th>
-						</tr>
-						<tr class="">
-							<td >
-								<form class="form_submit">
-									<div class="form-group">
-										<div class="row">
-											<div class="col-md-4 col-xs-12">
-												<label for="sel-1">Tiêu đề tin: (*)</label>
-												<input class="form-control" data-val="true" data-val-required="The Title field is required." id="Title" name="Title" placeholder="" type="text" value="">
-											</div>
-											<div class="col-md-4 col-xs-12">
-												<label for="sel-1">Mã tin (*)</label>
-												<input class="form-control" data-val="true" data-val-required="The FullName field is required." id="FullName" maxlength="100" name="FullName" placeholder="" type="text" value="">
-											</div>
-											<div class="col-md-4 col-xs-12">
-												<label for="sel-1">Diện tích(m2) (*)</label>
-												<input class="form-control" data-val="true" data-val-required="The FullName field is required." id="FullName" maxlength="100" name="FullName" placeholder="" type="text" value="">
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-md-4">
-												<div class="form-group">
-				                                	<div class="row">
-				                                    	<div class="col-xs-12">
-				                                    		<label for="sel-1">Tỉnh/Thành phố (*)</label>                                     
-															<select name="Province" class="form-control" id="sel-1">
-																<option value="">--Tỉnh thành--</option>
-														        <option value="1">Hồ Chí Minh</option>
-														        <option value="2">Hà Nội</option>
-														        <option value="4">Đà Nẵng</option>
-														        <option value="3">Hải Phòng</option>
-														        <option value="54">Cần Thơ</option>
-														        <option value="48">Long An</option>
-														        <option value="51">Vũng Tàu</option>
-														        <option value="43">Bình Dương</option>
-														        <option value="5">Hà Giang </option>
-														        <option value="6">Cao Bằng </option>
-														        <option value="7">Lai Châu </option>
-														        <option value="8">Lào Cai </option>
-														        <option value="9">Tuyên Quang </option>
-														        <option value="10">Lạng Sơn </option>
-														        <option value="11">Bắc Kạn </option>
-														        <option value="12">Thái Nguyên </option>
-														        <option value="13">Yên Bái </option>
-														        <option value="14">Sơn La </option>
-														        <option value="15">Phú Thọ </option>
-														        <option value="16">Vĩnh Phúc </option>
-														        <option value="17">Quảng Ninh </option>
-														        <option value="18">Bắc Giang </option>
-														        <option value="19">Bắc Ninh </option>
-														        <option value="20">Hải Dương </option>
-														        <option value="21">Hưng Yên </option>
-														        <option value="22">Hoà Bình </option>
-														        <option value="23">Hà Nam </option>
-														        <option value="24">Nam Định </option>
-														        <option value="25">Thái Bình </option>
-														        <option value="26">Ninh Bình </option>
-														        <option value="27">Thanh Hoá </option>
-														        <option value="28">Nghệ An </option>
-														        <option value="29">Hà Tĩnh </option>
-														        <option value="30">Quảng Bình </option>
-														        <option value="31">Quảng Trị </option>
-														        <option value="32">Thừa Thiên Huế </option>
-														        <option value="33">Quảng Nam </option>
-														        <option value="34">Quảng Ngãi </option>
-														        <option value="35">Kontum </option>
-														        <option value="36">Bình Định </option>
-														        <option value="37">Gia Lai </option>
-														        <option value="38">Phú Yên </option>
-														        <option value="39">Đăk Lăk </option>
-														        <option value="40">Khánh Hoà </option>
-														        <option value="41">Lâm Đồng </option>
-														        <option value="42">Bình Phước </option>
-														        <option value="44">Ninh Thuận </option>
-														        <option value="45">Tây Ninh </option>
-														        <option value="46">Bình Thuận </option>
-														        <option value="47">Đồng Nai </option>
-														        <option value="49">Đồng Tháp </option>
-														        <option value="50">An Giang </option>
-														        <option value="55">Bến Tre </option>
-														        <option value="56">Vĩnh Long </option>
-														        <option value="57">Trà Vinh </option>
-														        <option value="58">Sóc Trăng </option>
-														        <option value="59">Bạc Liêu </option>
-														        <option value="60">Cà Mau </option>
-														        <option value="61">Điện Biên </option>
-														        <option value="62">Dăk Nông </option>
-														        <option value="63">Hậu Giang </option>
-														        <option value="52">Tiền Giang </option>
-														        <option value="53">Kiên Giang </option>
-															</select>
-				                                    	</div>
-				                                	</div>
-				                            	</div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-				                                	<div class="row">
-				                                    	<div class="col-xs-12">
-				                                    		<label for="sel-2">Quận/huyện(*)</label>
-				                                        	<select id="sel-2" name="District" class="form-control">
-				                                        		<option value="" selected="selected">--Quận huyện--</option>
-				                                        	</select>
-				                                    	</div>
-				                                	</div>
-				                            	</div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-				                                	<div class="row">
-				                                    	<div class="col-xs-12">
-				                                    		<label for="sel-3">Phường/Xã(*)</label>
-				                                        	<select id="sel-3" name="District" class="form-control">
-				                                        		<option value="" selected="selected">--Phường xã--</option>
-				                                        	</select>
-				                                    	</div>
-				                                	</div>
-				                            	</div>
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-md-4 col-xs-12">
-												<label for="sel-3">Giá tiền-VND (*)</label>
-												<input class="form-control" data-val="true" data-val-required="The FullName field is required." id="FullName" maxlength="100" name="FullName" placeholder="" type="text" value="">
-											</div>
-										</div>
-									</div>
-								</form>
-							</td>
-						</tr>
-					</table>
-					<table class="table table-bordered col-md-12 border-table">
-						<tr>
-							<th class="title"><h4 class="text-uppercase">Liên hệ với người cho thuê</h4></th>
-						</tr>
-						<tr>
-							<td>
-								<form class="form_submit">
-									<div class="form-group">
-										<div class="row">
-											<div class="col-md-6 col-xs-12">
-												<label for="sel-1">Họ tên: (*)</label>
-												<input class="form-control" data-val="true" data-val-required="The Title field is required." id="Title" name="Title" placeholder="" type="text" value="">
-											</div>
-											<div class="col-md-6 col-xs-12">
-												<label for="sel-1">Số điện thoại: (*)</label>
-												<input class="form-control" data-val="true" data-val-required="The Title field is required." id="Title" name="Title" placeholder="" type="tell" value="">
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-6 col-xs-12">
-												<label for="sel-1">Địa chỉ: (*)</label>
-												<input class="form-control" data-val="true" data-val-required="The Title field is required." id="Title" name="Title" placeholder="" type="text" value="">
-											</div>
-											<div class="col-md-6 col-xs-12">
-												<label for="sel-1">Email:</label>
-												<input class="form-control" data-val="true" data-val-required="The Title field is required." id="Title" name="Title" placeholder="" type="email" value="">
-											</div>
-										</div>
-									</div>
-								</form>
-							</td>
-						</tr>
-					</table>
-					<table class="table table-bordered col-md-12 border-table">
-						<tr>
-							<th class="title"><h4 class="text-uppercase">Thông tin mô tả</h4></th>
-						</tr>
-						<tr>
-							<td>
-								<form class="form_submit">
-									<div class="form-group">
-										<div class="row">
-											<div class="col-md-12 col-xs-12">
-												<label for="sel-1">Tiêu đề: (*)</label>
-												<input class="form-control" data-val="true" data-val-required="The Title field is required." id="Title" name="Title" placeholder="Hãy đặt tiêu đề đầy đủ nghĩa, khách sẽ quan tâm hơn" type="text" value="">
-											</div>
-											<div class="col-md-12 col-xs-12">
-												<label for="sel-1">Nội dung: (*)</label>
-												<textarea class="form-control" cols="20" data-val="true" data-val-required="The Detail field is required." id="Detail" name="Detail" placeholder="" rows="2" style="width: 100%; height: 234px"></textarea>
-											</div>
-										</div>
-									</div>
-								</form>
-							</td>
-						</tr>
-					</table>
-					<table class="table table-bordered col-md-12 border-table">
-						<tr>
-							<th class="title"><h4 class="text-uppercase">Hình ảnh (nếu có)</h4></th>
-						</tr>
-						<tr>
-							<td>	
-                                <div class="alert alert-success">Tin đăng có hình ảnh rõ ràng sẽ được xem và gọi gấp nhiều lần so với tin rao không có ảnh. Hãy đăng ảnh để được giao dịch nhanh chóng. Bạn có thể tải 16 ảnh và mỗi ảnh dung lượng không quá 4MB</div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            
-                                            <label for="thumbnail-post" class="col-sm-12 control-label">Chọn hình ảnh để đăng</label>
-                                            <p>Định dạng ảnh hỗ trợ: .jpg .png .jpeg .gif</p>
-                                            <div id="fileupload">
-                                                <div id="uploadimage" class="clearfix default-theme">
-                                                    <input type="hidden" name="Images" id="BDSGuestUploadNonFlash">
-                                                	<input id="secleimg" multiple="" class="fileupload" type="file" name="userfile">
-                                                	<div class="upload-item working-upload-item">
-                                                	</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-							</td>
-						</tr>
-					</table>
-					<div class="note">
-						<h3 class="text-uppercase text-red note-1">Lưu ý</h3>
-						<p>- Thông tin có dấu (*) là bắt buộc.</p>
-						<p>- Nội dung phải viết bằng tiếng Việt có dấu</p>
-						<p>- Tiêu đề tin không dài quá 100 kí tự</p>
-						<p>- Các bạn nên điền đầy đủ thông tin vào các mục để tin đăng có hiệu quả hơn.</p>
+					<div class="col-md-4 col-xs-12">
+						<h3 class="text-uppercase title">Thông tin cơ bản</h3>
+						<form class="form-group">
+							<label for="sel1">Mã tin (*)</label>
+							<input class="txt" data-val="true" data-val-required="The FullName field is required." id="FullName" maxlength="100" name="FullName" placeholder="---Vui lòng nhập mã tin---" type="text" value="">
+							<label for="sel1">Tiêu đề tin: (*)</label>
+							<input class="txt" data-val="true" data-val-required="The Title field is required." id="Title" name="Title" placeholder="---Vui lòng nhập tiêu đề tin---" type="text" value="">
+							<label for="sel1">Diệc tích(m2) (*)</label>
+							<input class="txt" data-val="true" data-val-required="The FullName field is required." id="FullName" maxlength="100" name="FullName" placeholder="---Vui lòng nhập diện tích phòng---" type="text" value="">
+							<label for="sel1">Tỉnh/Thành phố (*)</label>
+							<select class="form-control control " id="sel1">
+								<option disabled selected hidden value="">--Tỉnh thành--</option>
+								<option value="1">Hồ Chí Minh</option>
+								<option value="2">Hà Nội</option>
+								<option value="4">Đà Nắng</option>
+								<option value="3">Hải Phòng</option>
+								<option value="54">Hải Dương</option>
+							</select>
+							<label for="sel1">Quận/huyện (*)</label>
+							<select class="form-control control" id="sel1">
+								<option disabled selected hidden value="">--Quận huyện--</option>
+								<option value="1">Hoàn Kiếm</option>
+								<option value="2">Ba Đình</option>
+								<option value="4">Đống Đa</option>
+								<option value="3">Thanh Xuân</option>
+							</select>
+							<label for="sel1">Phường/xã (*)</label>
+							<select class="form-control control" id="sel1">
+								<option disabled selected hidden value="">--Phường xã--</option>
+								<option value="1">Đồng Tâm</option>
+								<option value="2">Giải Phóng</option>
+								<option value="4">Thái Thịnh</option>
+							</select>
+							<label for="sel1">Giá Tiền (*)</label>
+							<input class="txt" data-val="true" data-val-required="The FullName field is required." id="FullName" maxlength="100" name="FullName" placeholder="---Vui lòng nhập giá tiền---" type="text" value="">
+						</form>
 					</div>
-					<div class="form-group">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <button type="submit" class="btn btn-danger">Đăng tin ngay</button>
-                            </div>
-                        </div>
-                    </div>
+					<div class="col-md-4 col-xs-12">
+						<h3 class="text-uppercase title">Liên hệ người cho thuê</h3>
+						<form class="form-group">
+							<label for="sel1">Họ tên: (*)</label>
+							<input class="user txt" data-val="true" data-val-required="The Title field is required." id="Title" name="Title" placeholder="Họ và tên---" type="text" value="">
+							<label for="sel1">Số điện thoại: (*)</label>
+							<input class="phone txt" data-val="true" data-val-required="The Title field is required." id="Title" name="Title" placeholder="Số điện thoại---" type="tell" value="">
+							<label for="sel1">Địa chỉ: (*)</label>
+							<input class="address txt" data-val="true" data-val-required="The Title field is required." id="Title" name="Title" placeholder="Địa chỉ liên hệ---" type="text" value="">
+							<label for="sel1">Email:</label>
+							<input class="email txt" data-val="true" data-val-required="The Title field is required." id="Title" name="Title" placeholder="Email---" type="email" value="">
+						</form>
+					</div>
+					<div class="col-md-4 col-xs-12">
+						<h3 class="text-uppercase title">Thông tin mô tả</h3>
+						<form class="form-group">
+							<label for="sel1">Tiêu đề: (*)</label>
+							<input class="txt" data-val="true" data-val-required="The Title field is required." id="Title" name="Title" placeholder="---Hãy đặt tiêu đề đầy đủ nghĩa---" type="text" value="">
+							<label for="sel1">Nội dung: (*)</label>
+							<textarea class="txt" cols="20" data-val="true" data-val-required="The Detail field is required." id="Detail" name="Detail" placeholder="---Vui lòng nhập nội dung---" rows="2" style="width: 100%; height: 250px"></textarea>
+						</form>
+						<div class="note">
+							<h3 class="text-uppercase note-1 title">Lưu ý</h3>
+							<p>- Thông tin có dấu (*) là bắt buộc.</p>
+							<p>- Nội dung phải viết bằng tiếng Việt có dấu</p>
+							<p>- Tiêu đề tin không dài quá 100 kí tự</p>
+							<p>- Các bạn nên điền đầy đủ thông tin vào các mục để tin đăng có hiệu quả hơn.</p>
+							<p>Để tăng độ tin cậy và tin rao được nhiều người quan tâm hơn, hãy sửa vị trí tin rao của bạn trên bản đồ bằng cách kéo icon tới đúng vị trí của tin rao.</p>
+							<p>Tin đăng có hình ảnh rõ ràng sẽ được xem và gọi gấp nhiều lần so với tin rao không có ảnh. Hãy đăng ảnh để được giao dịch nhanh chóng!</p>
+						</div>
+					</div>
+				</div>
+				<div>
+					<h3 class="text-uppercase title">Hình ảnh (Nếu có)</h3>
+					<div class="alert alert-success">Tin đăng có hình ảnh rõ ràng sẽ được xem và gọi gấp nhiều lần so với tin rao không có ảnh. Hãy đăng ảnh để được giao dịch nhanh chóng. Bạn có thể tải 16 ảnh và mỗi ảnh dung lượng không quá 4MB</div>
+					<label for="thumbnail-post" class="col-sm-12 control-label">Chọn hình ảnh để đăng</label>
+					<div class="alert alert-info">
+						<h5 class="">Định dạng ảnh hỗ trợ: .jpg .png .jpeg .gif</h5>
+						<div id="fileupload alert-danger">
+	                    	<div id="uploadimage" class="clearfix default-theme ">
+	                    		<input type="hidden" name="Images" id="BDSGuestUploadNonFlash">
+	                    		<input id="secleimg" multiple="" class="fileupload" type="file" name="userfile">
+	                     		<div class="upload-item working-upload-item">
+	                        	</div>
+	                    	</div>
+                    	</div>
+					</div>
 				</div>
 			</div>
-		</div>		
-	</body>
-	<footer th:replace="index :: footer"></footer>
+		</div>
+		<footer th:replace="index :: footer"></footer>	
+	</body>	
 </html>
