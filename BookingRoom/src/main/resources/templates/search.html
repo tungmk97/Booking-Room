@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head th:replace="index :: head"></head>
+	<head th:fragment="head">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Trang chủ Booking Room</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      	<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style.css" th:href="@{css/style.css}">
+		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-search.css"  th:href="@{css/style-search.css}">
+		</head>
 	<body>
 		<nav th:replace="index :: header"></nav>
 		<div class="header">
@@ -18,16 +27,16 @@
 				        <option>Hải Phòng</option>
 				        <option>Nha Trang</option>
 				    </select>
-				    <label for="sel1">Chọn quận/huyện:</label>
-					<select class="form-control" id="sel1">
+				    <label for="sel2">Chọn quận/huyện:</label>
+					<select class="form-control" id="sel2">
 						<option disabled selected hidden>--- Vui lòng chọn quận/huyện ---</option>
 				        <option>Hoàn Kiếm</option>
 				        <option>Cầu giấy</option>
 				        <option>Hà Đông</option>
 				        <option>Bắc Từ Liêm</option>
 				    </select>
-				    <label for="sel1">Chọn phường/xã:</label>
-					<select class="form-control" id="sel1">
+				    <label for="sel3">Chọn phường/xã:</label>
+					<select class="form-control" id="sel3">
 						<option disabled selected hidden>--- Vui lòng chọn phường/xã ---</option>
 				        <option>Quan Hoa</option>
 				        <option>Dịch Vọng</option>

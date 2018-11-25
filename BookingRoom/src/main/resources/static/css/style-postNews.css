@@ -19,22 +19,61 @@
 .note > p {
 	color: white;
 }
-.control{
-	padding-top: 100px;
-}
 .text-p{
 	color: white;
 	font-family: Calibri Light;
 }
 .address{
-	background: url(/img/address-icon.png) no-repeat -3px 8px;
-}
-.control {
-	padding: 26px 12px;
+	background: url(/img/address-icon.png) no-repeat 0px 7px;
 }
 select.form-control{
-	width: 100%;
-	padding: 26px 12px;
+  	border: none;
+  	border-bottom: 1px solid #FFF;
+  	box-shadow: none;
+  	outline: none;
+    font-size: 15px;
+    font-weight: 400;
+    color: #A0A0A0;
+    width: 100%;
+    display: inline-block;
+    background: rgba(255,255,255,0);
+}
+.btn-submit{
+	width: 30%;
+}
+label{
+	color: #EE7C6B;
+	font-family: Calibri Light;
+	padding-top: 20px;
+	font-size: 20px; 
+}
+.id-post{
+	background: url(/img/number-sign-icon.png) no-repeat 10px 20px;
+}
+.user {
+    background: url(/img/user-icon.png) no-repeat 5px 17px;
+}
+.phone {
+    background: url(/img/phone-icon.png) no-repeat 6px 17px;
+}
+.email {
+    background: url(/img/email-icon.png) no-repeat 8px 18px;
+}
+.price-icon {
+    background: url(/img/price-icon.png) no-repeat 8px 18px;
+}
+.acreage-icon{
+	background: url(/img/acreage-icon.png) no-repeat 8px 18px;
+}
+.tag-icon{
+	background: url(/img/tag-icon.png) no-repeat 8px 18px;
+}
+.form-control:focus{
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.form-control{
+	height: auto;
 }
 /*menu*/
 .btn-account{
