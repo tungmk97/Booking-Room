@@ -32,17 +32,24 @@ a.items:hover{
 .login-sign-up{
 	font-size: 18px;
 }
+.header-title{
+	text-align: center;
+	font-family: Calibri Light;
+}
 .header-title h1{
 	margin-top: 100px;
-	text-align: center;
 	color: #EE7C6B;
-	font-family: Calibri Light;
 	font-size: 55px;
 	font-weight: bold;
 }
-.header-title h1 span{
-	color: #EE7C6B;
-	padding-left: 10px;
+.header-title h2{
+	color: #83C75D;
+	font-weight: bold;
+	font-size: 35px;
+}
+.header-title p{
+	color: #C8E2B1;
+	font-size: 16px;
 }
 .login{
 	margin-right: auto;

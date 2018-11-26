@@ -15,41 +15,55 @@
 		<div class="header">
 			<h1>Tìm kiếm khu vực</h1>
 		</div>
-		<div class="search-address container">
-			<div class="row">
-				<div class="col-sm-4 col-xs-3 col-md-4"></div>
-				<form class="col-sm-4 col-xs-6 col-md-4 form-group form-search-group">
-					<label for="sel1">Chọn thành phố:</label>
-					<select class="form-control" id="sel1">
-						<option disabled selected hidden>--- Vui lòng chọn tỉnh/thành ---</option>
+		<form class="form-group form-search-group container"th:fragment="th-search">
+			<h3 class="title">Tìm kiếm nhanh</h3>
+			<div class="row bs-content">
+				<div class="col-sm-2">
+					<select class="form-control" id="city-search">
+						<option disabled selected hidden>Tỉnh/thành</option>
 				        <option>Hà Nội</option>
 				        <option>Hồ Chí Minh</option>
 				        <option>Hải Phòng</option>
 				        <option>Nha Trang</option>
 				    </select>
-				    <label for="sel2">Chọn quận/huyện:</label>
-					<select class="form-control" id="sel2">
-						<option disabled selected hidden>--- Vui lòng chọn quận/huyện ---</option>
+				</div>
+			    <div class="col-sm-2">
+					<select class="form-control" id="district-search">
+						<option disabled selected hidden>Quận/huyện</option>
 				        <option>Hoàn Kiếm</option>
 				        <option>Cầu giấy</option>
 				        <option>Hà Đông</option>
 				        <option>Bắc Từ Liêm</option>
 				    </select>
-				    <label for="sel3">Chọn phường/xã:</label>
-					<select class="form-control" id="sel3">
-						<option disabled selected hidden>--- Vui lòng chọn phường/xã ---</option>
+				</div>
+			    <div class="col-sm-2">
+			    	<select class="form-control col-sm-2" id="block-search">
+						<option disabled selected hidden>Phường/xã</option>
 				        <option>Quan Hoa</option>
 				        <option>Dịch Vọng</option>
 				        <option>Cầu diễn</option>
+				    </select>	
+				</div>
+				<div class="col-sm-2">
+					<select class="form-control col-sm-2" id="area-search">
+						<option disabled selected hidden>Diện tích (m<sup>2</sup>)</option>
+				        <option>50-70</option>
 				    </select>
-				    <label for="id-room">Mã phòng <span  class="note-label">(Nếu có)</span>:</label>
-				    <input id="id-room" class="id-txt txt" type="text" placeholder="--- Vui lòng nhập mã phòng ---" name="id-room">
-				    <br>
-					<input class="btn-submit btn-search" type="button" value="Tìm kiếm ngay">
-				</form>
-				<div class="col-sm-4 col-xs-3 col-md-4"></div>
+				</div>
+				<div class="col-sm-2">
+					<select class="form-control col-sm-2" id="price-search">
+						<option disabled selected hidden>Mức giá (VND)</option>
+				        <option>5000000-7000000</option>
+				    </select>
+				</div>
+				<div class="col-sm-2">
+					<input id="id-room" class="id-txt txt" type="text" placeholder="Tìm theo mã phòng" name="id-room">
+				</div>
 			</div>
-		</div>
+			<div class="row bs-search">
+				<input class="btn-submit btn-search col-sm-3" type="button" value="Tìm kiếm ngay">
+			</div>
+		</form>
 		<footer th:replace="index :: footer"></footer>
 	</body>
 </html>

@@ -8,8 +8,8 @@
       	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       	<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style.css" th:href="@{css/style.css}">
-		<!-- <link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-search.css"  th:href="@{css/style-search.css}"> -->
-		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-postNews.css"  th:href="@{css/style-postNews.css}">
+		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-search.css"  th:href="@{css/style-search.css}">
+		<!--<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-postNews.css"  th:href="@{css/style-postNews.css}"> -->
 		<!-- <link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-manage-account.css"  th:href="@{css/style-manage-account.css}"> -->
 	</head>
 	<body>
@@ -31,16 +31,18 @@
 		        </div>
 		    </div>
 		</nav>
-		<div class="header-title">
-			<h1>Booking<span>Room</span></h1>
+		<div class="header-title container">
+			<h1>Booking Room</h1>
+			<h2>Website cho thuê phòng trọ</h2>
+			<p>Booking Room - Website đăng tin cho thuê phòng trọ, tìm phòng trọ nhanh, hiệu quả. cho thuê phòng trọ, nhà trọ, thuê nhà nguyên căn, cho thuê căn hộ. Vì vậy tin của bạn đăng trên website sẽ tiếp cận với nhiều khách hàng hơn, do đó giao dịch nhanh hơn, tiết kiệm chi phí hơn.</p>
 		</div>
+		<div th:replace="search :: th-search"></div>
 		
 		<!-- <div th:replace="manage-account :: th-manage-account"></div> -->
-		<!-- <div th:replace="search :: th-search"></div> -->
 		<!-- <div th:replace="login :: th-login"></div> --> 
 		<!-- <div th:replace="register :: th-register"></div> -->
-		<div th:replace="postNews :: th-postNews"></div>
-	
+		<!-- <div th:replace="postNews :: th-postNews"></div> -->
+		
 		<footer th:fragment="footer">
 			<div class="container">
 				<div class="row">
