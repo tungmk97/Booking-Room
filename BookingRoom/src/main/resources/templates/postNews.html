@@ -9,9 +9,7 @@
 		<script type="text/javascript" src="/BookingRoom/src/main/resources/static/css/jquery.min.js" th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
 		<script type="text/javascript" src="/BookingRoom/src/main/resources/static/css/popper.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style.css" th:href="@{css/style.css}">
-		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-search.css" th:href="@{css/style-search.css}">
 		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-postNews.css" th:href="@{css/style-postNews.css}">
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 	</head>
 	<body>
@@ -48,44 +46,44 @@
 			<h1>Đăng<span>Tin</span><span>Mới</span></samp></h1>
 		</div>
 		<div class="header-title container-fluid">
-			<div class="container">
+			<div class="container" th:fragment="th-postNews">
 				<div class="row">
 					<div class="col-md-1"></div>
 					<div class="col-md-5 col-xs-12">
 						<h3 class="text-uppercase title">Thông tin cơ bản</h3>
 						<form class="form-group">
 							<label for="sel1">Mã tin (*)</label>
-							<input class="txt form-control"data-val="true" data-val-required="The FullName field is required." id="FullName" maxlength="100" name="FullName" placeholder="Vui lòng nhập mã tin" type="text" value="">
-							<label for="sel1">Tiêu đề tin: (*)</label>
-							<input class="txt form-control" data-val="true" data-val-required="The Title field is required." id="Title" name="Title" placeholder="Vui lòng nhập tiêu đề tin" type="text" value="">
-							<label for="sel1">Diệc tích(m2) (*)</label>
-							<input class="txt form-control" data-val="true" data-val-required="The FullName field is required." id="FullName" maxlength="100" name="FullName" placeholder="Vui lòng nhập diện tích phòng" type="text" value="">
+							<input class="txt form-control id-post"data-val="true" data-val-required="The FullName field is required." id="FullName" maxlength="100" name="FullName" placeholder="Vui lòng nhập mã tin" type="text" value="">
+							<label for="sel2">Tiêu đề tin: (*)</label>
+							<input class="txt form-control tag-icon" data-val="true" data-val-required="The Title field is required." id="Title" name="Title" placeholder="Vui lòng nhập tiêu đề tin" type="text" value="">
+							<label for="sel5">Diệc tích(m2) (*)</label>
+							<input class="txt form-control acreage-icon" data-val="true" data-val-required="The FullName field is required." id="FullName" maxlength="100" name="FullName" placeholder="Vui lòng nhập diện tích phòng" type="text" value="">
 							<label for="sel1">Tỉnh/Thành phố (*)</label>
-							<select class="form-control control " id="sel1">
-								<option value="" disabled hidden selected="selected">--Tỉnh thành--</option>
+							<select class="form-control" id="sel1">
+								<option disabled selected hidden>--- Vui lòng chọn tỉnh/thành ---</option>
 								<option value="1">Hồ Chí Minh</option>
 								<option value="2">Hà Nội</option>
 								<option value="4">Đà Nắng</option>
 								<option value="3">Hải Phòng</option>
 								<option value="54">Hải Dương</option>
 							</select>
-							<label for="sel1">Quận/huyện (*)</label>
-							<select class="form-control control" id="sel1">
-								<option value="" disabled hidden selected="selected">--Quận huyện--</option>
+							<label for="sel2">Quận/huyện (*)</label>
+							<select class="form-control" id="sel2">
+								<option disabled selected hidden>--- Vui lòng chọn quận/huyện ---</option>
 								<option value="1">Hoàn Kiếm</option>
 								<option value="2">Ba Đình</option>
 								<option value="4">Đống Đa</option>
 								<option value="3">Thanh Xuân</option>
 							</select>
-							<label for="sel1">Phường/xã (*)</label>
-							<select class="form-control control" id="sel1">
-								<option value="" disabled hidden selected="selected">--Phường xã--</option>
+							<label for="sel3">Phường/xã (*)</label>
+							<select class="form-control" id="sel3">
+								<option disabled selected hidden>--- Vui lòng chọn phường/xã ---</option>
 								<option value="1">Đồng Tâm</option>
 								<option value="2">Giải Phóng</option>
 								<option value="4">Thái Thịnh</option>
 							</select>
-							<label for="sel1">Giá Tiền (*)</label>
-							<input class="txt form-control" data-val="true" data-val-required="The FullName field is required." id="FullName" maxlength="100" name="FullName" placeholder="Vui lòng nhập giá tiền" type="text" value="">
+							<label for="sel4">Giá Tiền (*)</label>
+							<input class="txt form-control price-icon" data-val="true" data-val-required="The price field is required." id="price sel4" maxlength="100" name="price" placeholder="Vui lòng nhập giá tiền" type="text" value="">
 						</form>						
 						<div class="note">
 							<h3 class="text-uppercase note-1 title">* Lưu ý</h3>
@@ -113,7 +111,7 @@
 						<h3 class="text-uppercase title">Thông tin mô tả</h3>
 						<form class="form-group">
 							<label for="sel1">Tiêu đề: (*)</label>
-							<input class="txt form-control" data-val="true" data-val-required="The Title field is required." id="Title" name="Title" placeholder="Hãy đặt tiêu đề đầy đủ nghĩa" type="text" value="">
+							<input class="txt form-control  tag-icon" data-val="true" data-val-required="The Title field is required." id="Title" name="Title" placeholder="Hãy đặt tiêu đề đầy đủ nghĩa" type="text" value="">
 							<label for="sel1">Nội dung: (*)</label>
 							<textarea class="txt form-control" cols="20" data-val="true" data-val-required="The Detail field is required." id="Detail" name="Detail" placeholder="Vui lòng nhập nội dung" rows="2" style="width: 100%; height: 250px"></textarea>
 						</form>
@@ -134,7 +132,11 @@
 	                    	</div>
                     	</div>
 					</div>
-					<button type="submit" class="btn btn-danger">Đăng tin ngay</button>
+				</div>
+				<div class="row">
+					<div class="col-sm-4"></div>
+					<button type="submit" class="btn btn-submit col-sm-4">Đăng tin ngay</button>
+					<div class="col-sm-4"></div>
 				</div>
 			</div>
 		</div>

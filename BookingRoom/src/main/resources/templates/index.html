@@ -4,14 +4,13 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<title>Trang chủ Booking Room</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}">
-		<script type="text/javascript" src="/BookingRoom/src/main/resources/static/css/bootstrap.min.js" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
-		<script type="text/javascript" src="/BookingRoom/src/main/resources/static/css/jquery.min.js" th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
-		<script type="text/javascript" src="/BookingRoom/src/main/resources/static/css/popper.min.js"></script>
+		<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      	<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style.css" th:href="@{css/style.css}">
-		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-search.css" th:href="@{css/style-search.css}">
-		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-postNews.css" th:href="@{css/style-postNews.css}">
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-search.css"  th:href="@{css/style-search.css}">
+		<!--<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-postNews.css"  th:href="@{css/style-postNews.css}"> -->
+		<!-- <link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-manage-account.css"  th:href="@{css/style-manage-account.css}"> -->
 	</head>
 	<body>
 		<nav th:fragment="header" class="navbar navbar-inverse navbar-fixed-top">
@@ -32,9 +31,18 @@
 		        </div>
 		    </div>
 		</nav>
-		<div class="header-title">
-			<h1>Booking<span>Room</span></h1>
+		<div class="header-title container">
+			<h1>Booking Room</h1>
+			<h2>Website cho thuê phòng trọ</h2>
+			<p>Booking Room - Website đăng tin cho thuê phòng trọ, tìm phòng trọ nhanh, hiệu quả. cho thuê phòng trọ, nhà trọ, thuê nhà nguyên căn, cho thuê căn hộ. Vì vậy tin của bạn đăng trên website sẽ tiếp cận với nhiều khách hàng hơn, do đó giao dịch nhanh hơn, tiết kiệm chi phí hơn.</p>
 		</div>
+		<div th:replace="search :: th-search"></div>
+		
+		<!-- <div th:replace="manage-account :: th-manage-account"></div> -->
+		<!-- <div th:replace="login :: th-login"></div> --> 
+		<!-- <div th:replace="register :: th-register"></div> -->
+		<!-- <div th:replace="postNews :: th-postNews"></div> -->
+		
 		<footer th:fragment="footer">
 			<div class="container">
 				<div class="row">
