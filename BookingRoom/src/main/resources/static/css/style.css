@@ -37,7 +37,7 @@ a.items:hover{
 	font-family: Calibri Light;
 }
 .header-title h1{
-	margin-top: 100px;
+	margin-top: 70px;
 	color: #EE7C6B;
 	font-size: 55px;
 	font-weight: bold;
@@ -49,7 +49,7 @@ a.items:hover{
 }
 .header-title p{
 	color: #C8E2B1;
-	font-size: 16px;
+	font-size: 18px;
 }
 .login{
 	margin-right: auto;
@@ -179,7 +179,7 @@ footer span{
     font-size: 15px;
     font-weight: 400;
     color: #fff;
-    width: 90%;
+    width: 100%;
     display: inline-block;
     background: rgba(255,255,255,0);
 }
@@ -192,7 +192,86 @@ footer span{
 	padding-top: 30px;
 	font-size: 15px;
 }
-
-.form-control option{
-	color: #000;
+.hot-news-section{
+	background-color: hsla(0, 100%, 90%, 0.15);
+	border: 1px solid hsla(0, 100%, 90%, 0.3);
+}
+.hot-news-section .title{
+	text-transform: uppercase;
+}
+.item{
+	background-color: #fff;
+	width: 48%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #e73f3f;
+}
+.item-left{
+	float: left;
+}
+.item-right{
+	float: right;
+}
+.item .item_thumb {
+    width: 35%;
+    height: 140px;
+    float: left;
+    position: relative;
+    background: #f1f1f1;
+    background-size: cover;
+    overflow: hidden;
+}
+.item .item_info {
+    position: relative;
+    float: right;
+    width: 65%;
+    padding-left: 10px;
+}
+.item .item_info .title{
+	margin-top: 0;
+    margin-bottom: 5px;
+}
+.item .item_info .title a {
+    color: #E74C3C;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.5;
+    display: block;
+   /* padding-right: 40px;*/
+}
+a:link {
+    text-decoration: none;
+}
+.item .item_info .item_price_area {
+    float: left;
+}
+.item .item_info .price {
+    font-size: 12px;
+    color: #fff;
+    background: #880000;
+    padding: 5px 5px 3px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-weight: 700;
+    float: left;
+    border-radius: 3px;
+}
+.item .item_info .area {
+    font-size: 12px;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-weight: 700;
+    float: left;
+    margin-left: 15px;
+    padding: 5px 0;
+}
+.item .item_info .location {
+    margin-bottom: 5px;
+    padding: 5px 0;
+    float: right;
+    max-width: 140px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
