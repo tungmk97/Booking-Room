@@ -1,6 +1,11 @@
 select.form-control{
 	width: 100%;
 }
+.form-search-group{
+	filter: drop-shadow(5px 5px 10px black);
+	background-color: hsla(0, 100%, 90%, 0.15);
+	border: 1px solid hsla(0, 100%, 90%, 0.3);
+}
 label, h3{
 	color: #EE7C6B;
 	font-family: Calibri Light;
@@ -22,6 +27,7 @@ label, h3{
 	height: 35px;
     padding: 5px 10px;
     font-size: 18px;
+    margin-top: 3px;
 }
 .form-control option{
 	color: #000;
