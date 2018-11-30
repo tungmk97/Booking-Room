@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:fragment="head">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Xem tin</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      	<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style.css" th:href="@{css/style.css}">
+		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-search.css"  th:href="@{css/style-search.css}">
+		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-seeNews.css" th:href="@{css/style-seeNews.css}">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!--<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-postNews.css"  th:href="@{css/style-postNews.css}"> -->
+		<!-- <link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-manage-account.css"  th:href="@{css/style-manage-account.css}"> -->
+	</head>
+	<body>
+		<nav th:fragment="header" class="navbar navbar-inverse navbar-fixed-top">
+	      	<div class="container menu">
+		        <div class="menu-bar">
+			        <ul class="nav navbar-nav navbar-center">
+			            <li><a class="items" href="index.html" th:href="@{/templates/index.html}">Trang chủ</a></li>
+			            <li><a class="items" href="#">Xem tin</a></li>
+			            <li><a class="items" href="#">Tìm kiếm phòng trọ</a></li>
+			            <li><a class="items" href="#">Tin khuyến mãi</a></li>
+			            <li><a class="items" href="#">Giới thiệu</a></li>
+			        </ul>
+			        <ul class="nav navbar-nav navbar-right">
+			            <li><a class="login-sign-up items" href="login.html"  th:href="@{resources/templates/login.html}"><div>Đăng nhập</div></a></li>
+			            <li><a class="login-sign-up items" href="register.html" th:href="@{resources/templates/register.html}"><div>Đăng ký</div></a></li>
+			            <li><button class="btn btn-danger" href="#">Đăng tin</button></li>
+			        </ul>
+		        </div>
+		    </div>
+		</nav>
+		<div class="header-title container">
+			<h1>Booking Room</h1>
+			<h2>Website cho thuê phòng trọ</h2>
+			<p>Booking Room - Website đăng tin cho thuê phòng trọ, tìm phòng trọ nhanh, hiệu quả. cho thuê phòng trọ, nhà trọ, thuê nhà nguyên căn, cho thuê căn hộ. Vì vậy tin của bạn đăng trên website sẽ tiếp cận với nhiều khách hàng hơn, do đó giao dịch nhanh hơn, tiết kiệm chi phí hơn.</p>
+		</div>
+		<div th:replace="search :: th-search"></div>
+		<div class="container box-content">
+    		<div class="row">
+      			<div class="col-sm-8 block-left">
+      				<h4 class="post-title-lg text-primary">
+        				<a href="#" class="post_link " style="color:#eef10d;font-size:25px">Phòng Cao Cấp. Mới xây. Thang máy. Hầm xe 24/24. Q. Tân Bình. Cửa sổ  gác  toilet  phơi đồ riêng</a>
+    				</h4>
+      				<h3>Thông tin cơ bản</h3>
+      				<div class="news_item clearfix">
+      					<div class="summary_item_headline">Địa chỉ:</div>
+                        <div class="summary_item_info">406/36 Cộng Hòa F13 Tân Bình (ngã tư Hoàng Hoa Thám)</div>
+                        <div class="summary_item_headline">Mã tin :</div>
+                        <div class="summary_item_info">151527</div>
+                        <div class="summary_item_headline">Người đăng:</div>
+                        <div class="summary_item_info">A. Trường</div>
+                        <div class="summary_item_headline">Điện thoại:</div>
+                        <div class="summary_item_info summary_item_info_phone"> <a href="tel:0909521788" class="js-get-phone" data-phone="0909521788"><i class="fa fa-phone-square" style="font-size:25px;color:red "></i><span> 0909521788</span></a></div>
+                        <div class="summary_item_headline">Ngày cập nhật:</div>
+                        <div class="summary_item_info">28/11/2018 12:07:13</div>
+                        <div class="summary_item_headline">Diện tích:</div>
+                        <div class="summary_item_info summary_item_info_area" style="color:red ">20 m²</div>
+                        <div class="summary_item_headline">Lượt xem:</div>
+                        <div class="summary_item_info">67</div>
+                        <div class="summary_item_headline">Giá cho thuê:</div>
+                        <div class="summary_item_info summary_item_info_price" style="color:red ">3,200,000 vnđ</div>
+      				</div>   			
+                    <h3>Mô tả</h3>
+                    <div class="post_summary-content ">
+                    	<div class="news_item clearfix item-1">
+                    		- Nội thất cao cấp, có gác, bếp riêng, cửa sổ thông thoáng. Chỗ phơi đồ chung &amp; riêng trong phòng. Tùy chọn nước thủy cục/nước máy. Wifi mạnh, thang máy hiện đại, hầm xe rộng. Mở cửa 24/24. Vừa xây xong còn mới 100%. Vị trí ngay trung tâm đi Q3, Q1 hoặc Sbay chỉ 5-10p. Khu vực an ninh, đối diện Etown, gần chợ HHT, gần nhiều trường, bệnh viện và nơi ăn uống, mua sắm như Lotte, Pandora. LH ngay để chọn vị trí phòng đẹp và giá tốt. 
+							<br>
+							<br>🏣  Địa chỉ: 406/36 Cộng Hòa F13 Tân Bình (ngã tư Hoàng Hoa Thám)
+							<br>☎️  Liên hệ: A Trường 090 952 1788 - C. Hồng 093 612 2176
+							<br>
+                    	</div>
+            		</div>
+            		<h3>Hình ảnh</h3>
+            	</div>
+		      	<div class="col-sm-4 block-right">
+		      		<h3>Tin tức mới</h3>
+		      		<div class="sidebar_list_box_content">
+		    			<ul>
+		      				<li>
+						        <div class="news_item clearfix">
+						          	<div class="news_item_image">
+						            	<div class="news_item_image_url" style="background: url(https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&amp;gadget=a&amp;no_expand=1&amp;refresh=604800&amp;url=https://static.phongtro123.com/uploads/2018/09/Bds123-giao-dien-150x150.png?id=270239) center no-repeat; background-size: cover;">
+						              	<a href="https://phongtro123.com/kinh-nghiem/dang-tin-cho-thue-mat-bang-o-dau-nhanh-chong-va-hieu-qua-nhat.html"></a>
+						            	</div>
+						          	</div>
+						        	<div class="news_item_content">
+						            	<div class="news_item_category">Kinh nghiệm</div>
+						            	<div class="news_item_title">
+						            		<a href="https://phongtro123.com/kinh-nghiem/dang-tin-cho-thue-mat-bang-o-dau-nhanh-chong-va-hieu-qua-nhat.html">Đăng tin cho thuê mặt bằng ở đâu nhanh chóng và hiệu quả nhất?</a>
+						            	</div>
+						        	</div>
+						    	</div>
+							</li>
+							<li>
+								<div class="news_item clearfix">
+									<div class="news_item_image">
+										<div class="news_item_image_url" style="background: url(https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&amp;gadget=a&amp;no_expand=1&amp;refresh=604800&amp;url=https://static.phongtro123.com/uploads/2018/09/Bds123-cho-thue-van-phong-150x150.png?id=270273) center no-repeat; background-size: cover;">
+											<a href="https://phongtro123.com/kinh-nghiem/dang-tin-cho-thue-van-phong-o-dau-hieu-qua-nhat.html"></a>
+										</div>
+									</div>
+									<div class="news_item_content">
+										<div class="news_item_category">Kinh nghiệm</div>
+										<div class="news_item_title">
+											<a href="https://phongtro123.com/kinh-nghiem/dang-tin-cho-thue-van-phong-o-dau-hieu-qua-nhat.html">Đăng tin cho thuê văn phòng ở đâu hiệu quả nhất?</a>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="news_item clearfix">
+									<div class="news_item_image">
+										<div class="news_item_image_url" style="background: url(https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&amp;gadget=a&amp;no_expand=1&amp;refresh=604800&amp;url=https://static.phongtro123.com/uploads/2018/11/dau-tu-dat-xay-phong-tro-150x150.jpg?id=272907) center no-repeat; background-size: cover;">
+											<a href="https://phongtro123.com/kinh-nghiem/kinh-nghiem-chon-dat-dau-tu-xay-phong-tro-khong-bao-gio-lo.html"></a>
+										</div>
+									</div>
+									<div class="news_item_content">
+										<div class="news_item_category">Kinh nghiệm</div>
+										<div class="news_item_title">
+											<a href="https://phongtro123.com/kinh-nghiem/kinh-nghiem-chon-dat-dau-tu-xay-phong-tro-khong-bao-gio-lo.html">Kinh nghiệm chọn đất đầu tư xây phòng trọ không bao giờ lỗ</a>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="news_item clearfix">
+									<div class="news_item_image">
+										<div class="news_item_image_url" style="background: url(https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&amp;gadget=a&amp;no_expand=1&amp;refresh=604800&amp;url=https://static.phongtro123.com/uploads/2018/03/Dang-tin-bat-dong-san-tại-bds123.vn_-150x150.png?id=269106) center no-repeat; background-size: cover;">
+											<a href="https://phongtro123.com/kinh-nghiem/top-3-website-dang-tin-tim-nguoi-o-ghep-hieu-qua-nhat.html"></a>
+										</div>
+									</div>
+									<div class="news_item_content">
+										<div class="news_item_category">Kinh nghiệm</div>
+										<div class="news_item_title">
+											<a href="https://phongtro123.com/kinh-nghiem/top-3-website-dang-tin-tim-nguoi-o-ghep-hieu-qua-nhat.html">Top 3 website đăng tin tìm người ở ghép hiệu quả nhất</a>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="news_item clearfix">
+									<div class="news_item_image">
+										<div class="news_item_image_url" style="background: url(https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&amp;gadget=a&amp;no_expand=1&amp;refresh=604800&amp;url=https://static.phongtro123.com/uploads/2017/08/Kinh-nghiem-cho-sinh-vien-khi-di-thue-phong-tro-150x150.jpg?id=269109) center no-repeat; background-size: cover;">
+											<a href="https://phongtro123.com/kinh-nghiem/chia-se-10-kinh-nghiem-khi-thue-phong-tro-cho-sinh-vien.html"></a>
+										</div>
+									</div>
+									<div class="news_item_content">
+										<div class="news_item_category">Kinh nghiệm</div>
+										<div class="news_item_title">
+											<a href="https://phongtro123.com/kinh-nghiem/chia-se-10-kinh-nghiem-khi-thue-phong-tro-cho-sinh-vien.html">Chia sẻ 10 kinh nghiệm khi thuê phòng trọ cho Sinh Viên</a>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="whyus_block" style="text-align: center;">
+				<div class="whyus_header">
+					<h3>Bạn đang có phòng trọ cần cho thuê?</h3>
+				</div>
+				<div class="whyus_body">
+					<p>Không phải lo tìm người cho thuê, phòng trống kéo dài</p>
+					<a type="button" class="btn btn-danger" href="#">Đăng tin ngay</a>
+				</div>
+			</div>
+		</div>
+		<footer th:replace="index :: footer"></footer>
+	</body>
+</html>
