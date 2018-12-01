@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head th:replace="index :: head"></head>
+	<head th:fragment="head">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Đăng nhập</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      	<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style.css" th:href="@{css/style.css}">
+	</head>
 	<body>
-		<nav th:replace="index :: header"></nav>
+		<nav th:replace="postNews :: header"></nav>
 		<div class="header-title">
-			<h1>Booking<span>Room</span></h1>
+			<h1>Đăng<span>Nhập</span></h1>
 		</div>
-		<div class="login container">
+		<div class="login container" th:fragment="th-login">
 			<div class="row">
 				<div class="col-sm-4 col-xs-3 col-md-4"></div>
 				<form class="col-sm-4 col-xs-6 col-md-4">

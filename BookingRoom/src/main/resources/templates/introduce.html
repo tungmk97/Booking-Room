@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:fragment="head">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Giới thiệu</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      	<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style.css" th:href="@{css/style.css}">
+		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-search.css"  th:href="@{css/style-search.css}">
+		<!--<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-postNews.css"  th:href="@{css/style-postNews.css}"> -->
+		<!-- <link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-manage-account.css"  th:href="@{css/style-manage-account.css}"> -->
+	</head>
+	<body>
+		<nav th:fragment="header" class="navbar navbar-inverse navbar-fixed-top">
+	      	<div class="container menu">
+		        <div class="menu-bar">
+			        <ul class="nav navbar-nav navbar-center">
+			            <li><a class="items" href="index.html" th:href="@{/templates/index.html}">Trang chủ</a></li>
+			            <li><a class="items" href="#">Xem tin</a></li>
+			            <li><a class="items" href="#">Tìm kiếm phòng trọ</a></li>
+			            <li><a class="items" href="#">Tin khuyến mãi</a></li>
+			            <li><a class="items" href="#">Giới thiệu</a></li>
+			        </ul>
+			        <ul class="nav navbar-nav navbar-right">
+			            <li><a class="login-sign-up items" href="login.html"  th:href="@{resources/templates/login.html}"><div>Đăng nhập</div></a></li>
+			            <li><a class="login-sign-up items" href="register.html" th:href="@{resources/templates/register.html}"><div>Đăng ký</div></a></li>
+			            <li><button class="btn btn-danger" href="#">Đăng tin</button></li>
+			        </ul>
+		        </div>
+		    </div>
+		</nav>
+		<div class="header-title container">
+			<h1>Booking Room</h1>
+			<div class="page-header">
+				<h1 class="page-title">Giới thiệu</h1>
+			</div>
+			<div class="page-content">
+				<p>Với mong muốn xây dựng một kênh phòng trọ nhà trọ chuyên cung cấp thông tin nhà trọ phòng trọ cho mọi người, khi mà ngày nay nhu cầu nhà trọ phòng trọ ngày càng tăng ở các thành phố lớn nhất là Hà Nội và TP. Hồ Chí Minh.</p>
+				<p>Đối với cách tiếp cận thông tin truyền thống đã không được truyền đến mọi người một cách kịp thời đúng lúc.</p>
+				<p>Chính vì nắm bắt được tình hình thực tế đó mà chúng tôi đã thành lập website Booking Room với mong muốn trở thành một kênh truyền thông phổ biến nhà trọ, phòng trọ hữu ích cho mọi người.</p>
+				<p>Nếu trước đây việc cho thuê nhà, cho thuê phòng trọ đều dán giấy đăng quảng cáo ở các nơi công cộng rất là mất vẽ mỹ quang đô thị. Thì ngày nay các bạn có thể đăng tin trên đây rất tiện lợi. với phương tiện truyền thông được phổ biến rộng rãi tin đăng của bạn sẽ được hàng ngàn người biết đến.</p>
+				<p>Website với giao diện thân thiện dễ sử dụng và hướng đến người dùng. các chuyên mục được phân chia rất rõ ràng và tim kiếm tin đăng rất chi tiết.
+				</p>
+				<p class="p-1">- Bạn có thể tìm phòng trọ nhà trọ, tìm người ở ghép, tìm nhà cho thuê theo:</p>
+				<p class="p-2">+ Tỉnh thành như TP.HCM, Hà Nội</p>
+				<p class="p-2">+ Quận huyện, chuyên mục, theo giá, theo diện tích.</p>
+				<p class="p-1">- Đăng tin cho thuê phòng trọ, nhà trọ, nhà nguyên căn, cho thuê căn hộ chung cư với đầy đủ tính năng</p>
+				<p class="p-1">- Chức năng quản lý bài viết cho mỗi thành viên</p>
+				<p class="p-1">- Chức năng đăng tin lên top cho người đăng tin.</p>
+  				<p>Chúng tôi luôn cố gắng đem lại những thông tin nhanh chóng và chính xác cho mọi người. rất mong nhận được sự ủng hộ giúp đỡ của mọi người cùng nhau xây dựng một kênh thông tin truyền thông về nhà trọ.</p>
+  				<div class="p-3">Xin trân trọng cảm ơn !</div>
+			</div>
+			<div class="page-footer">
+				<div class="whyus_block" style="text-align: center;">
+					<div class="whyus_header">
+						<h3>Bạn đang có phòng trọ cần cho thuê?</h3>
+					</div>
+					<div class="whyus_body">
+						<p>Không phải lo tìm người cho thuê, phòng trống kéo dài</p>
+						<a type="button" class="btn btn-danger" href="#">Đăng tin ngay</a>
+					</div>
+				</div>
+			</div>
+		</div>		
+		<footer th:replace="index :: footer"></footer>		
+	</body>
+</html>

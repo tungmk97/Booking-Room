@@ -1,0 +1,36 @@
+.post_summary_left{
+	float: left;
+}
+.summary_item_headline {
+    width: 130px;
+    float: left;
+    padding: 10px;
+    font-weight: 700;
+}
+.summary_item_info {
+    padding: 10px;
+    margin-left: 130px;
+    min-height: 37px;
+    white-space: nowrap;
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.summary_item_info.summary_item_info_area, .summary_item_info.summary_item_info_price {
+    color: #E74C3C;
+    font-weight: 700;
+    text-transform: lowercase;
+}
+.view-detail .post_summary_wrapper {
+    margin-bottom: 15px;
+}
+.view-detail .post_summary_wrapper .post_summary-header {
+    background: #EEE;
+    padding: 10px;
+}
+.view-detail .post_summary_wrapper .post_summary-content {
+    padding: 20px 15px;
+}
+.post_summary-content .item-1 {
+	padding: 20px 15px;
+}

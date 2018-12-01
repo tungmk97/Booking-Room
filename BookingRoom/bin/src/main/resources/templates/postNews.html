@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Đăng tin mới</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}">
+		<script type="text/javascript" src="/BookingRoom/src/main/resources/static/css/bootstrap.min.js" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+		<script type="text/javascript" src="/BookingRoom/src/main/resources/static/css/jquery.min.js" th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
+		<script type="text/javascript" src="/BookingRoom/src/main/resources/static/css/popper.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style.css" th:href="@{css/style.css}">
+		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-postNews.css" th:href="@{css/style-postNews.css}">
+	</head>
+	</head>
+	<body>
+		<nav th:fragment="header" class="navbar navbar-inverse navbar-fixed-top">
+	      	<div class="container menu">
+		        <div class="menu-bar">
+			        <ul class="nav navbar-nav navbar-center">
+			            <li><a class="items" href="index.html" th:href="@{/templates/index.html}">Trang chủ</a></li>
+			            <li><a class="items" href="#">Xem tin</a></li>
+			            <li><a class="items" href="#">Tìm kiếm phòng trọ</a></li>
+			            <li><a class="items" href="#">Tin khuyến mãi</a></li>
+			            <li><a class="items" href="#">Giới thiệu</a></li>
+			        </ul>
+			        <ul class="nav navbar-nav navbar-right">
+			            <li>
+			            	<div class="dropdown">
+							    <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown" >Quản lý tài khoản <span class="caret"></span></button></button>
+								<ul class="dropdown-menu alert-info">
+									<li><a><span class="glyphicon glyphicon-modal-window"></span> Tên tài khoản:<strong> thuynt181998</strong></a></li>
+									<li role="separator" class="divider"></li>
+									<li><a rel="nofollow" href="#"><span class="glyphicon glyphicon-plus-sign"></span> Đăng tin cho thuê</a></li>
+									<li><a rel="nofollow" href="#"><span class="glyphicon glyphicon-calendar"></span> Quản lý tin đăng</a></li>
+									<li><a rel="nofollow" href="#" ><span class="glyphicon glyphicon-user"></span> Thông tin cá nhân</a></li>
+									<li><a rel="nofollow" href="#" ><span class="glyphicon glyphicon-log-out"></span> Thoát</a></li>
+								</ul>          	
+							</div>
+			            </li>
+			            <li><button class="btn btn-danger btn-new" href="#" type="button">Đăng tin</button></li>
+			        </ul>
+		        </div>
+		    </div>
+		</nav>
+		<div class="header-title">
+			<h1>Đăng<span>Tin</span><span>Mới</span></samp></h1>
+		</div>
+		<div class="header-title container-fluid">
+			<div class="container" th:fragment="th-postNews">
+				<div class="row">
+					<div class="col-md-1"></div>
+					<div class="col-md-5 col-xs-12">
+						<h3 class="text-uppercase title">Thông tin cơ bản</h3>
+						<form class="form-group">
+							<label for="sel1">Mã tin (*)</label>
+							<input class="txt form-control id-post"data-val="true" data-val-required="The FullName field is required." id="FullName" maxlength="100" name="FullName" placeholder="Vui lòng nhập mã tin" type="text" value="">
+							<label for="sel2">Tiêu đề tin: (*)</label>
+							<input class="txt form-control tag-icon" data-val="true" data-val-required="The Title field is required." id="Title" name="Title" placeholder="Vui lòng nhập tiêu đề tin" type="text" value="">
+							<label for="sel5">Diệc tích(m2) (*)</label>
+							<input class="txt form-control acreage-icon" data-val="true" data-val-required="The FullName field is required." id="FullName" maxlength="100" name="FullName" placeholder="Vui lòng nhập diện tích phòng" type="text" value="">
+							<label for="sel1">Tỉnh/Thành phố (*)</label>
+							<select class="form-control" id="sel1">
+								<option disabled selected hidden>--- Vui lòng chọn tỉnh/thành ---</option>
+								<option value="1">Hồ Chí Minh</option>
+								<option value="2">Hà Nội</option>
+								<option value="4">Đà Nắng</option>
+								<option value="3">Hải Phòng</option>
+								<option value="54">Hải Dương</option>
+							</select>
+							<label for="sel2">Quận/huyện (*)</label>
+							<select class="form-control" id="sel2">
+								<option disabled selected hidden>--- Vui lòng chọn quận/huyện ---</option>
+								<option value="1">Hoàn Kiếm</option>
+								<option value="2">Ba Đình</option>
+								<option value="4">Đống Đa</option>
+								<option value="3">Thanh Xuân</option>
+							</select>
+							<label for="sel3">Phường/xã (*)</label>
+							<select class="form-control" id="sel3">
+								<option disabled selected hidden>--- Vui lòng chọn phường/xã ---</option>
+								<option value="1">Đồng Tâm</option>
+								<option value="2">Giải Phóng</option>
+								<option value="4">Thái Thịnh</option>
+							</select>
+							<label for="sel4">Giá Tiền (*)</label>
+							<input class="txt form-control price-icon" data-val="true" data-val-required="The price field is required." id="price sel4" maxlength="100" name="price" placeholder="Vui lòng nhập giá tiền" type="text" value="">
+						</form>						
+						<div class="note">
+							<h3 class="text-uppercase note-1 title">* Lưu ý</h3>
+							<p>- Thông tin có dấu (*) là bắt buộc.</p>
+							<p>- Nội dung phải viết bằng tiếng Việt có dấu</p>
+							<p>- Tiêu đề tin không dài quá 100 kí tự</p>
+							<p>- Các bạn nên điền đầy đủ thông tin vào các mục để tin đăng có hiệu quả hơn.</p>
+							<p>Để tăng độ tin cậy và tin rao được nhiều người quan tâm hơn, hãy sửa vị trí tin rao của bạn trên bản đồ bằng cách kéo icon tới đúng vị trí của tin rao.</p>
+							<p>Tin đăng có hình ảnh rõ ràng sẽ được xem và gọi gấp nhiều lần so với tin rao không có ảnh. Hãy đăng ảnh để được giao dịch nhanh chóng!</p>
+						</div>
+					</div>
+					<div class="col-md-1"></div>
+					<div class="col-md-5 col-xs-12">
+						<h3 class="text-uppercase title">Liên hệ người cho thuê</h3>
+						<form class="form-group">
+							<label for="sel1">Họ tên: (*)</label>
+							<input class="user txt form-control" data-val="true" data-val-required="The Title field is required." id="Title" name="Title" placeholder="Họ và tên" type="text" value="">
+							<label for="sel1">Số điện thoại: (*)</label>
+							<input class="phone txt form-control" data-val="true" data-val-required="The Title field is required." id="Title" name="Title" placeholder="Số điện thoại" type="tell" value="">
+							<label for="sel1">Địa chỉ: (*)</label>
+							<input class="address txt form-control" data-val="true" data-val-required="The Title field is required." id="Title" name="Title" placeholder="Địa chỉ liên hệ" type="text" value="">
+							<label for="sel1">Email:</label>
+							<input class="email txt form-control" data-val="true" data-val-required="The Title field is required." id="Title" name="Title" placeholder="Email" type="email" value="">
+						</form>
+						<h3 class="text-uppercase title">Thông tin mô tả</h3>
+						<form class="form-group">
+							<label for="sel1">Tiêu đề: (*)</label>
+							<input class="txt form-control  tag-icon" data-val="true" data-val-required="The Title field is required." id="Title" name="Title" placeholder="Hãy đặt tiêu đề đầy đủ nghĩa" type="text" value="">
+							<label for="sel1">Nội dung: (*)</label>
+							<textarea class="txt form-control" cols="20" data-val="true" data-val-required="The Detail field is required." id="Detail" name="Detail" placeholder="Vui lòng nhập nội dung" rows="2" style="width: 100%; height: 250px"></textarea>
+						</form>
+					</div>
+				</div>
+				<div>
+					<h3 class="text-uppercase title">Hình ảnh (Nếu có)</h3>
+					<div class="alert alert-success">Tin đăng có hình ảnh rõ ràng sẽ được xem và gọi gấp nhiều lần so với tin rao không có ảnh. Hãy đăng ảnh để được giao dịch nhanh chóng. Bạn có thể tải 16 ảnh và mỗi ảnh dung lượng không quá 4MB</div>
+					<label for="thumbnail-post" class="col-sm-12 control-label">Chọn hình ảnh để đăng</label>
+					<div class="alert alert-info">
+						<h5 class="">Định dạng ảnh hỗ trợ: .jpg .png .jpeg .gif</h5>
+						<div id="fileupload alert-danger">
+	                    	<div id="uploadimage" class="clearfix default-theme ">
+	                    		<input type="hidden" name="Images" id="BDSGuestUploadNonFlash">
+	                    		<input id="secleimg" multiple="" class="fileupload" type="file" name="userfile">
+	                     		<div class="upload-item working-upload-item">
+	                        	</div>
+	                    	</div>
+                    	</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4"></div>
+					<button type="submit" class="btn btn-submit col-sm-4">Đăng tin ngay</button>
+					<div class="col-sm-4"></div>
+				</div>
+			</div>
+		</div>
+		<footer th:replace="index :: footer"></footer>	
+	</body>	
+</html>

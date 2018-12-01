@@ -1,0 +1,49 @@
+/*manage account css*/
+.title-page{
+	color: #EE7C6B;
+	font-family: Calibri Light;
+}
+.title-tab{
+	color: #fff;
+	font-family: Calibri Light;
+}
+.content-in-tab{
+	color: #fff;
+	font-family: Calibri Light;
+}
+.input-group, .btn-submit{
+	width: 60%;
+}
+#password_new1{
+	margin-bottom: 15px;
+}
+.form-control:focus{
+	box-shadow: none;
+}
+.control-label, .td-title{
+	font-size: 17px;
+	color: #EE7C6B;
+	font-family: Calibri Light;
+}
+.txt{
+	font-size: 16px;
+}
+.td-title{
+	white-space: nowrap;
+	text-align: center;
+}
+.pass{
+    background: url(key-icon.png) no-repeat 8px 12px;
+}
+.email {
+    background: url(email-icon.png) no-repeat 6px 9px;
+}
+.user {
+    background: url(user-icon.png) no-repeat 5px 6px;
+}
+.disabled-input.phone{
+    background: url(phone-icon.png) no-repeat 5px 6px;
+}
+.disabled-input.user-id{
+	background: url(number-sign-icon.png) no-repeat 6px 11px;
+}

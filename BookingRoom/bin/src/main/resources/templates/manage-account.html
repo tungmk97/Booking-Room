@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:fragment="head">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Quản lý tài khoản</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      	<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style.css" th:href="@{css/style.css}">
+		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-manage-account.css"  th:href="@{css/style-manage-account.css}">
+	</head>
+	<body>
+		<nav  th:replace="postNews :: header"></nav>
+		<div th:fragment="th-manage-account">
+  			<div class="container">
+    			<h1 class="title-page">Quản lý tài khoản</h1>
+    			<div class="group-tabs">
+      <!-- Nav tabs -->
+      				<ul class="nav nav-pills  nav-stacked col-md-3" role="tablist">
+				        <li role="presentation" class="active">
+				        	<a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" class="title-tab">Thông tin cá nhân</a>
+				        </li>
+				        <li role="presentation">
+				        	<a href="#manage-posts" aria-controls="manage-posts" role="tab" data-toggle="tab" class="title-tab">Quản lý tin đăng</a>
+				        </li>
+				        <li role="presentation">
+				        	<a href="#transaction-history" aria-controls="transaction-history" role="tab" data-toggle="tab" class="title-tab">Lịch sử giao dịch</a>
+				        </li>
+				        <li role="presentation">
+				        	<a href="#post-news" aria-controls="post-news" role="tab" data-toggle="tab" class="title-tab">Đăng tin mới</a>
+				        </li>
+      				</ul>
+      <!-- Tab panes -->
+		     	 	<div class="tab-content  col-md-9">
+		        		<div role="tabpanel" class="tab-pane active content-in-tab" id="profile">
+		        			<div class="user_profile_left">
+							  <div class="user_profile_form">
+							    <form class="form-horizontal" action="#" method="POST">
+							      <div class="form-group">
+							        <label class="title_label control-label col-md-3 col-sm-4 col-xs-12" for="userid">Mã thành viên</label>
+							        <div class=" col-md-9 col-sm-8 col-xs-12">
+							          <div class="input-group">
+							            <input class="form-control disabled txt disabled-input user-id" disabled="" type="text" id="userid" readonly="" value="68576">
+							          </div>
+							        </div>
+							      </div>
+							      <div class="form-group">
+							        <label class="title_label control-label col-md-3 col-sm-4 col-xs-12" for="phone-number">Số điện thoại</label>
+							        <div class=" col-md-9 col-sm-8 col-xs-12">
+							        	<div class="input-group">
+							          		<input class="form-control disabled txt disabled-input phone" disabled="" type="text" id="phone-number" placeholder="0964951802">
+							        	</div>
+							      	</div>
+							    	</div>
+							    <div class="form-group">
+							      <label class="title_label control-label col-md-3 col-sm-4 col-xs-12" for="fullname">Họ tên</label>
+							      <div class=" col-md-9 col-sm-8 col-xs-12">
+							        <div class="input-group">
+							          <input class="form-control txt user" type="text" id="fullname" name="fullname" value="" placeholder="Họ tên của bạn">
+							        </div>
+							      </div>
+							    </div>
+							    <div class="form-group">
+							      <label class="title_label control-label col-md-3 col-sm-4 col-xs-12" for="email">Email</label>
+							      <div class=" col-md-9 col-sm-8 col-xs-12">
+							        <div class="input-group">
+							          <input class="form-control txt email" type="email" name="email" value="" placeholder="Email của bạn"></div>
+							        </div>
+							      </div>
+							      <br>
+							      <div class="form-group">
+							        <label class="title_label control-label col-md-3 col-sm-4 col-xs-12" for="password_old">Mật khẩu cũ</label>
+							        <div class=" col-md-9 col-sm-8 col-xs-12">
+							          <div class="input-group">
+							            <input class="form-control txt pass" type="password" id="password_old" name="password_old" value="" placeholder="Nhập mật khẩu cũ">
+							          </div>
+							        </div>
+							      </div>
+							      <div class="form-group">
+							        <label class="title_label control-label col-md-3 col-sm-4 col-xs-12" for="password_new1">Mật khẩu mới</label>
+							        <div class=" col-md-9 col-sm-8 col-xs-12">
+							          <div class="input-group">
+							            <input class="form-control txt pass" type="password" name="password_change" value="" id="password_new1" placeholder="Mật khẩu mới">
+							            <input class="form-control txt pass" type="password" name="password_change" value="" id="password_new2" placeholder="Nhập lại mật khẩu mới">
+							          </div>
+							        </div>
+							      </div>
+							      <div class="form-group">
+							        <div class="col-md-9 col-md-offset-3 col-sm-8 col-xs-12">
+							          <button type="submit" name="wp-submit-update-profile" class="btn btn-default btn_save_profile btn-submit">Cập nhật</button>
+							        </div>
+							      </div>
+							    </form>
+							  </div>
+							</div>
+		        		</div>
+		        		<div role="tabpanel" class="tab-pane content-in-tab" id="manage-posts">
+		        			<table class="table table-bordered table-hover">
+		        				<thead>
+		        					<tr>
+		        						<th class="td-title td_center">Mã số</th>
+		        						<th class="td-title">Tiêu đề</th>
+		        						<th class="td-title">Ngày đăng</th>
+		        						<th class="td-title">Ngày hết hạn</th>
+		        						<th class="td-title">Thao tác</th>
+		        					</tr>
+		        				</thead>
+		        				<tbody>
+		        					
+		        				</tbody>
+		        			</table>
+		        		</div>
+		        		<div role="tabpanel" class="tab-pane content-in-tab" id="transaction-history">Coming soon!</div>
+		        		<div role="tabpanel" class="tab-pane content-in-tab" id="post-news">
+		        			<div class=" col-md-9 col-sm-8 col-xs-12" th:replace="postNews :: th-post-news"></div>
+		        		</div>
+		      		</div>
+		    	</div>
+		  	</div>
+		</div>
+		<footer  th:replace="index :: footer"></footer>
+		
+	</body>
+</html>

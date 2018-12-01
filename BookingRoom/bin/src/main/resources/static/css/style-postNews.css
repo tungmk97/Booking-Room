@@ -1,0 +1,88 @@
+/* Đăng tin */
+.title{
+	font-family: Calibri Light;
+	font-weight: bold;
+	color: #eef10d;
+	margin-bottom: 50px;
+}
+.border-table{
+	border: 1px solid #0c0e0b;
+}
+.note{
+	font-family: Calibri Light;
+	font-style: italic;
+}
+.note-1{
+	color: red;
+	font-weight: bold;
+}
+.note > p {
+	color: white;
+}
+.text-p{
+	color: white;
+	font-family: Calibri Light;
+}
+.address{
+	background: url(/img/address-icon.png) no-repeat 0px 7px;
+}
+select.form-control{
+  	border: none;
+  	border-bottom: 1px solid #FFF;
+  	box-shadow: none;
+  	outline: none;
+    font-size: 15px;
+    font-weight: 400;
+    color: #A0A0A0;
+    width: 100%;
+    display: inline-block;
+    background: rgba(255,255,255,0);
+}
+.btn-submit{
+	width: 30%;
+}
+label{
+	color: #EE7C6B;
+	font-family: Calibri Light;
+	padding-top: 20px;
+	font-size: 20px; 
+}
+.id-post{
+	background: url(/img/number-sign-icon.png) no-repeat 10px 20px;
+}
+.user {
+    background: url(/img/user-icon.png) no-repeat 5px 17px;
+}
+.phone {
+    background: url(/img/phone-icon.png) no-repeat 6px 17px;
+}
+.email {
+    background: url(/img/email-icon.png) no-repeat 8px 18px;
+}
+.price-icon {
+    background: url(/img/price-icon.png) no-repeat 8px 18px;
+}
+.acreage-icon{
+	background: url(/img/acreage-icon.png) no-repeat 8px 18px;
+}
+.tag-icon{
+	background: url(/img/tag-icon.png) no-repeat 8px 18px;
+}
+.form-control:focus{
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.form-control{
+	height: auto;
+}
+/*menu*/
+.btn-account{
+	margin-right: 10px;
+}
+.btn-new{
+	margin-left: 30px;
+}
+.dropdown-menu{
+	padding: 15px 0px !important;
+	min-width: 250px !important;
+}
