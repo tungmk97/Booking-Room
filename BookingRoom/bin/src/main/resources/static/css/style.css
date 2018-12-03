@@ -476,3 +476,35 @@ a:link {
     color: #fff;
     font-size: 15px;
 }
+/*introduce*/
+.page-header{
+    margin: 0 auto 30px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 50px;
+}
+.page-title{
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    margin-top: 0 !important;
+    float: left;
+    color: #eef10d !important;
+}
+.page-content > p{
+    text-align: left;
+    font-family: Calibri Light;
+}
+.p-1{
+    margin-left: 30px;
+}
+.p-2{
+    margin-left: 50px;
+}
+.p-3{
+    color: blue;
+    font-size: 20pt;
+    font-family: Calibri Light;
+    text-align: right;
+    font-weight: bold;
+}
+/* */
+
