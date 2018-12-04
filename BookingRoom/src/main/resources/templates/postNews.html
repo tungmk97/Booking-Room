@@ -24,9 +24,9 @@
 								<ul class="dropdown-menu alert-info">
 									<li><a><span class="glyphicon glyphicon-modal-window"></span> Tên tài khoản:<strong> thuynt181998</strong></a></li>
 									<li role="separator" class="divider"></li>
-									<li><a rel="nofollow" href="#"><span class="glyphicon glyphicon-plus-sign"></span> Đăng tin cho thuê</a></li>
-									<li><a rel="nofollow" href="#"><span class="glyphicon glyphicon-calendar"></span> Quản lý tin đăng</a></li>
-									<li><a rel="nofollow" href="#" ><span class="glyphicon glyphicon-user"></span> Thông tin cá nhân</a></li>
+									<li><a rel="nofollow" href="postNews.html" th:href="@{/postNews}"><span class="glyphicon glyphicon-plus-sign"></span> Đăng tin cho thuê</a></li>
+									<li><a rel="nofollow" href="manage-account.html" th:href="@{/manage-account}"><span class="glyphicon glyphicon-calendar"></span> Quản lý tin đăng</a></li>
+									<li><a rel="nofollow" href="manage-account.html" th:href="@{/manage-account}" ><span class="glyphicon glyphicon-user"></span> Thông tin cá nhân</a></li>
 									<li><a rel="nofollow" href="#" ><span class="glyphicon glyphicon-log-out"></span> Thoát</a></li>
 								</ul>          	
 							</div>
@@ -40,8 +40,8 @@
 			<h1>Đăng<span>Tin</span><span>Mới</span></samp></h1>
 		</div>
 		<div class="header-title container-fluid">
-			<div class="container" th:fragment="th-postNews">
-				<div class="row">
+			<div class="container">
+				<div class="row" th:fragment="th-postNews-1">
 					<div class="col-md-1"></div>
 					<div class="col-md-5 col-xs-12">
 						<h3 class="text-uppercase title">Thông tin cơ bản</h3>
@@ -111,7 +111,7 @@
 						</form>
 					</div>
 				</div>
-				<div>
+				<div  th:fragment="th-postNews-2">
 					<h3 class="text-uppercase title">Hình ảnh (Nếu có)</h3>
 					<div class="alert alert-success">Tin đăng có hình ảnh rõ ràng sẽ được xem và gọi gấp nhiều lần so với tin rao không có ảnh. Hãy đăng ảnh để được giao dịch nhanh chóng. Bạn có thể tải 16 ảnh và mỗi ảnh dung lượng không quá 4MB</div>
 					<label for="thumbnail-post" class="col-sm-12 control-label">Chọn hình ảnh để đăng</label>
@@ -127,7 +127,7 @@
                     	</div>
 					</div>
 				</div>
-				<div class="row">
+				<div class="row"  th:fragment="th-postNews-3">
 					<div class="col-sm-4"></div>
 					<button type="submit" class="btn btn-submit col-sm-4">Đăng tin ngay</button>
 					<div class="col-sm-4"></div>
