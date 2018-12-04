@@ -16,13 +16,7 @@
 		<nav th:fragment="header" class="navbar navbar-inverse navbar-fixed-top">
 	      	<div class="container menu">
 		        <div class="menu-bar">
-			        <ul class="nav navbar-nav navbar-center">
-			            <li><a class="items" href="index.html" th:href="@{/templates/index.html}">Trang chủ</a></li>
-			            <li><a class="items" href="#">Xem tin</a></li>
-			            <li><a class="items" href="#">Tìm kiếm phòng trọ</a></li>
-			            <li><a class="items" href="#">Tin khuyến mãi</a></li>
-			            <li><a class="items" href="#">Giới thiệu</a></li>
-			        </ul>
+			        <ul class="nav navbar-nav navbar-center" th:replace="index :: th-navbar-center"></ul>
 			        <ul class="nav navbar-nav navbar-right">
 			            <li>
 			            	<div class="dropdown">
@@ -37,7 +31,7 @@
 								</ul>          	
 							</div>
 			            </li>
-			            <li><button class="btn btn-danger btn-new" href="#" type="button">Đăng tin</button></li>
+			            <li><button class="btn btn-danger btn-new"  href="postNews.html" th:href="@{/postNews}" type="button">Đăng tin</button></li>
 			        </ul>
 		        </div>
 		    </div>

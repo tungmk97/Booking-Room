@@ -3,7 +3,7 @@
 	<head th:fragment="head">
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<title>Quản lý tài khoản</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       	<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -19,21 +19,21 @@
       <!-- Nav tabs -->
       				<ul class="nav nav-pills  nav-stacked col-md-3" role="tablist">
 				        <li role="presentation" class="active">
-				        	<a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" class="title-tab">Thông tin cá nhân</a>
+				        	<a th:href="#profile" aria-controls="profile" role="tab" data-toggle="tab" class="title-tab">Thông tin cá nhân</a>
 				        </li>
 				        <li role="presentation">
-				        	<a href="#manage-posts" aria-controls="manage-posts" role="tab" data-toggle="tab" class="title-tab">Quản lý tin đăng</a>
+				        	<a href="#manage-posts" th:href="#manage-posts" aria-controls="manage-posts" role="tab" data-toggle="tab" class="title-tab">Quản lý tin đăng</a>
 				        </li>
 				        <li role="presentation">
-				        	<a href="#transaction-history" aria-controls="transaction-history" role="tab" data-toggle="tab" class="title-tab">Lịch sử giao dịch</a>
+				        	<a href="#transaction-history" th:href="#transaction-history" aria-controls="transaction-history" role="tab" data-toggle="tab" class="title-tab">Lịch sử giao dịch</a>
 				        </li>
 				        <li role="presentation">
-				        	<a href="#post-news" aria-controls="post-news" role="tab" data-toggle="tab" class="title-tab">Đăng tin mới</a>
+				        	<a href="#post-news" th:href="#post-news" aria-controls="post-news" role="tab" data-toggle="tab" class="title-tab">Đăng tin mới</a>
 				        </li>
       				</ul>
       <!-- Tab panes -->
 		     	 	<div class="tab-content  col-md-9">
-		        		<div role="tabpanel" class="tab-pane active content-in-tab" id="profile">
+		        		<div role="tabpanel" class="tab-pane active content-in-tab" id="profile" th:id="profile">
 		        			<div class="user_profile_left">
 							  <div class="user_profile_form">
 							    <form class="form-horizontal" action="#" method="POST">
@@ -49,7 +49,7 @@
 							        <label class="title_label control-label col-md-3 col-sm-4 col-xs-12" for="phone-number">Số điện thoại</label>
 							        <div class=" col-md-9 col-sm-8 col-xs-12">
 							        	<div class="input-group">
-							          		<input class="form-control disabled txt disabled-input phone" disabled="" type="text" id="phone-number" placeholder="0964951802">
+							          		<input class="form-control disabled txt disabled-input phone" disabled="" type="text" id="phone-number"  th:id="phone-number" placeholder="0964951802">
 							        	</div>
 							      	</div>
 							    	</div>
@@ -81,8 +81,8 @@
 							        <label class="title_label control-label col-md-3 col-sm-4 col-xs-12" for="password_new1">Mật khẩu mới</label>
 							        <div class=" col-md-9 col-sm-8 col-xs-12">
 							          <div class="input-group">
-							            <input class="form-control txt pass" type="password" name="password_change" value="" id="password_new1" placeholder="Mật khẩu mới">
-							            <input class="form-control txt pass" type="password" name="password_change" value="" id="password_new2" placeholder="Nhập lại mật khẩu mới">
+							            <input class="form-control txt pass" type="password" name="password_change" value="" id="password_new1" th:id="password_new1" placeholder="Mật khẩu mới">
+							            <input class="form-control txt pass" type="password" name="password_change" value="" id="password_new2" th:id="password_new2" placeholder="Nhập lại mật khẩu mới">
 							          </div>
 							        </div>
 							      </div>
@@ -95,7 +95,7 @@
 							  </div>
 							</div>
 		        		</div>
-		        		<div role="tabpanel" class="tab-pane content-in-tab" id="manage-posts">
+		        		<div role="tabpanel" class="tab-pane content-in-tab" id="manage-posts" th:id="manage-posts" >
 		        			<table class="table table-bordered table-hover">
 		        				<thead>
 		        					<tr>
@@ -111,8 +111,8 @@
 		        				</tbody>
 		        			</table>
 		        		</div>
-		        		<div role="tabpanel" class="tab-pane content-in-tab" id="transaction-history">Coming soon!</div>
-		        		<div role="tabpanel" class="tab-pane content-in-tab" id="post-news">
+		        		<div role="tabpanel" class="tab-pane content-in-tab" id="transaction-history" th:id="transaction-history" >Coming soon!</div>
+		        		<div role="tabpanel" class="tab-pane content-in-tab" id="post-news" th:id="post-news" >
 		        			<div class=" col-md-9 col-sm-8 col-xs-12" th:replace="postNews :: th-post-news"></div>
 		        		</div>
 		      		</div>
@@ -120,6 +120,5 @@
 		  	</div>
 		</div>
 		<footer  th:replace="index :: footer"></footer>
-		
 	</body>
 </html>

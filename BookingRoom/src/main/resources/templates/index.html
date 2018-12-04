@@ -9,24 +9,22 @@
 	    <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style.css" th:href="@{css/style.css}">
 		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-search.css"  th:href="@{css/style-search.css}">
-		<!--<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-postNews.css"  th:href="@{css/style-postNews.css}"> -->
-		<!-- <link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-manage-account.css"  th:href="@{css/style-manage-account.css}"> -->
 	</head>
 	<body>
 		<nav th:fragment="header" class="navbar navbar-inverse navbar-fixed-top">
 	      	<div class="container menu">
 		        <div class="menu-bar">
-			        <ul class="nav navbar-nav navbar-center">
+			        <ul class="nav navbar-nav navbar-center" th:fragment="th-navbar-center">
 			            <li><a class="items" href="index.html" th:href="@{/index}">Trang chủ</a></li>
-			            <li><a class="items" href="#">Xem tin</a></li>
+			            <li><a class="items" href="seeNews.html" th:href="@{/seeNews}">Xem tin</a></li>
 			            <li><a class="items" href="search.html" th:href="@{/search}">Tìm kiếm phòng trọ</a></li>
 			            <li><a class="items" href="#">Tin khuyến mãi</a></li>
-			            <li><a class="items" href="#">Giới thiệu</a></li>
+			            <li><a class="items" href="introduce.html" th:href="@{/introduce}">Giới thiệu</a></li>
 			        </ul>
 			        <ul class="nav navbar-nav navbar-right">
-			            <li><a class="login-sign-up items" href="login.html"  th:href="@{resources/templates/login.html}"><div>Đăng nhập</div></a></li>
-			            <li><a class="login-sign-up items" href="register.html" th:href="@{resources/templates/register.html}"><div>Đăng ký</div></a></li>
-			            <li><button class="btn btn-danger" href="#">Đăng tin</button></li>
+			            <li><a class="login-sign-up items" href="login.html" th:href="@{/login}"><div>Đăng nhập</div></a></li>
+			            <li><a class="login-sign-up items" href="register.html" th:href="@{/register}"><div>Đăng ký</div></a></li>
+			            <li><button class="btn btn-danger" href="postNews.html" th:href="@{/postNews}" th:fragment="th-btn-submit-post">Đăng tin</button></li>
 			        </ul>
 		        </div>
 		    </div>
@@ -318,16 +316,10 @@
 				</div>
 				<div class="whyus_body">
 					<p>Không phải lo tìm người cho thuê, phòng trống kéo dài</p>
-					<a type="button" class="btn btn-danger" href="#">Đăng tin ngay</a>
+					<a type="button" class="btn btn-danger" href="postNews.html" th:href="@{/postNews}">Đăng tin ngay</a>
 				</div>
 			</div>
 		</div>
-		
-		<!-- <div th:replace="manage-account :: th-manage-account"></div> -->
-		<!-- <div th:replace="login :: th-login"></div> --> 
-		<!-- <div th:replace="register :: th-register"></div> -->
-		<!-- <div th:replace="postNews :: th-postNews"></div> -->
-		
 		<footer th:fragment="footer">
 			<div class="container">
 				<div class="row">
@@ -337,29 +329,29 @@
 		        	</div>
 		        	<div class="col-xs-12 col-sm-12 col-md-2 col-md-offset-1 menu-footer">
 			        	<h3>Hữu ích</h3>
-			        	<span><a href="#">Trang chủ</a></span> 
-			        	<span><a href="#">Xem tin</a></span>
-			        	<span><a href="#">Tìm kiếm phòng trọ</a></span>
-			        	<span><a href="#">Đăng tin cho thuê trọ</a></span>
-			        	<span><a href="#">Terms and conditions</a></span>
-			        	<span><a href="#">Cookies policy</a></span>
-			        	<span><a href="#">Kết nối với chúng tôi</a></span>
-			        	<span><a href="#">Giới thiệu</a></span>
+			        	<span><a href="index.html" th:href="@{/index}">Trang chủ</a></span> 
+			        	<span><a href="seeNews.html" th:href="@{/seeNews}">Xem tin</a></span>
+			        	<span><a href="#" th:href="@{/login}">Tìm kiếm phòng trọ</a></span>
+			        	<span><a href="postNews.html" th:href="@{/postNews}">Đăng tin cho thuê trọ</a></span>
+			        	<span><a href="introduce.html" th:href="@{/introduce}">Giới thiệu</a></span>
+			        	<span><a href="#" th:href="@{/login}">Terms and conditions</a></span>
+			        	<span><a href="#" th:href="@{/login}">Cookies policy</a></span>
+			        	<span><a href="#" th:href="@{/index}">Kết nối với chúng tôi</a></span>
 		        	</div>
 		        	<div class="col-xs-12 col-sm-12 col-md-2 col-md-offset-0.5  menu-footer">
 		          		<h3>Tài khoản</h3>
-		          		<span><a href="/BookingRoom/src/main/resources/templates/register.html">Đăng ký tài khoản mới</a> </span>
-		          		<span><a href="#">Quản lý</a></span>
-		          		<span><a href="#">Đổi mật khẩu</a></span>
-		          		<span><a href="#">Xóa tài khoản</a> </span>
-		          		<span><a href="#">Bảng tin</a></span>
+		          		<span><a href="register.html" th:href="@{/register}">Đăng ký tài khoản mới</a> </span>
+		          		<span><a href="manage-account.html" th:href="@{/manage-account}">Quản lý</a></span>
+		          		<span><a href="manage-account.html" th:href="@{/manage-account}">Đổi mật khẩu</a></span>
+		          		<span><a href="#" th:href="@{/index}">Xóa tài khoản</a> </span>
+		          		<span><a href="index.html" th:href="@{/index}">Bảng tin</a></span>
 		        	</div>
 		        	<div class="col-xs-12 col-sm-12 col-md-4 menu-footer">
 		          		<h3 class="center-h3">We are social</h3>
-		          		<a href="#"><span class="icon-in-footer icon-1-in-footer"></span></a>
-		          		<a href="#"><span class="icon-in-footer icon-2-in-footer"></span></a>
-		          		<a href="#"><span class="icon-in-footer icon-3-in-footer"></span></a>
-		          		<a href="#"><span class="icon-in-footer icon-4-in-footer"></span></a>
+		          		<a href="#" th:href="@{/index}"><span class="icon-in-footer icon-1-in-footer"></span></a>
+		          		<a href="#" th:href="@{/index}"><span class="icon-in-footer icon-2-in-footer"></span></a>
+		          		<a href="#" th:href="@{/index}"><span class="icon-in-footer icon-3-in-footer"></span></a>
+		          		<a href="#" th:href="@{/index}"><span class="icon-in-footer icon-4-in-footer"></span></a>
 		          		<p class="subcribe-label">Phản hồi cho chúng tôi</p>
 		          		<div class="form-group">
 		            		<input type="text" name="email" class="form-control" id="email" placeholder = "Email address">
