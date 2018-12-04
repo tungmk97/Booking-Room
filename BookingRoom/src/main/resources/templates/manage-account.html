@@ -3,12 +3,13 @@
 	<head th:fragment="head">
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<title>Quản lý tài khoản</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       	<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style.css" th:href="@{css/style.css}">
 		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-manage-account.css"  th:href="@{css/style-manage-account.css}">
+		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-postNews.css"  th:href="@{css/style-postNews.css}">
 	</head>
 	<body>
 		<nav  th:replace="postNews :: header"></nav>
@@ -49,7 +50,7 @@
 							        <label class="title_label control-label col-md-3 col-sm-4 col-xs-12" for="phone-number">Số điện thoại</label>
 							        <div class=" col-md-9 col-sm-8 col-xs-12">
 							        	<div class="input-group">
-							          		<input class="form-control disabled txt disabled-input phone" disabled="" type="text" id="phone-number" placeholder="0964951802">
+							          		<input class="form-control disabled txt disabled-input phone" disabled="" type="text" id="phone-number"  th:id="phone-number" placeholder="0964951802">
 							        	</div>
 							      	</div>
 							    	</div>
@@ -113,13 +114,14 @@
 		        		</div>
 		        		<div role="tabpanel" class="tab-pane content-in-tab" id="transaction-history">Coming soon!</div>
 		        		<div role="tabpanel" class="tab-pane content-in-tab" id="post-news">
-		        			<div class=" col-md-9 col-sm-8 col-xs-12" th:replace="postNews :: th-post-news"></div>
+		        			<div class="col-md-9 col-sm-8 col-xs-12" th:replace="postNews :: th-postNews-1"></div>
+		        			<div class="col-md-9 col-sm-8 col-xs-12" th:replace="postNews :: th-postNews-2"></div>
+		        			<div class="col-md-9 col-sm-8 col-xs-12" th:replace="postNews :: th-postNews-3"></div>
 		        		</div>
 		      		</div>
 		    	</div>
 		  	</div>
 		</div>
 		<footer  th:replace="index :: footer"></footer>
-		
 	</body>
 </html>

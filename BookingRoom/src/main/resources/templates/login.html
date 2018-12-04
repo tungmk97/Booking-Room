@@ -10,7 +10,7 @@
 		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style.css" th:href="@{css/style.css}">
 	</head>
 	<body>
-		<nav th:replace="postNews :: header"></nav>
+		<nav th:replace="index :: header"></nav>
 		<div class="header-title">
 			<h1>Đăng<span>Nhập</span></h1>
 		</div>
@@ -24,7 +24,7 @@
 				</form>
 				<div class="col-sm-4 col-xs-3 col-md-4"></div>
 			</div>
-			<div class="didnt-have-account container">Bạn chưa có tài khoản? <a href="#" th:href="@{#}">Đăng ký ngay!</a></div>
+			<div class="didnt-have-account container">Bạn chưa có tài khoản? <a  href="register.html" th:href="@{/register}">Đăng ký ngay!</a></div>
 		</div>
 		<footer th:replace="index :: footer"></footer>
 	</body>
