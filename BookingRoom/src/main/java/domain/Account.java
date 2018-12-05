@@ -23,6 +23,7 @@ public class Account implements Serializable {
 	    @Column(name = "id_user", nullable = false)
 	    private int id_user;
 	    
+	    @NotEmpty
 	    @Column(name = "user_name", nullable = false)
 	    private String user_name;
 	    
@@ -32,6 +33,7 @@ public class Account implements Serializable {
 	    @Column(name = "password", nullable = false)
 	    private String passord;
 	    
+	    @Email
 	    @Column(name = "email", nullable = false)
 	    private String email;
 	    

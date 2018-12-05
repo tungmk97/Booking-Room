@@ -9,6 +9,7 @@ import domain.Account;
 import repository.AccountRepository;
 
 @Service
+
 public class AccountServiceImpl implements AccountService{
 	
 	@Autowired
@@ -26,22 +27,25 @@ public class AccountServiceImpl implements AccountService{
 		return accountRepository.findByNameContaining(q);
 	}
 
-	@Override
-	public Account findOne(int id) {
-		// TODO Auto-generated method stub
-		return accountRepository.findOne(id);
-	}
 
 	@Override
 	public void save(Account account) {
+		// TODO Auto-generated method stub
 		accountRepository.save(account);
-		
 	}
 
 	@Override
 	public void delete(int id) {
+		// TODO Auto-generated method stub
 		accountRepository.deleteById(id);
-		
 	}
+
+	@Override
+	public List<Account> findOne(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 
 }

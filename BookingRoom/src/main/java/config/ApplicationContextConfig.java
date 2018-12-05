@@ -16,6 +16,5 @@ public class ApplicationContextConfig {
 	        resolver.setSuffix(".html");
 	        return resolver;
 	    }
-  
  
 }

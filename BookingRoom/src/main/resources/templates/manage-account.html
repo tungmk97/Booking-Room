@@ -31,6 +31,9 @@
 				        <li role="presentation">
 				        	<a href="#post-news" aria-controls="post-news" role="tab" data-toggle="tab" class="title-tab">Đăng tin mới</a>
 				        </li>
+				        <li role="presentation">
+				        	<a href="#manage-list-accounts" aria-controls="manage-list-accounts" role="tab" data-toggle="tab" class="title-tab">Quản lý thành viên</a>
+				        </li>
       				</ul>
       <!-- Tab panes -->
 		     	 	<div class="tab-content  col-md-9">
@@ -117,6 +120,9 @@
 		        			<div class="col-md-9 col-sm-8 col-xs-12" th:replace="postNews :: th-postNews-1"></div>
 		        			<div class="col-md-9 col-sm-8 col-xs-12" th:replace="postNews :: th-postNews-2"></div>
 		        			<div class="col-md-9 col-sm-8 col-xs-12" th:replace="postNews :: th-postNews-3"></div>
+		        		</div>
+		        		<div role="tabpanel" class="tab-pane content-in-tab" id="manage-list-accounts">
+		        			<div class="col-md-9 col-sm-8 col-xs-12" th:replace="list-account :: th-list-account"></div>
 		        		</div>
 		      		</div>
 		    	</div>
