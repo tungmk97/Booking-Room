@@ -1,4 +1,4 @@
-package config;
+package cnpm.config;
 
 import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
