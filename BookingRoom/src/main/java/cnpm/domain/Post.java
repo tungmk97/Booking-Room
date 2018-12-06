@@ -1,4 +1,4 @@
-package domain;
+package cnpm.domain;
 import java.io.Serializable;
 
 import javax.persistence.Column;

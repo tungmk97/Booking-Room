@@ -10,15 +10,21 @@
 		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style.css" th:href="@{css/style.css}">
 		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-manage-account.css"  th:href="@{css/style-manage-account.css}">
 		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-postNews.css"  th:href="@{css/style-postNews.css}">
+		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-list-account.css"  th:href="@{css/style-list-account.css}">
 	</head>
 	<body>
 		<nav  th:replace="postNews :: header"></nav>
 		<div th:fragment="th-manage-account">
   			<div class="container">
-    			<h1 class="title-page">Quản lý tài khoản</h1>
-    			<div class="group-tabs">
+	  			
       <!-- Nav tabs -->
       				<ul class="nav nav-pills  nav-stacked col-md-3" role="tablist">
+      					<li>
+      						<div class="title-section">
+					  			<h1 class="title-page">Quản lý tài khoản</h1>
+				    			<div class="group-tabs">
+				  			</div>
+      					</li>
 				        <li role="presentation" class="active">
 				        	<a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" class="title-tab">Thông tin cá nhân</a>
 				        </li>
@@ -37,6 +43,7 @@
       				</ul>
       <!-- Tab panes -->
 		     	 	<div class="tab-content  col-md-9">
+		     	 	<!-- profile -->
 		        		<div role="tabpanel" class="tab-pane active content-in-tab" id="profile">
 		        			<div class="user_profile_left">
 							  <div class="user_profile_form">
@@ -99,6 +106,7 @@
 							  </div>
 							</div>
 		        		</div>
+		        		<!-- manage-posts -->
 		        		<div role="tabpanel" class="tab-pane content-in-tab" id="manage-posts">
 		        			<table class="table table-bordered table-hover">
 		        				<thead>
@@ -121,8 +129,11 @@
 		        			<div class="col-md-9 col-sm-8 col-xs-12" th:replace="postNews :: th-postNews-2"></div>
 		        			<div class="col-md-9 col-sm-8 col-xs-12" th:replace="postNews :: th-postNews-3"></div>
 		        		</div>
+		        		<!-- manage-list-accounts -->
 		        		<div role="tabpanel" class="tab-pane content-in-tab" id="manage-list-accounts">
-		        			<div class="col-md-9 col-sm-8 col-xs-12" th:replace="list-account :: th-list-account"></div>
+		        			<div class="col-md-9 col-sm-8 col-xs-12" th:replace="list-account :: th-list-account-1"></div>
+		        			<th:block class="col-md-9 col-sm-8 col-xs-12" th:replace="list-account :: th-list-account-2"></th:block>
+		        			<th:block class="col-md-9 col-sm-8 col-xs-12" th:replace="list-account :: th-list-account-3"></th:block>
 		        		</div>
 		      		</div>
 		    	</div>

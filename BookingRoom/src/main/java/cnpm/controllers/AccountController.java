@@ -1,4 +1,4 @@
-package controllers;
+package cnpm.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import service.AccountService;
+import cnpm.service.AccountService;
 
 @Controller
 public class AccountController {
@@ -18,7 +18,7 @@ public class AccountController {
     @GetMapping("/manage-account")
     public String index(Model model) {
         model.addAttribute("accounts", accountService.findAll());
-        return "list-account";
+        return "manage-account";
     }
 //    @GetMapping("/account/{id_user}/edit")
 //    public String edit(@PathVariable int id, Model model) {
@@ -31,13 +31,13 @@ public class AccountController {
         redirect.addFlashAttribute("success", "Xóa tài khoản thành công!");
         return "redirect:/account";
      }
-    @GetMapping("/account/search")
-    public String search(@RequestParam("q") String q, Model model) {
-        if (q.equals("")) {
-            return "redirect:/account";
-        }
-
-        model.addAttribute("accounts", accountService.search(q));
-        return "list-account";
-    }
+//    @GetMapping("/account/search")
+//    public String search(@RequestParam("q") String q, Model model) {
+//        if (q.equals("")) {
+//            return "redirect:/account";
+//        }
+//
+//        model.addAttribute("accounts", accountService.search(q));
+//        return "list-account";
+//    }
 }

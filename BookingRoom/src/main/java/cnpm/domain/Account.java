@@ -1,4 +1,5 @@
-package domain;
+
+package cnpm.domain;
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -9,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "tbl_accounts")
@@ -20,43 +20,42 @@ public class Account implements Serializable {
 
 	    @Id
 	    @GeneratedValue(strategy = GenerationType.AUTO)
-	    @Column(name = "id_user", nullable = false)
+	    @Column(name = "id_user", length = 50, nullable = false)
 	    private int id_user;
 	    
-	    @NotEmpty
-	    @Column(name = "user_name", nullable = false)
+	    @Column(name = "user_name", length = 50, nullable = false)
 	    private String user_name;
 	    
-	    @Column(name = "name", nullable = false)
+	    @Column(name = "name", length = 50, nullable = false)
 	    private String name;
 	    
-	    @Column(name = "password", nullable = false)
-	    private String passord;
+	    @Column(name = "password", length = 50, nullable = false)
+	    private String password;
 	    
 	    @Email
-	    @Column(name = "email", nullable = false)
+	    @Column(name = "email", length = 100, nullable = false)
 	    private String email;
 	    
-	    @Column(name = "phone_number", nullable = false)
+	    @Column(name = "phone_number", length = 11, nullable = false)
 	    private int phone_number;
 	    
-	    @Column(name = "address", nullable = false)
+	    @Column(name = "address", length = 100, nullable = false)
 	    private String address;
 	    
-	    @Column(name = "id_type_account", nullable = false)
+	    @Column(name = "id_type_account", length = 50, nullable = false)
 	    private int id_type_account;
 	    
 	    public Account() {
 			super();
 		}
 
-		public Account(int id_user, String user_name, String name, String passord, String email, int phone_number,
+		public Account(int id_user, String user_name, String name, String password, String email, int phone_number,
 				String address, int id_type_account) {
 			super();
 			this.id_user = id_user;
 			this.user_name = user_name;
 			this.name = name;
-			this.passord = passord;
+			this.password = password;
 			this.email = email;
 			this.phone_number = phone_number;
 			this.address = address;
@@ -87,12 +86,12 @@ public class Account implements Serializable {
 			this.name = name;
 		}
 
-		public String getPassord() {
-			return passord;
+		public String getPassword() {
+			return password;
 		}
 
-		public void setPassord(String passord) {
-			this.passord = passord;
+		public void setPassword(String password) {
+			this.password = password;
 		}
 
 		public String getEmail() {

@@ -1,4 +1,7 @@
 /*manage account css*/
+.title-section{
+	margin-top:100px;
+}
 .title-page {
 	color: #EE7C6B;
 	font-family: Calibri Light;
@@ -64,4 +67,7 @@
 
 .disabled-input.user-id {
 	background: url(/img/number-sign-icon.png) no-repeat 6px 19px;
+}
+.tab-content{
+	padding-top: 100px;
 }
