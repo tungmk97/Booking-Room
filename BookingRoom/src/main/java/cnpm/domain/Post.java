@@ -47,15 +47,15 @@ public class Post implements Serializable{
     @Column(name = "description", nullable = false)
     private String description;
     
-    @Column(name = "id_user", nullable = false)
-    private int id_user;
+    @Column(name = "user_id", nullable = false)
+    private int user_id;
 
 	public Post() {
 		super();
 	}
 
 	public Post(int id_post, String title, int id_status, String start_date, String end_date, int acreage,
-			String address, int price, String description, int id_user) {
+			String address, int price, String description, int user_id) {
 		super();
 		this.id_post = id_post;
 		this.title = title;
@@ -66,7 +66,7 @@ public class Post implements Serializable{
 		this.address = address;
 		this.price = price;
 		this.description = description;
-		this.id_user = id_user;
+		this.user_id = user_id;
 	}
 
 	public int getId_post() {
@@ -142,11 +142,11 @@ public class Post implements Serializable{
 	}
 
 	public int getId_user() {
-		return id_user;
+		return user_id;
 	}
 
-	public void setId_user(int id_user) {
-		this.id_user = id_user;
+	public void setId_user(int user_id) {
+		this.user_id = user_id;
 	}
 
 	public static long getSerialversionuid() {

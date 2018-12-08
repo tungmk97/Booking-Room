@@ -31,16 +31,21 @@ public class AccountService {
 
 	public void update(final Account account) {
 		// check if not exist -> throw excpetion
-		Account accountDb = accountRepository.findById(account.getId_user());
+		Account accountDb = accountRepository.findById(account.getUser_id());
 		accountDb.setName(account.getName());
+		accountDb.setPassword(account.getPassword());
+		accountDb.setEmail(account.getEmail());
+		accountDb.setPhone_number(account.getPhone_number());
 		accountDb.setAddress(account.getAddress());
+		accountDb.setEnabled(account.getEnabled());
 		accountRepository.persist(accountDb);
 	}
 
-	public void delete(final int id_user) {
-		Account account = accountRepository.findById(id_user);
+	public void delete(final int user_id) {
+		Account account = accountRepository.findById(user_id);
 		if (account != null) {
 			accountRepository.delete(account);
 		}
 	}
+	
 }

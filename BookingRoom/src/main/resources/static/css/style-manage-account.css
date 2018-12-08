@@ -56,7 +56,9 @@
 .email {
 	background: url(/img/email-icon.png) no-repeat 6px 9px;
 }
-
+.addresss{
+	background: url(/img/address-icon.png) no-repeat 7px 19px;
+}
 .user {
 	background: url(/img/user-icon.png) no-repeat 5px 6px;
 }
@@ -64,10 +66,13 @@
 .disabled-input.phone {
 	background: url(/img/phone-icon.png) no-repeat 5px 19px;
 }
-
 .disabled-input.user-id {
 	background: url(/img/number-sign-icon.png) no-repeat 6px 19px;
 }
 .tab-content{
 	padding-top: 100px;
+}
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: rgba(255,255,255,0);
+    opacity: 1;
 }

@@ -39,8 +39,11 @@
                         <tr class="table-title">
                             <th>Mã</th>
                             <th>Tên tài khoản</th>
+                            <th>Họ và tên</th>
                             <th>Email</th>
                             <th>Số điện thoại</th>
+                            <th>Địa chỉ</th>
+                            <th>Level</th>
                             <th>Cập nhật</th>
                             <th>Xóa tài khoản</th>
                         </tr>
@@ -48,11 +51,14 @@
                     <tbody>
                         <tr th:each="account,iterStat : ${accounts}">
                             <td th:text="${iterStat.count}"></td>
+                            <td th:text="${account.username}"></td>
                             <td th:text="${account.name}"></td>
                             <td th:text="${account.email}"></td>
                             <td th:text="${account.phone_number}"></td>
-                            <td><a th:href="@{/account/{id_user}/edit(id_user=${account.id_user})}"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                            <td><a th:href="@{/account/{id_user}/delete(id_user=${account.id_user})}"><span class="glyphicon glyphicon-trash"></span></a></td>
+                            <td th:text="${account.address}"></td>
+                            <td th:text="${account.id_type_account}"></td>
+                            <td><a th:href="@{/account-update/} + ${account.user_id}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                            <td><a th:href="@{/accountDelete/} + ${account.user_id}" th:onclick="'alert(\'Xóa tài khoản thành công!\');'"><span class="glyphicon glyphicon-trash"></span></a></td>
                         </tr>
                     </tbody>
                 </table>
