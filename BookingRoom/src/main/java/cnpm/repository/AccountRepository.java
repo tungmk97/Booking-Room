@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import cnpm.domain.Account;
 
-@Repository(value = "accountDAO")
+@Repository()
 @Transactional(rollbackFor = Exception.class)
 public class AccountRepository {
 	

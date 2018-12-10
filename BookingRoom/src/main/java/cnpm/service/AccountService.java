@@ -32,6 +32,8 @@ public class AccountService {
 	public void update(final Account account) {
 		// check if not exist -> throw excpetion
 		Account accountDb = accountRepository.findById(account.getUser_id());
+		accountDb.setUser_id(account.getUser_id());
+		accountDb.setUsername(account.getUsername());
 		accountDb.setName(account.getName());
 		accountDb.setPassword(account.getPassword());
 		accountDb.setEmail(account.getEmail());

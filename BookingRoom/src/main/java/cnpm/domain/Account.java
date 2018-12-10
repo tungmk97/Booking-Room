@@ -22,7 +22,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 @Entity
-@Table(name = "tbl_accounts")
+@Table(name = "tbl_accounts", catalog = "booking_room")
 
 public class Account implements Serializable {
 	

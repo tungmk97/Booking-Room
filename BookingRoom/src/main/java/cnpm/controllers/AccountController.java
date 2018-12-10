@@ -1,6 +1,7 @@
 package cnpm.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,11 +21,10 @@ public class AccountController {
     private AccountService accountService;
 	@Autowired
 	private ErrorServiceImp errorServiceImp;
-	 
-    @GetMapping("/manage-account")
-    public String index(Model model) {
-        model.addAttribute("accounts", accountService.findAll());
-        return "manage-account";
+	
+	@RequestMapping("/index")
+    public String home(){
+        return "index";
     }
     
     @RequestMapping("/register")
@@ -58,32 +58,9 @@ public class AccountController {
 	public String doUpdateAccount(@ModelAttribute("Account") Account account, Model model) {
     	accountService.update(account);
 		model.addAttribute("listAccount", accountService.findAll());
-		return "redirect:/list-account";
+		return "redirect:/manage-account";
 	}
     
-    @RequestMapping(value = { "/login" })
-	public String login(@RequestParam(required = false) String message, final Model model) {
-		if (message != null && !message.isEmpty()) {
-			if (message.equals("logout")) {
-				model.addAttribute("message", "Logout!");
-			}
-			if (message.equals("error")) {
-				model.addAttribute("message", "Login Failed!");
-			}
-		}
-		return "login";
-	}
-
-    @RequestMapping("/user")
-    public String user() {
-        return "user";
-    }
-
-    @RequestMapping("/admin")
-    public String admin() {
-        return "admin";
-    }
-
     @RequestMapping("/403")
     public String accessDenied(Model model) {
         model.addAttribute("error", errorServiceImp.getOne("403"));

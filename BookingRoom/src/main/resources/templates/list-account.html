@@ -43,7 +43,7 @@
                             <th>Email</th>
                             <th>Số điện thoại</th>
                             <th>Địa chỉ</th>
-                            <th>Level</th>
+                             <!-- <th>Level</th> -->
                             <th>Cập nhật</th>
                             <th>Xóa tài khoản</th>
                         </tr>
@@ -56,7 +56,7 @@
                             <td th:text="${account.email}"></td>
                             <td th:text="${account.phone_number}"></td>
                             <td th:text="${account.address}"></td>
-                            <td th:text="${account.id_type_account}"></td>
+                            <!-- <td th:text="${account.id_type_account}"></td> -->
                             <td><a th:href="@{/account-update/} + ${account.user_id}"><span class="glyphicon glyphicon-pencil"></span></a></td>
                             <td><a th:href="@{/accountDelete/} + ${account.user_id}" th:onclick="'alert(\'Xóa tài khoản thành công!\');'"><span class="glyphicon glyphicon-trash"></span></a></td>
                         </tr>
