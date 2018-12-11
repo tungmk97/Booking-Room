@@ -32,6 +32,26 @@ a.items:hover{
 .login-sign-up{
     font-size: 18px;
 }
+.logout{
+	background: none;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 0;
+}
+.logout-form{
+	display: inline;
+}
+.post-news-btn{
+	background-color: #161616;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+}
 .header-title{
     text-align: center;
     font-family: Calibri Light;
@@ -171,7 +191,7 @@ footer span{
     font-size: 15px;
     padding-top: 10px;
 }
-#email,select.form-control{
+select.form-control{
     border: none;
     border-bottom: 1px solid #FFF;
     box-shadow: none;
@@ -192,7 +212,7 @@ footer span{
     padding-top: 30px;
     font-size: 15px;
 }
-/*Phần tin nổi bật*/
+/*Pháº§n tin ná»•i báº­t*/
 .hot-news-section{
     background-color: hsla(0, 100%, 90%, 0.15);
     border: 1px solid hsla(0, 100%, 90%, 0.3);
@@ -275,7 +295,7 @@ a:link {
     overflow: hidden;
     white-space: nowrap;
 }
-/*Phần tin mới*/
+/*Pháº§n tin má»›i*/
 .block-left, .block-right{
     background-color: hsla(0, 100%, 90%, 0.15);
     border: 1px solid hsla(0, 100%, 90%, 0.3);
@@ -436,7 +456,7 @@ a:link {
     padding-right: 0;
     padding-left: 0;
 }
- /*Phần tin tức mới*/
+ /*Pháº§n tin tá»©c má»›i*/
 .sidebar_list_box_content ul {
     padding: 0;
 }
@@ -507,4 +527,25 @@ a:link {
     font-weight: bold;
 }
 /* */
+/* Đăng ký */
+.label-type-account{
+	color: #EE7C6B;
+    font-family: Calibri Light;
+    font-size: 26px;
+    font-weight: bold;
+}
+.address-input{
+	background: url(/img/address-icon.png) no-repeat 6px 18px;
+}
 
+/*menu*/
+.btn-account{
+	margin-right: 10px;
+}
+.btn-new{
+	margin-left: 30px;
+}
+.dropdown-menu{
+	padding: 15px 0px !important;
+	min-width: 250px !important;
+}

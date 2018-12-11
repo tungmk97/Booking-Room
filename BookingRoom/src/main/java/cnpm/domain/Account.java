@@ -1,81 +1,97 @@
-
 package cnpm.domain;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
-import org.hibernate.validator.constraints.Email;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 @Entity
-@Table(name = "tbl_accounts")
+@Table(name = "tbl_accounts", catalog = "booking_room")
 
 public class Account implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
 	    @Id
-	    @GeneratedValue(strategy = GenerationType.AUTO)
-	    @Column(name = "id_user", length = 50, nullable = false)
-	    private int id_user;
+	    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	    @Column(name = "user_id", nullable = false)
+	    private int user_id;
 	    
-	    @Column(name = "user_name", length = 50, nullable = false)
-	    private String user_name;
+	    @Column(name = "username")
+	    private String username;
 	    
-	    @Column(name = "name", length = 50, nullable = false)
+	    @Column(name = "name")
 	    private String name;
 	    
-	    @Column(name = "password", length = 50, nullable = false)
+	    @Column(name = "password")
 	    private String password;
 	    
-	    @Email
-	    @Column(name = "email", length = 100, nullable = false)
+	    @Column(name = "email")
 	    private String email;
 	    
-	    @Column(name = "phone_number", length = 11, nullable = false)
+	    @Column(name = "phone_number")
 	    private int phone_number;
 	    
-	    @Column(name = "address", length = 100, nullable = false)
+	    @Column(name = "address")
 	    private String address;
 	    
-	    @Column(name = "id_type_account", length = 50, nullable = false)
-	    private int id_type_account;
+	    @Column(name = "enabled", columnDefinition = "TINYINT(1)")
+	    private Boolean enabled;
+	    
+	    //cho liên kết nhieefu nhiều
+	    //https://stackoverflow.com/questions/22821695/how-to-fix-hibernate-lazyinitializationexception-failed-to-lazily-initialize-a?rq=1
+	    @ManyToMany(fetch =FetchType.EAGER)
+	    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	    private Set<AppRole> roles;
 	    
 	    public Account() {
 			super();
 		}
 
-		public Account(int id_user, String user_name, String name, String password, String email, int phone_number,
-				String address, int id_type_account) {
+		public Account(final int user_id,final String username,final String name,final String password,final String email,final int phone_number,final
+				String address,final Boolean enabled,final Set<AppRole> roles) {
 			super();
-			this.id_user = id_user;
-			this.user_name = user_name;
+			this.user_id = user_id;
+			this.username = username;
 			this.name = name;
 			this.password = password;
 			this.email = email;
 			this.phone_number = phone_number;
 			this.address = address;
-			this.id_type_account = id_type_account;
+			this.enabled = enabled;
+			this.roles = roles;
 		}
 
-		public int getId_user() {
-			return id_user;
+		public int getUser_id() {
+			return user_id;
 		}
 
-		public void setId_user(int id_user) {
-			this.id_user = id_user;
+		public void setUser_id(int user_id) {
+			this.user_id = user_id;
 		}
 
-		public String getUser_name() {
-			return user_name;
+		public String getUsername() {
+			return username;
 		}
 
-		public void setUser_name(String user_name) {
-			this.user_name = user_name;
+		public void setUsername(String username) {
+			this.username = username;
 		}
 
 		public String getName() {
@@ -118,17 +134,24 @@ public class Account implements Serializable {
 			this.address = address;
 		}
 
-		public int getId_type_account() {
-			return id_type_account;
+		public Boolean getEnabled() {
+			return enabled;
 		}
 
-		public void setId_type_account(int id_type_account) {
-			this.id_type_account = id_type_account;
+		public void setEnabled(Boolean enabled) {
+			this.enabled = enabled;
+		}
+
+		
+		public Set<AppRole> getRoles() {
+			return roles;
+		}
+
+		public void setRoles(Set<AppRole> roles) {
+			this.roles = roles;
 		}
 
 		public static long getSerialversionuid() {
 			return serialVersionUID;
 		}
-	    
-	    
 }

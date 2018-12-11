@@ -1,144 +1,228 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head th:fragment="head">
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title>Quản lý tài khoản</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      	<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style.css" th:href="@{css/style.css}">
-		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-manage-account.css"  th:href="@{css/style-manage-account.css}">
-		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-postNews.css"  th:href="@{css/style-postNews.css}">
-		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-list-account.css"  th:href="@{css/style-list-account.css}">
-	</head>
-	<body>
-		<nav  th:replace="postNews :: header"></nav>
-		<div th:fragment="th-manage-account">
-  			<div class="container">
-	  			
-      <!-- Nav tabs -->
-      				<ul class="nav nav-pills  nav-stacked col-md-3" role="tablist">
-      					<li>
-      						<div class="title-section">
-					  			<h1 class="title-page">Quản lý tài khoản</h1>
-				    			<div class="group-tabs">
-				  			</div>
-      					</li>
-				        <li role="presentation" class="active">
-				        	<a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" class="title-tab">Thông tin cá nhân</a>
-				        </li>
-				        <li role="presentation">
-				        	<a href="#manage-posts" aria-controls="manage-posts" role="tab" data-toggle="tab" class="title-tab">Quản lý tin đăng</a>
-				        </li>
-				        <li role="presentation">
-				        	<a href="#transaction-history" aria-controls="transaction-history" role="tab" data-toggle="tab" class="title-tab">Lịch sử giao dịch</a>
-				        </li>
-				        <li role="presentation">
-				        	<a href="#post-news" aria-controls="post-news" role="tab" data-toggle="tab" class="title-tab">Đăng tin mới</a>
-				        </li>
-				        <li role="presentation">
-				        	<a href="#manage-list-accounts" aria-controls="manage-list-accounts" role="tab" data-toggle="tab" class="title-tab">Quản lý thành viên</a>
-				        </li>
-      				</ul>
-      <!-- Tab panes -->
-		     	 	<div class="tab-content  col-md-9">
-		     	 	<!-- profile -->
-		        		<div role="tabpanel" class="tab-pane active content-in-tab" id="profile">
-		        			<div class="user_profile_left">
-							  <div class="user_profile_form">
-							    <form class="form-horizontal" action="#" method="POST">
-							      <div class="form-group">
-							        <label class="title_label control-label col-md-3 col-sm-4 col-xs-12" for="userid">Mã thành viên</label>
-							        <div class=" col-md-9 col-sm-8 col-xs-12">
-							          <div class="input-group">
-							            <input class="form-control disabled txt disabled-input user-id" disabled="" type="text" id="userid" readonly="" value="68576">
-							          </div>
-							        </div>
-							      </div>
-							      <div class="form-group">
-							        <label class="title_label control-label col-md-3 col-sm-4 col-xs-12" for="phone-number">Số điện thoại</label>
-							        <div class=" col-md-9 col-sm-8 col-xs-12">
-							        	<div class="input-group">
-							          		<input class="form-control disabled txt disabled-input phone" disabled="" type="text" id="phone-number"  th:id="phone-number" placeholder="0964951802">
-							        	</div>
-							      	</div>
-							    	</div>
-							    <div class="form-group">
-							      <label class="title_label control-label col-md-3 col-sm-4 col-xs-12" for="fullname">Họ tên</label>
-							      <div class=" col-md-9 col-sm-8 col-xs-12">
-							        <div class="input-group">
-							          <input class="form-control txt user" type="text" id="fullname" name="fullname" value="" placeholder="Họ tên của bạn">
-							        </div>
-							      </div>
-							    </div>
-							    <div class="form-group">
-							      <label class="title_label control-label col-md-3 col-sm-4 col-xs-12" for="email">Email</label>
-							      <div class=" col-md-9 col-sm-8 col-xs-12">
-							        <div class="input-group">
-							          <input class="form-control txt email" type="email" name="email" value="" placeholder="Email của bạn"></div>
-							        </div>
-							      </div>
-							      <br>
-							      <div class="form-group">
-							        <label class="title_label control-label col-md-3 col-sm-4 col-xs-12" for="password_old">Mật khẩu cũ</label>
-							        <div class=" col-md-9 col-sm-8 col-xs-12">
-							          <div class="input-group">
-							            <input class="form-control txt pass" type="password" id="password_old" name="password_old" value="" placeholder="Nhập mật khẩu cũ">
-							          </div>
-							        </div>
-							      </div>
-							      <div class="form-group">
-							        <label class="title_label control-label col-md-3 col-sm-4 col-xs-12" for="password_new1">Mật khẩu mới</label>
-							        <div class=" col-md-9 col-sm-8 col-xs-12">
-							          <div class="input-group">
-							            <input class="form-control txt pass" type="password" name="password_change" value="" id="password_new1" placeholder="Mật khẩu mới">
-							            <input class="form-control txt pass" type="password" name="password_change" value="" id="password_new2" placeholder="Nhập lại mật khẩu mới">
-							          </div>
-							        </div>
-							      </div>
-							      <div class="form-group">
-							        <div class="col-md-9 col-md-offset-3 col-sm-8 col-xs-12">
-							          <button type="submit" name="wp-submit-update-profile" class="btn btn-default btn_save_profile btn-submit">Cập nhật</button>
-							        </div>
-							      </div>
-							    </form>
-							  </div>
+<head th:fragment="head">
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Quản lý tài khoản</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="/BookingRoom/src/main/resources/static/css/style.css"
+	th:href="@{/css/style.css}">
+<link rel="stylesheet" type="text/css"
+	href="/BookingRoom/src/main/resources/static/css/style-manage-account.css"
+	th:href="@{/css/style-manage-account.css}">
+<link rel="stylesheet" type="text/css"
+	href="/BookingRoom/src/main/resources/static/css/style-postNews.css"
+	th:href="@{/css/style-postNews.css}">
+<link rel="stylesheet" type="text/css"
+	href="/BookingRoom/src/main/resources/static/css/style-list-account.css"
+	th:href="@{/css/style-list-account.css}">
+</head>
+<body>
+	<nav th:replace="index :: header"></nav>
+	<div th:fragment="th-manage-account">
+		<div class="container">
+
+			<!-- Nav tabs -->
+			<ul class="nav nav-pills  nav-stacked col-md-3" role="tablist">
+				<li>
+					<div class="title-section">
+						<h1 class="title-page">Quản lý tài khoản</h1>
+						<div class="group-tabs"></div>
+				</li>
+				<li role="presentation" class="active"><a href="#profile"
+					aria-controls="profile" role="tab" data-toggle="tab"
+					class="title-tab">Thông tin cá nhân</a></li>
+				<li role="presentation"><a href="#manage-posts"
+					aria-controls="manage-posts" role="tab" data-toggle="tab"
+					class="title-tab">Quản lý tin đăng</a></li>
+				<li role="presentation"><a href="#transaction-history"
+					aria-controls="transaction-history" role="tab" data-toggle="tab"
+					class="title-tab">Lịch sử giao dịch</a></li>
+				<li role="presentation"><a href="#post-news"
+					aria-controls="post-news" role="tab" data-toggle="tab"
+					class="title-tab">Đăng tin mới</a></li>
+				<li role="presentation"><a href="#manage-list-accounts"
+					aria-controls="manage-list-accounts" role="tab" data-toggle="tab"
+					class="title-tab">Quản lý thành viên</a></li>
+			</ul>
+			<!-- Tab panes -->
+			<div class="tab-content  col-md-9">
+				<!-- profile -->
+				<div role="tabpanel" class="tab-pane active content-in-tab"
+					id="profile">
+					<div class="user_profile_left" th:fragment="th-edit-account">
+						<div class="user_profile_form">
+							<form class="form-horizontal" th:action="@{/updateAccount}"
+								 method="POST" novalidate="novalidate">
+								<div class="form-group">
+									<label
+										class="title_label control-label col-md-3 col-sm-4 col-xs-12"
+										for="userid">Mã thành viên</label>
+									<div class=" col-md-9 col-sm-8 col-xs-12">
+										<div class="input-group">
+											<input
+												class="form-control disabled txt disabled-input user-id"
+												type="text" id="userid" readonly="readonly"
+												 />
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label
+										class="title_label control-label col-md-3 col-sm-4 col-xs-12"
+										for="user-name">Tên đăng nhập</label>
+									<div class=" col-md-9 col-sm-8 col-xs-12">
+										<div class="input-group">
+											<input class="form-control disabled txt disabled-input user"
+												type="text" id="user-name" readonly="readonly"
+												 />
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label
+										class="title_label control-label col-md-3 col-sm-4 col-xs-12"
+										for="phone-number">Số điện thoại</label>
+									<div class=" col-md-9 col-sm-8 col-xs-12">
+										<div class="input-group">
+											<input class="form-control disabled txt disabled-input phone"
+												type="text" id="phone-number"
+												placeholder="Số điện thoại của bạn"
+												>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label
+										class="title_label control-label col-md-3 col-sm-4 col-xs-12"
+										for="fullname">Họ tên</label>
+									<div class=" col-md-9 col-sm-8 col-xs-12">
+										<div class="input-group">
+											<input class="form-control txt user" type="text"
+												id="fullname" placeholder="Họ tên của bạn" name="fullname"
+												/> 
+												<!-- <em th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></em> -->
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label
+										class="title_label control-label col-md-3 col-sm-4 col-xs-12"
+										for="email">Email</label>
+									<div class=" col-md-9 col-sm-8 col-xs-12">
+										<div class="input-group">
+											<input class="form-control txt email" type="email"
+												placeholder="Email của bạn" name="email" />
+											<!-- <em th:if="${#fields.hasErrors('email')}"
+												th:errors="*{email}"></em> -->
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label
+										class="title_label control-label col-md-3 col-sm-4 col-xs-12"
+										for="address">Địa chỉ</label>
+									<div class=" col-md-9 col-sm-8 col-xs-12">
+										<div class="input-group">
+											<input class="form-control txt addresss" type="text"
+											name="address" placeholder="Địa chỉ của bạn"/>
+										</div>
+									</div>
+								</div>
+								<br>
+								<div class="form-group">
+									<label
+										class="title_label control-label col-md-3 col-sm-4 col-xs-12"
+										for="password_old">Mật khẩu cũ</label>
+									<div class=" col-md-9 col-sm-8 col-xs-12">
+										<div class="input-group">
+											<input class="form-control txt pass" type="password" readonly="readonly"
+											id="password_old" name="password_old"  />
+										</div>
+									</div>
+								</div>
+								<!-- <div class="form-group">
+									<label
+										class="title_label control-label col-md-3 col-sm-4 col-xs-12"
+										for="password_new">Mật khẩu mới</label>
+									<div class=" col-md-9 col-sm-8 col-xs-12">
+										<div class="input-group">
+											<input class="form-control txt pass" type="password"
+												name="password_change" value="" id="password_new"
+												placeholder="Mật khẩu mới"> <input
+												class="form-control txt pass" type="password"
+												placeholder="Nhập lại mật khẩu mới">
+										</div>
+									</div>
+								</div> -->
+								<div class="form-group">
+								<div class="col-md-9 col-md-offset-3 col-sm-8 col-xs-12">
+									<div class="input-group">
+										<select class="txt" id="enabled" name="type_account">
+											<option value="1" class="active">1</option>
+										</select>
+									</div>
+								</div>
 							</div>
-		        		</div>
-		        		<!-- manage-posts -->
-		        		<div role="tabpanel" class="tab-pane content-in-tab" id="manage-posts">
-		        			<table class="table table-bordered table-hover">
-		        				<thead>
-		        					<tr>
-		        						<th class="td-title td_center">Mã số</th>
-		        						<th class="td-title">Tiêu đề</th>
-		        						<th class="td-title">Ngày đăng</th>
-		        						<th class="td-title">Ngày hết hạn</th>
-		        						<th class="td-title">Thao tác</th>
-		        					</tr>
-		        				</thead>
-		        				<tbody>
-		        					
-		        				</tbody>
-		        			</table>
-		        		</div>
-		        		<div role="tabpanel" class="tab-pane content-in-tab" id="transaction-history">Coming soon!</div>
-		        		<div role="tabpanel" class="tab-pane content-in-tab" id="post-news">
-		        			<div class="col-md-9 col-sm-8 col-xs-12" th:replace="postNews :: th-postNews-1"></div>
-		        			<div class="col-md-9 col-sm-8 col-xs-12" th:replace="postNews :: th-postNews-2"></div>
-		        			<div class="col-md-9 col-sm-8 col-xs-12" th:replace="postNews :: th-postNews-3"></div>
-		        		</div>
-		        		<!-- manage-list-accounts -->
-		        		<div role="tabpanel" class="tab-pane content-in-tab" id="manage-list-accounts">
-		        			<div class="col-md-9 col-sm-8 col-xs-12" th:replace="list-account :: th-list-account-1"></div>
-		        			<th:block class="col-md-9 col-sm-8 col-xs-12" th:replace="list-account :: th-list-account-2"></th:block>
-		        			<th:block class="col-md-9 col-sm-8 col-xs-12" th:replace="list-account :: th-list-account-3"></th:block>
-		        		</div>
-		      		</div>
-		    	</div>
-		  	</div>
+								<div class="form-group">
+									<div class="col-md-9 col-md-offset-3 col-sm-8 col-xs-12">
+										<button type="submit" name="wp-submit-update-profile"
+											class="btn btn-default btn_save_profile btn-submit" th:onclick="'alert(\'Cập nhật thành công!\');'">Cập
+											nhật</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<!-- manage-posts -->
+				<div role="tabpanel" class="tab-pane content-in-tab"
+					id="manage-posts">
+					<table class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th class="td-title td_center">Mã số</th>
+								<th class="td-title">Tiêu đề</th>
+								<th class="td-title">Ngày đăng</th>
+								<th class="td-title">Ngày hết hạn</th>
+								<th class="td-title">Thao tác</th>
+							</tr>
+						</thead>
+						<tbody>
+
+						</tbody>
+					</table>
+				</div>
+				<div role="tabpanel" class="tab-pane content-in-tab"
+					id="transaction-history">Coming soon!</div>
+				<div role="tabpanel" class="tab-pane content-in-tab" id="post-news">
+					<div class="col-md-9 col-sm-8 col-xs-12"
+						th:replace="postNews :: th-postNews-1"></div>
+					<div class="col-md-9 col-sm-8 col-xs-12"
+						th:replace="postNews :: th-postNews-2"></div>
+					<div class="col-md-9 col-sm-8 col-xs-12"
+						th:replace="postNews :: th-postNews-3"></div>
+				</div>
+				<!-- manage-list-accounts -->
+				<div role="tabpanel" class="tab-pane content-in-tab"
+					id="manage-list-accounts">
+					<div class="col-md-9 col-sm-8 col-xs-12"
+						th:replace="list-account :: th-list-account-1"></div>
+					<th:block class="col-md-9 col-sm-8 col-xs-12"
+						th:replace="list-account :: th-list-account-2"></th:block>
+					<th:block class="col-md-9 col-sm-8 col-xs-12"
+						th:replace="list-account :: th-list-account-3"></th:block>
+				</div>
+			</div>
 		</div>
-		<footer  th:replace="index :: footer"></footer>
-	</body>
+	</div>
+	</div>
+	<footer th:replace="index :: footer"></footer>
+</body>
 </html>

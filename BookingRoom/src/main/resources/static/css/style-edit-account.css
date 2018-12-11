@@ -1,0 +1,16 @@
+.disabled-input.user-id {
+    background: url(/img/number-sign-icon.png) no-repeat 6px 8px;
+}
+.disabled-input.phone {
+    background: url(/img/phone-icon.png) no-repeat 5px 8px;
+}
+.addresss {
+    background: url(/img/address-icon.png) no-repeat 6px 8px;
+}
+.pass {
+    background: url(/img/key-icon.png) no-repeat 7px 11px;
+}
+.input-group, .btn-submit {
+    width: 60%;
+    padding-top: 10px;
+}

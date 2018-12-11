@@ -17,13 +17,19 @@
 		<div class="login container" th:fragment="th-register">
 			<div class="row">
 				<div class="col-sm-4 col-xs-3 col-md-4"></div>
-				<form class="col-sm-4 col-xs-6 col-md-4">
-					<input class="user txt" type="text" placeholder="Tên tài khoản" name="user"><br>
-					<input class="pass txt" type="password" placeholder="Mật khẩu" name="password"><br>
-					<input class="pass txt" type="password" placeholder="Nhập lại mật khẩu" name="password"><br>
-					<input class="email txt" type="email" placeholder="Email" name="email"><br>
-					<input class="phone txt" type="tel" placeholder="Số điện thoại" name="phone"><br>
-					<input class="btn-submit" type="button" value="Đăng ký">
+				<form class="col-sm-4 col-xs-6 col-md-4" th:action="@{/saveAccount}" method="POST" th:object="${account}">
+					<input class="user txt" type="hidden" name="id" th:field="*{user_id}"/>
+					<input class="user txt" type="text" placeholder="Tên tài khoản" name="user-name" th:field="*{username}"/><br>
+					<input class="pass txt" type="password" placeholder="Mật khẩu" name="password" th:field="*{password}"/><br>
+					<input class="pass txt" type="password" placeholder="Nhập lại mật khẩu"/><br>
+					<input class="user txt" type="text" placeholder="Họ và tên" name="name" th:field="*{name}"/><br>
+					<input class="email txt" type="email" placeholder="Email" name="email" th:field="*{email}"/><br>
+					<input class="phone txt" type="tel" placeholder="Số điện thoại" name="phone" th:field="*{phone_number}"/><br>
+					<input class="address-input txt" type="text" placeholder="Địa chỉ" name="address" th:field="*{address}"/><br>
+					<select class="txt" id="enabled" name="type_account" th:field="*{enabled}">
+						<option value="1" class="active">1</option>
+					</select>
+					<input class="btn-submit" type="submit" value="Đăng ký" th:onclick="'alert(\'Đăng ký tài khoản thành công!\');'"/>
 				</form>
 				<div class="col-sm-4 col-xs-3 col-md-4"></div>
 			</div>

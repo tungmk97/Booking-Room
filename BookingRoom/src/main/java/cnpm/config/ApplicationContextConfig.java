@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
  
 @Configuration
-@ComponentScan("org.o7planning.*, cnpm.domain, cnpm.service, cnpm.repository, cnpm.controllers")
+@ComponentScan("cnpm.*")
 @EnableTransactionManagement
 // Load to Environment.
 @PropertySource("classpath:application.properties")

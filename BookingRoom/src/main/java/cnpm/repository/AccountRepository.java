@@ -10,19 +10,20 @@ import org.springframework.transaction.annotation.Transactional;
 
 import cnpm.domain.Account;
 
-@Repository(value = "accountDAO")
+@Repository()
 @Transactional(rollbackFor = Exception.class)
 public class AccountRepository {
 	
 	@PersistenceContext	
 	private EntityManager entityManager;
+	
 
 	public void persist(final Account account) {
 		entityManager.persist(account);
 	}
 
-	public Account findById(final int id_user) {
-		return entityManager.find(Account.class, id_user);
+	public Account findById(final int user_id) {
+		return entityManager.find(Account.class, user_id);
 	}
 
 	public void delete(final Account account) {
@@ -32,4 +33,5 @@ public class AccountRepository {
 	public List<Account> findAll() {
 		return entityManager.createQuery("FROM Account").getResultList();
 	}
+	
 }
