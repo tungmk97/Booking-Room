@@ -32,6 +32,26 @@ a.items:hover{
 .login-sign-up{
     font-size: 18px;
 }
+.logout{
+	background: none;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 0;
+}
+.logout-form{
+	display: inline;
+}
+.post-news-btn{
+	background-color: #161616;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+}
 .header-title{
     text-align: center;
     font-family: Calibri Light;
@@ -516,4 +536,16 @@ a:link {
 }
 .address-input{
 	background: url(/img/address-icon.png) no-repeat 6px 18px;
+}
+
+/*menu*/
+.btn-account{
+	margin-right: 10px;
+}
+.btn-new{
+	margin-left: 30px;
+}
+.dropdown-menu{
+	padding: 15px 0px !important;
+	min-width: 250px !important;
 }

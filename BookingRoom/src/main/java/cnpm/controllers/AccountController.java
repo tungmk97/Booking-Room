@@ -34,7 +34,7 @@ public class AccountController {
 	}
     
     @RequestMapping("/saveAccount")
-	public String doSaveCustomer(@ModelAttribute("Customer") Account account, Model model) {
+	public String doSaveCustomer(@ModelAttribute("Account") Account account, Model model) {
     	accountService.save(account);
 		model.addAttribute("listAccount", accountService.findAll());
 		return "redirect:login";

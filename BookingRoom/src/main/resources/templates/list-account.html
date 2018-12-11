@@ -11,7 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-list-account.css"  th:href="@{css/style-list-account.css}">
 </head>
 <body>
-	<nav th:replace="postNews :: header"></nav>
+	<nav th:replace="index :: header"></nav>
 	
 	<div class="container main-content list">
     	<div th:if="${success}" class="row alert alert-success alert-dismissible" th:fragment="th-list-account-1">
@@ -37,7 +37,8 @@
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr class="table-title">
-                            <th>Mã</th>
+                            <th>STT</th>
+                            <th>ID</th>
                             <th>Tên tài khoản</th>
                             <th>Họ và tên</th>
                             <th>Email</th>
@@ -51,6 +52,7 @@
                     <tbody>
                         <tr th:each="account,iterStat : ${accounts}">
                             <td th:text="${iterStat.count}"></td>
+                            <td th:text="${account.user_id}"></td>
                             <td th:text="${account.username}"></td>
                             <td th:text="${account.name}"></td>
                             <td th:text="${account.email}"></td>

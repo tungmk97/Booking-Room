@@ -1,366 +1,510 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head th:fragment="head">
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title>Trang chủ Booking Room</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	    <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style.css" th:href="@{css/style.css}">
-		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-search.css"  th:href="@{css/style-search.css}">
-	</head>
-	<body>
-		<nav th:fragment="header" class="navbar navbar-inverse navbar-fixed-top">
-	      	<div class="container menu">
-		        <div class="menu-bar">
-			        <ul class="nav navbar-nav navbar-center" th:fragment="th-navbar-center">
-			            <li><a class="items" href="index.html" th:href="@{/index}">Trang chủ</a></li>
-			            <li><a class="items" href="seeNews.html" th:href="@{/seeNews}">Xem tin</a></li>
-			            <li><a class="items" href="search.html" th:href="@{/search}">Tìm kiếm phòng trọ</a></li>
-			            <li><a class="items" href="#">Tin khuyến mãi</a></li>
-			            <li><a class="items" href="introduce.html" th:href="@{/introduce}">Giới thiệu</a></li>
-			        </ul>
-			        <ul class="nav navbar-nav navbar-right">
-			            <li><a class="login-sign-up items" href="login.html" th:href="@{/login}"><div>Đăng nhập</div></a></li>
-			            <li><a class="login-sign-up items" href="register.html" th:href="@{/register}"><div>Đăng ký</div></a></li>
-			            <li><button class="btn btn-danger" href="postNews.html" th:href="@{/postNews}" th:fragment="th-btn-submit-post">Đăng tin</button></li>
-			        </ul>
-		        </div>
-		    </div>
-		</nav>
-		<div class="header-title container">
-			<h1>Booking Room</h1>
-			<h2>Website cho thuê phòng trọ</h2>
-			<p>Booking Room - Website đăng tin cho thuê phòng trọ, tìm phòng trọ nhanh, hiệu quả. cho thuê phòng trọ, nhà trọ, thuê nhà nguyên căn, cho thuê căn hộ. Vì vậy tin của bạn đăng trên website sẽ tiếp cận với nhiều khách hàng hơn, do đó giao dịch nhanh hơn, tiết kiệm chi phí hơn.</p>
-		</div>
-		<div th:replace="search :: th-search"></div>
-		<div class="container hot-news-section section">
-			<h3 class="title">Tin nổi bật</h3>
-			<div class="row hot-news-content">
-				<div class="col-sm-6 col-xs-12 item item-left">
-					<div class="item_thumb _lazy" style="display: block; background-image: url(https://static123.com/phongtro123/uploads/images/thumbs/250x150/fit/2018/10/15/p-20160406-141302_1539572310.jpg); ">
-						<a href="https://phongtro123.com/tinh-thanh/ho-chi-minh/phong-dep-may-lanh-cua-so-chi-2-7-trieuthang.html"></a>
-					</div>
-					<div class="item_info">
-						<h3 class="title">
-							<a href="https://phongtro123.com/tinh-thanh/ho-chi-minh/phong-dep-may-lanh-cua-so-chi-2-7-trieuthang.html" title="Phòng TIỆN NGHI, Máy Lạnh, Cửa Sổ, chỉ 2.8tr/tháng, NGAY BÀ QUẸO">Phòng TIỆN NGHI, Máy Lạnh, Cửa Sổ, chỉ 2.8tr/tháng, NGAY BÀ QUẸO</a>
-						</h3>
-						<div class="clearfix">
-							<div class="item_price_area clearfix">
-								<div class="price">2.8 Triệu/tháng</div>
-								<div class="area">20m<sup>2</sup></div>
-							</div>
-							<div class="location">
-								<a href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-tan-phu" title="Quận Tân Phú, Hồ Chí Minh">Quận Tân Phú, Hồ Chí Minh</a>
-							</div>
+<head th:fragment="head">
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Trang chủ Booking Room</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="/BookingRoom/src/main/resources/static/css/style.css"
+	th:href="@{css/style.css}">
+<link rel="stylesheet" type="text/css"
+	href="/BookingRoom/src/main/resources/static/css/style-search.css"
+	th:href="@{css/style-search.css}">
+</head>
+<body>
+	<nav th:fragment="header"
+		class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container menu">
+			<div class="menu-bar">
+				<ul class="nav navbar-nav navbar-center"
+					th:fragment="th-navbar-center" >
+					<li><a class="items" href="index.html" th:href="@{/index}">Trang
+							chủ</a></li>
+					<li><a class="items" href="seeNews.html" th:href="@{/seeNews}">Xem
+							tin</a></li>
+					<li><a class="items" href="search.html" th:href="@{/search}">Tìm
+							kiếm phòng trọ</a></li>
+					<li><a class="items" href="#">Tin khuyến mãi</a></li>
+					<li><a class="items" href="introduce.html"
+						th:href="@{/introduce}">Giới thiệu</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a th:if="${#request.userPrincipal == null}" class="login-sign-up items" href="login.html"
+						th:href="@{/login}"><div>Đăng nhập</div></a></li>
+					<li><a th:if="${#request.userPrincipal == null}" class="login-sign-up items" href="register.html"
+						th:href="@{/register}"><div>Đăng ký</div></a></li>
+					<li th:if="${#request.userPrincipal != null}" th:fragment="th-form-dropdown">
+		            	<div class="dropdown">
+						    <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown" >Quản lý tài khoản <span class="caret"></span></button></button>
+							<ul class="dropdown-menu alert-info">
+								<li><a><span class="glyphicon glyphicon-modal-window"></span> Tên tài khoản:<strong th:utext="${#request.userPrincipal.name}"></strong></a></li>
+								<li role="separator" class="divider"></li>
+								<li><a rel="nofollow" href="postNews.html" th:href="@{/postNews}"><span class="glyphicon glyphicon-plus-sign"></span> Đăng tin cho thuê</a></li>
+								<li><a rel="nofollow" href="manage-account.html" th:href="@{/manage-account}"><span class="glyphicon glyphicon-calendar"></span> Quản lý tin đăng</a></li>
+								<li><a rel="nofollow" href="manage-account.html" th:href="@{/manage-account}" ><span class="glyphicon glyphicon-user"></span> Thông tin cá nhân</a></li>
+								<li>
+									<a rel="nofollow" th:href="@{/j_spring_security_logout}">
+										<span class="glyphicon glyphicon-log-out"></span>
+										<form class="logout-form"  th:action="@{/j_spring_security_logout}" method="post" >
+											<input class="login-sign-up items logout" type="submit" value="Logout" />
+										</form>
+									</a>
+								</li>
+							</ul>          	
 						</div>
-						<p class="p_content">CHO THUÊ PHÒNG VIP TIỆN NGHI TỰ DO GIỜ GIẤC, KHÔNG CHUNG CHỦ: ***TIỆN ÍCH: - Chỉ 2 phút ra tới chợ VÕ THÀNH TRANG giúp bạn luôn mua được thực phẩm tươi ngon.…</p>
-					</div>
-				</div>
-				<div class="col-sm-6 col-xs-12 item item-right">
-					<div class="item_thumb _lazy" style="display: block; background-image: url(https://static123.com/phongtro123/uploads/images/thumbs/250x150/fit/2018/11/27/5bff379f-7651-4455-9ca5-a90df5378295_1543302525.jpg); ">
-						<a href="https://phongtro123.com/tinh-thanh/ho-chi-minh/cho-thue-phong-dang-can-ho-mini-duong-d3dien-tich-35m2-gia-6-trieu.html"></a>
-					</div>
-					<div class="item_info">
-						<h3 class="title">
-							<a href="https://phongtro123.com/tinh-thanh/ho-chi-minh/cho-thue-phong-dang-can-ho-mini-duong-d3dien-tich-35m2-gia-6-trieu.html" title="Cho thuê phòng dạng căn hộ mini đường D3,diện tích 35m2 ,giá 6 triệu">Cho thuê phòng dạng căn hộ mini đường D3,diện tích 35m2 ,giá 6 triệu</a>
-						</h3>
-						<div class="clearfix">
-							<div class="item_price_area clearfix">
-								<div class="price">6 Triệu/tháng</div>
-								<div class="area">35m<sup>2</sup></div>
-							</div>
-							<div class="location">
-								<a href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-binh-thanh" title="Quận Bình Thạnh, Hồ Chí Minh">Quận Bình Thạnh, Hồ Chí Minh</a>
-							</div>
-						</div>
-						<p class="p_content">Phòng cho thuê dạng căn hộ mini có bếp và toillet riêng trong phòng. Đầy đủ nội thất mới : giường 1,6 x 2m , tủ quần áo 1,8m , bàn trang điểm , bàn ăn ,ghế…</p>
-					</div>
-				</div>
-				<div class="col-sm-6 col-xs-12 item item-left">
-					<div class="item_thumb _lazy" style="display: block; background-image: url(https://static123.com/phongtro123/uploads/images/thumbs/250x150/fit/2018/10/15/p-20160406-141302_1539572310.jpg); ">
-						<a href="https://phongtro123.com/tinh-thanh/ho-chi-minh/phong-dep-may-lanh-cua-so-chi-2-7-trieuthang.html"></a>
-					</div>
-					<div class="item_info">
-						<h3 class="title">
-							<a href="https://phongtro123.com/tinh-thanh/ho-chi-minh/phong-dep-may-lanh-cua-so-chi-2-7-trieuthang.html" title="Phòng TIỆN NGHI, Máy Lạnh, Cửa Sổ, chỉ 2.8tr/tháng, NGAY BÀ QUẸO">Phòng TIỆN NGHI, Máy Lạnh, Cửa Sổ, chỉ 2.8tr/tháng, NGAY BÀ QUẸO</a>
-						</h3>
-						<div class="clearfix">
-							<div class="item_price_area clearfix">
-								<div class="price">2.8 Triệu/tháng</div>
-								<div class="area">20m<sup>2</sup></div>
-							</div>
-							<div class="location">
-								<a href="#">Quận Tân Phú, Hồ Chí Minh</a>
-							</div>
-						</div>
-						<p class="p_content">CHO THUÊ PHÒNG VIP TIỆN NGHI TỰ DO GIỜ GIẤC, KHÔNG CHUNG CHỦ: ***TIỆN ÍCH: - Chỉ 2 phút ra tới chợ VÕ THÀNH TRANG giúp bạn luôn mua được thực phẩm tươi ngon.…</p>
-					</div>
-				</div>
-				<div class="col-sm-6 col-xs-12 item item-right">
-					<div class="item_thumb _lazy" style="display: block; background-image: url(https://static123.com/phongtro123/uploads/images/thumbs/250x150/fit/2018/11/27/5bff379f-7651-4455-9ca5-a90df5378295_1543302525.jpg); ">
-						<a href="#"></a>
-					</div>
-					<div class="item_info">
-						<h3 class="title">
-							<a href="#" title="Cho thuê phòng dạng căn hộ mini đường D3,diện tích 35m2 ,giá 6 triệu">Cho thuê phòng dạng căn hộ mini đường D3,diện tích 35m2 ,giá 6 triệu</a>
-						</h3>
-						<div class="clearfix">
-							<div class="item_price_area clearfix">
-								<div class="price">6 Triệu/tháng</div>
-								<div class="area">35m<sup>2</sup></div>
-							</div>
-							<div class="location">
-								<a href="#" title="Quận Bình Thạnh, Hồ Chí Minh">Quận Bình Thạnh, Hồ Chí Minh</a>
-							</div>
-						</div>
-						<p class="p_content">Phòng cho thuê dạng căn hộ mini có bếp và toillet riêng trong phòng. Đầy đủ nội thất mới : giường 1,6 x 2m , tủ quần áo 1,8m , bàn trang điểm , bàn ăn ,ghế…</p>
-					</div>
-				</div>
+		            </li>
+					<li><a class="items post-news-btn" href="postNews.html"
+							th:href="@{/postNews}" th:fragment="th-btn-submit-post">Đăng
+							tin</a></li>
+
+				</ul>
+
 			</div>
 		</div>
-		<div class="container box-content">
-    		<div class="row">
-      			<div class="col-sm-8 block-left">
-      				<h3>Tin vừa đăng</h3>
-        			<div class="tab-content"> 
-          				<div class="post-item color-red">
-            				<div class="thumb-image">
-              					<a href="#" title="Cho thuê phòng trọ sạch sẽ, an ninh, cách mặt tiền đường Nguyễn Duy Trinh 50m">
-                					<img class="" data-src="https://img.homedy.com/store/images/2018/11/22/1-636784879280933592.jpg_200x200.jpg" alt="Cho thuê phòng trọ sạch sẽ, an ninh, cách mặt tiền đường Nguyễn Duy Trinh 50m" src="https://img.homedy.com/store/images/2018/11/22/1-636784879280933592.jpg_200x200.jpg">
-              					</a>
-              					<div class="distance">
-                					<span class="ic-distance"></span>
-                					<span class="number">6.6 km</span>
-              					</div>
-              					<div class="price">0.1 tr/m2/tháng</div>
-					            <div class="status"></div>
-					            <div class="bg-opacity"></div>
-            				</div>
-	            			<div class="info">
-				              	<a href="#" title="Cho thuê phòng trọ sạch sẽ, an ninh, cách mặt tiền đường Nguyễn Duy Trinh 50m">
-				                	<div class="name">Cho thuê phòng trọ sạch sẽ, an ninh, cách mặt tiền đường Nguyễn Duy Trinh 50m</div>
-				              	</a>
-				              	<div class="description">Địa chỉ: 120/6 đường 06 phường Bình Trưng Tây Quận 2, TPHCM. (Đối diện trường tiểu học Giồng Ông Tố).  ✨&nbsp;&nbsp;Vị trí tiện ích.  - Cách Mặt tiền Đường Nguyễn Duy...</div>
-				              	<div class="address">6, Bình Trưng Tây, Quận 2, TP Hồ Chí Minh</div>
-				              	<div class="date">5 ngày trước</div>
-								<!-- Show only mobile -->
-				              	<div class="distance-price-mobile" style="display: none">
-					                <span>6.6 km</span>
-					                <span>0.1 - 0.13 Triệu/m2/tháng</span>
-					            </div>
-								<!-- End -->
-	              				<div class="detail">
-					                <div class="col price">
-					                  	<span>2.8 - 5</span>
-					                  	<span>Triệu/tháng</span>
-					                </div>
-					                <div class="col acreage">
-					                  	<span>27 - 40</span>
-					                  	<span>m2</span>
-					                </div>
-					                <div class="col name">
-					                  	<div class="fullname">
-					                    	<a href="#" title="Trần Tiến Đạt">Trần Tiến Đạt</a> &nbsp;|
-					                  	</div>
-					                  	<div class="mobile mobile-counter" onclick="{ $(this).hide(); $(this).next().show(); }" id="739096" data-type="2">
-					                    	<span class="mobile-visible-part">0888992</span><span class="mobile-star">***</span>
-					                  	</div>
-	                  					<a href="tel:0888992345" class="mobile" title="0888992345" style="display: none">0888992345</a>
-	                  				<!-- Show only mobile -->
-	                    				<div class="date-mobile" style="display: none">5 ngày trước</div>
-	                  				<!-- End -->
-	                					</div>
-	              				</div>
-	            			</div>
-         	 			</div>
-          				<div class="post-item color-red">
-            				<div class="thumb-image">
-              					<a href="#" title="Cho thuê phòng trọ sạch sẽ, an ninh, cách mặt tiền đường Nguyễn Duy Trinh 50m">
-                					<img class="" data-src="https://img.homedy.com/store/images/2018/11/22/1-636784879280933592.jpg_200x200.jpg" alt="Cho thuê phòng trọ sạch sẽ, an ninh, cách mặt tiền đường Nguyễn Duy Trinh 50m" src="https://img.homedy.com/store/images/2018/11/22/1-636784879280933592.jpg_200x200.jpg">
-              					</a>
-              					<div class="distance">
-					                <span class="ic-distance"></span>
-					                <span class="number">6.6 km</span>
-					            </div>
-					            <div class="price">0.1 tr/m2/tháng</div>
-					            <div class="status"></div>
-					            <div class="bg-opacity"></div>
-					        </div>
-				            <div class="info">
-				              	<a href="#" title="Cho thuê phòng trọ sạch sẽ, an ninh, cách mặt tiền đường Nguyễn Duy Trinh 50m">
-				                	<div class="name">Cho thuê phòng trọ sạch sẽ, an ninh, cách mặt tiền đường Nguyễn Duy Trinh 50m</div>
-				              	</a>
-				              	<div class="description">Địa chỉ: 120/6 đường 06 phường Bình Trưng Tây Quận 2, TPHCM. (Đối diện trường tiểu học Giồng Ông Tố).  ✨&nbsp;&nbsp;Vị trí tiện ích.  - Cách Mặt tiền Đường Nguyễn Duy...</div>
-				              	<div class="address">6, Bình Trưng Tây, Quận 2, TP Hồ Chí Minh</div>
-				              	<div class="date">5 ngày trước</div>
-				            <!-- Show only mobile -->
-				              	<div class="distance-price-mobile" style="display: none">
-				                	<span>6.6 km</span>
-				                	<span>0.1 - 0.13 Triệu/m2/tháng</span>
-				              	</div>
-				            <!-- End -->
-				              	<div class="detail">
-				                	<div class="col price">
-				                  		<span>2.8 - 5</span>
-				                    	<span>Triệu/tháng</span>
-				                	</div>
-				                	<div class="col acreage">
-					                  	<span>27 - 40</span>
-					                  	<span>m2</span>
-					                </div>
-				                	<div class="col name">
-				                  		<div class="fullname">
-				                    	<a href="#" title="Trần Tiến Đạt">Trần Tiến Đạt</a> &nbsp;|
-				                  		</div>
-				                  		<div class="mobile mobile-counter" onclick="{ $(this).hide(); $(this).next().show(); }" id="739096" data-type="2">
-				                    		<span class="mobile-visible-part">0888992</span><span class="mobile-star">***</span>
-				                  		</div>
-				                  		<a href="tel:0888992345" class="mobile" title="0888992345" style="display: none">0888992345</a>
-				                  	<!-- Show only mobile -->
-				                    	<div class="date-mobile" style="display: none">5 ngày trước</div>
-				                  	<!-- End -->
-				                	</div>
-				              	</div>
-				            </div>
-				        </div>
-        			</div>
-      			</div>
-		      	<div class="col-sm-3 block-right">
-		      		<h3>Tin tức mới</h3>
-		      		<div class="sidebar_list_box_content">
-		    			<ul>
-		      				<li>
-						        <div class="news_item clearfix">
-						          	<div class="news_item_image">
-						            	<div class="news_item_image_url" style="background: url(https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&amp;gadget=a&amp;no_expand=1&amp;refresh=604800&amp;url=https://static.phongtro123.com/uploads/2018/09/Bds123-giao-dien-150x150.png?id=270239) center no-repeat; background-size: cover;">
-						              	<a href="https://phongtro123.com/kinh-nghiem/dang-tin-cho-thue-mat-bang-o-dau-nhanh-chong-va-hieu-qua-nhat.html"></a>
-						            	</div>
-						          	</div>
-						        	<div class="news_item_content">
-						            	<div class="news_item_category">Kinh nghiệm</div>
-						            	<div class="news_item_title">
-						            		<a href="https://phongtro123.com/kinh-nghiem/dang-tin-cho-thue-mat-bang-o-dau-nhanh-chong-va-hieu-qua-nhat.html">Đăng tin cho thuê mặt bằng ở đâu nhanh chóng và hiệu quả nhất?</a>
-						            	</div>
-						        	</div>
-						    	</div>
-							</li>
-							<li>
-								<div class="news_item clearfix">
-									<div class="news_item_image">
-										<div class="news_item_image_url" style="background: url(https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&amp;gadget=a&amp;no_expand=1&amp;refresh=604800&amp;url=https://static.phongtro123.com/uploads/2018/09/Bds123-cho-thue-van-phong-150x150.png?id=270273) center no-repeat; background-size: cover;">
-											<a href="https://phongtro123.com/kinh-nghiem/dang-tin-cho-thue-van-phong-o-dau-hieu-qua-nhat.html"></a>
-										</div>
-									</div>
-									<div class="news_item_content">
-										<div class="news_item_category">Kinh nghiệm</div>
-										<div class="news_item_title">
-											<a href="https://phongtro123.com/kinh-nghiem/dang-tin-cho-thue-van-phong-o-dau-hieu-qua-nhat.html">Đăng tin cho thuê văn phòng ở đâu hiệu quả nhất?</a>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="news_item clearfix">
-									<div class="news_item_image">
-										<div class="news_item_image_url" style="background: url(https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&amp;gadget=a&amp;no_expand=1&amp;refresh=604800&amp;url=https://static.phongtro123.com/uploads/2018/11/dau-tu-dat-xay-phong-tro-150x150.jpg?id=272907) center no-repeat; background-size: cover;">
-											<a href="https://phongtro123.com/kinh-nghiem/kinh-nghiem-chon-dat-dau-tu-xay-phong-tro-khong-bao-gio-lo.html"></a>
-										</div>
-									</div>
-									<div class="news_item_content">
-										<div class="news_item_category">Kinh nghiệm</div>
-										<div class="news_item_title">
-											<a href="https://phongtro123.com/kinh-nghiem/kinh-nghiem-chon-dat-dau-tu-xay-phong-tro-khong-bao-gio-lo.html">Kinh nghiệm chọn đất đầu tư xây phòng trọ không bao giờ lỗ</a>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="news_item clearfix">
-									<div class="news_item_image">
-										<div class="news_item_image_url" style="background: url(https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&amp;gadget=a&amp;no_expand=1&amp;refresh=604800&amp;url=https://static.phongtro123.com/uploads/2018/03/Dang-tin-bat-dong-san-tại-bds123.vn_-150x150.png?id=269106) center no-repeat; background-size: cover;">
-											<a href="https://phongtro123.com/kinh-nghiem/top-3-website-dang-tin-tim-nguoi-o-ghep-hieu-qua-nhat.html"></a>
-										</div>
-									</div>
-									<div class="news_item_content">
-										<div class="news_item_category">Kinh nghiệm</div>
-										<div class="news_item_title">
-											<a href="https://phongtro123.com/kinh-nghiem/top-3-website-dang-tin-tim-nguoi-o-ghep-hieu-qua-nhat.html">Top 3 website đăng tin tìm người ở ghép hiệu quả nhất</a>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li>
-								<div class="news_item clearfix">
-									<div class="news_item_image">
-										<div class="news_item_image_url" style="background: url(https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&amp;gadget=a&amp;no_expand=1&amp;refresh=604800&amp;url=https://static.phongtro123.com/uploads/2017/08/Kinh-nghiem-cho-sinh-vien-khi-di-thue-phong-tro-150x150.jpg?id=269109) center no-repeat; background-size: cover;">
-											<a href="https://phongtro123.com/kinh-nghiem/chia-se-10-kinh-nghiem-khi-thue-phong-tro-cho-sinh-vien.html"></a>
-										</div>
-									</div>
-									<div class="news_item_content">
-										<div class="news_item_category">Kinh nghiệm</div>
-										<div class="news_item_title">
-											<a href="https://phongtro123.com/kinh-nghiem/chia-se-10-kinh-nghiem-khi-thue-phong-tro-cho-sinh-vien.html">Chia sẻ 10 kinh nghiệm khi thuê phòng trọ cho Sinh Viên</a>
-										</div>
-									</div>
-								</div>
-							</li>
-						</ul>
+	</nav>
+	<div class="header-title container">
+		<h1>Booking Room</h1>
+		<h2>Website cho thuê phòng trọ</h2>
+		<p>Booking Room - Website đăng tin cho thuê phòng trọ, tìm phòng
+			trọ nhanh, hiệu quả. cho thuê phòng trọ, nhà trọ, thuê nhà nguyên
+			căn, cho thuê căn hộ. Vì vậy tin của bạn đăng trên website sẽ tiếp
+			cận với nhiều khách hàng hơn, do đó giao dịch nhanh hơn, tiết kiệm
+			chi phí hơn.</p>
+	</div>
+	<div th:replace="search :: th-search"></div>
+	<div class="container hot-news-section section">
+		<h3 class="title">Tin nổi bật</h3>
+		<div class="row hot-news-content">
+			<div class="col-sm-6 col-xs-12 item item-left">
+				<div class="item_thumb _lazy"
+					style="display: block; background-image: url(https://static123.com/phongtro123/uploads/images/thumbs/250x150/fit/2018/10/15/p-20160406-141302_1539572310.jpg);">
+					<a
+						href="https://phongtro123.com/tinh-thanh/ho-chi-minh/phong-dep-may-lanh-cua-so-chi-2-7-trieuthang.html"></a>
+				</div>
+				<div class="item_info">
+					<h3 class="title">
+						<a
+							href="https://phongtro123.com/tinh-thanh/ho-chi-minh/phong-dep-may-lanh-cua-so-chi-2-7-trieuthang.html"
+							title="Phòng TIỆN NGHI, Máy Lạnh, Cửa Sổ, chỉ 2.8tr/tháng, NGAY BÀ QUẸO">Phòng
+							TIỆN NGHI, Máy Lạnh, Cửa Sổ, chỉ 2.8tr/tháng, NGAY BÀ QUẸO</a>
+					</h3>
+					<div class="clearfix">
+						<div class="item_price_area clearfix">
+							<div class="price">2.8 Triệu/tháng</div>
+							<div class="area">
+								20m<sup>2</sup>
+							</div>
+						</div>
+						<div class="location">
+							<a
+								href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-tan-phu"
+								title="Quận Tân Phú, Hồ Chí Minh">Quận Tân Phú, Hồ Chí Minh</a>
+						</div>
 					</div>
+					<p class="p_content">CHO THUÊ PHÒNG VIP TIỆN NGHI TỰ DO GIỜ
+						GIẤC, KHÔNG CHUNG CHỦ: ***TIỆN ÍCH: - Chỉ 2 phút ra tới chợ VÕ
+						THÀNH TRANG giúp bạn luôn mua được thực phẩm tươi ngon.…</p>
 				</div>
 			</div>
-			<div class="whyus_block" style="text-align: center;">
-				<div class="whyus_header">
-					<h3>Bạn đang có phòng trọ cần cho thuê?</h3>
+			<div class="col-sm-6 col-xs-12 item item-right">
+				<div class="item_thumb _lazy"
+					style="display: block; background-image: url(https://static123.com/phongtro123/uploads/images/thumbs/250x150/fit/2018/11/27/5bff379f-7651-4455-9ca5-a90df5378295_1543302525.jpg);">
+					<a
+						href="https://phongtro123.com/tinh-thanh/ho-chi-minh/cho-thue-phong-dang-can-ho-mini-duong-d3dien-tich-35m2-gia-6-trieu.html"></a>
 				</div>
-				<div class="whyus_body">
-					<p>Không phải lo tìm người cho thuê, phòng trống kéo dài</p>
-					<a type="button" class="btn btn-danger" href="postNews.html" th:href="@{/postNews}">Đăng tin ngay</a>
+				<div class="item_info">
+					<h3 class="title">
+						<a
+							href="https://phongtro123.com/tinh-thanh/ho-chi-minh/cho-thue-phong-dang-can-ho-mini-duong-d3dien-tich-35m2-gia-6-trieu.html"
+							title="Cho thuê phòng dạng căn hộ mini đường D3,diện tích 35m2 ,giá 6 triệu">Cho
+							thuê phòng dạng căn hộ mini đường D3,diện tích 35m2 ,giá 6 triệu</a>
+					</h3>
+					<div class="clearfix">
+						<div class="item_price_area clearfix">
+							<div class="price">6 Triệu/tháng</div>
+							<div class="area">
+								35m<sup>2</sup>
+							</div>
+						</div>
+						<div class="location">
+							<a
+								href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-binh-thanh"
+								title="Quận Bình Thạnh, Hồ Chí Minh">Quận Bình Thạnh, Hồ Chí
+								Minh</a>
+						</div>
+					</div>
+					<p class="p_content">Phòng cho thuê dạng căn hộ mini có bếp và
+						toillet riêng trong phòng. Đầy đủ nội thất mới : giường 1,6 x 2m ,
+						tủ quần áo 1,8m , bàn trang điểm , bàn ăn ,ghế…</p>
+				</div>
+			</div>
+			<div class="col-sm-6 col-xs-12 item item-left">
+				<div class="item_thumb _lazy"
+					style="display: block; background-image: url(https://static123.com/phongtro123/uploads/images/thumbs/250x150/fit/2018/10/15/p-20160406-141302_1539572310.jpg);">
+					<a
+						href="https://phongtro123.com/tinh-thanh/ho-chi-minh/phong-dep-may-lanh-cua-so-chi-2-7-trieuthang.html"></a>
+				</div>
+				<div class="item_info">
+					<h3 class="title">
+						<a
+							href="https://phongtro123.com/tinh-thanh/ho-chi-minh/phong-dep-may-lanh-cua-so-chi-2-7-trieuthang.html"
+							title="Phòng TIỆN NGHI, Máy Lạnh, Cửa Sổ, chỉ 2.8tr/tháng, NGAY BÀ QUẸO">Phòng
+							TIỆN NGHI, Máy Lạnh, Cửa Sổ, chỉ 2.8tr/tháng, NGAY BÀ QUẸO</a>
+					</h3>
+					<div class="clearfix">
+						<div class="item_price_area clearfix">
+							<div class="price">2.8 Triệu/tháng</div>
+							<div class="area">
+								20m<sup>2</sup>
+							</div>
+						</div>
+						<div class="location">
+							<a href="#">Quận Tân Phú, Hồ Chí Minh</a>
+						</div>
+					</div>
+					<p class="p_content">CHO THUÊ PHÒNG VIP TIỆN NGHI TỰ DO GIỜ
+						GIẤC, KHÔNG CHUNG CHỦ: ***TIỆN ÍCH: - Chỉ 2 phút ra tới chợ VÕ
+						THÀNH TRANG giúp bạn luôn mua được thực phẩm tươi ngon.…</p>
+				</div>
+			</div>
+			<div class="col-sm-6 col-xs-12 item item-right">
+				<div class="item_thumb _lazy"
+					style="display: block; background-image: url(https://static123.com/phongtro123/uploads/images/thumbs/250x150/fit/2018/11/27/5bff379f-7651-4455-9ca5-a90df5378295_1543302525.jpg);">
+					<a href="#"></a>
+				</div>
+				<div class="item_info">
+					<h3 class="title">
+						<a href="#"
+							title="Cho thuê phòng dạng căn hộ mini đường D3,diện tích 35m2 ,giá 6 triệu">Cho
+							thuê phòng dạng căn hộ mini đường D3,diện tích 35m2 ,giá 6 triệu</a>
+					</h3>
+					<div class="clearfix">
+						<div class="item_price_area clearfix">
+							<div class="price">6 Triệu/tháng</div>
+							<div class="area">
+								35m<sup>2</sup>
+							</div>
+						</div>
+						<div class="location">
+							<a href="#" title="Quận Bình Thạnh, Hồ Chí Minh">Quận Bình
+								Thạnh, Hồ Chí Minh</a>
+						</div>
+					</div>
+					<p class="p_content">Phòng cho thuê dạng căn hộ mini có bếp và
+						toillet riêng trong phòng. Đầy đủ nội thất mới : giường 1,6 x 2m ,
+						tủ quần áo 1,8m , bàn trang điểm , bàn ăn ,ghế…</p>
 				</div>
 			</div>
 		</div>
-		<footer th:fragment="footer">
-			<div class="container">
-				<div class="row">
-		        	<div class="col-xs-12 col-sm-12 col-md-3">
-		          		<div class="logo"><a class="logo" href="#"></a></div>
-		          		<p class="content-1-footer">BookingRoom là một nền tảng trực tuyến cho các nhu cầu về vấn đề thuê trọ hiện nay. Chúng tôi đang làm việc trên một ứng dụng web để tạo điều kiện cho các khách hàng có nhu cầu cho thuê trọ và tìm kiếm phòng trọ.</p>
-		        	</div>
-		        	<div class="col-xs-12 col-sm-12 col-md-2 col-md-offset-1 menu-footer">
-			        	<h3>Hữu ích</h3>
-			        	<span><a href="index.html" th:href="@{/index}">Trang chủ</a></span> 
-			        	<span><a href="seeNews.html" th:href="@{/seeNews}">Xem tin</a></span>
-			        	<span><a href="#" th:href="@{/login}">Tìm kiếm phòng trọ</a></span>
-			        	<span><a href="postNews.html" th:href="@{/postNews}">Đăng tin cho thuê trọ</a></span>
-			        	<span><a href="introduce.html" th:href="@{/introduce}">Giới thiệu</a></span>
-			        	<span><a href="#" th:href="@{/login}">Terms and conditions</a></span>
-			        	<span><a href="#" th:href="@{/login}">Cookies policy</a></span>
-			        	<span><a href="#" th:href="@{/index}">Kết nối với chúng tôi</a></span>
-		        	</div>
-		        	<div class="col-xs-12 col-sm-12 col-md-2 col-md-offset-0.5  menu-footer">
-		          		<h3>Tài khoản</h3>
-		          		<span><a href="register.html" th:href="@{/register}">Đăng ký tài khoản mới</a> </span>
-		          		<span><a href="manage-account.html" th:href="@{/manage-account/}">Quản lý tài khoản</a></span>
-		          		<span><a href="manage-account.html" th:href="@{/manage-account}">Đổi mật khẩu</a></span>
-		          		<span><a href="#" th:href="@{/index}">Xóa tài khoản</a> </span>
-		          		<span><a href="index.html" th:href="@{/index}">Bảng tin</a></span>
-		        	</div>
-		        	<div class="col-xs-12 col-sm-12 col-md-4 menu-footer">
-		          		<h3 class="center-h3">We are social</h3>
-		          		<a href="#" th:href="@{/index}"><span class="icon-in-footer icon-1-in-footer"></span></a>
-		          		<a href="#" th:href="@{/index}"><span class="icon-in-footer icon-2-in-footer"></span></a>
-		          		<a href="#" th:href="@{/index}"><span class="icon-in-footer icon-3-in-footer"></span></a>
-		          		<a href="#" th:href="@{/index}"><span class="icon-in-footer icon-4-in-footer"></span></a>
-		          		<p class="subcribe-label">Phản hồi cho chúng tôi</p>
-		          		<div class="form-group">
-		            		<input type="text" name="email" class="form-control" id="email" placeholder = "Email address">
-		          		</div>
-		        	</div>
-		    	</div>
+	</div>
+	<div class="container box-content">
+		<div class="row">
+			<div class="col-sm-8 block-left">
+				<h3>Tin vừa đăng</h3>
+				<div class="tab-content">
+					<div class="post-item color-red">
+						<div class="thumb-image">
+							<a href="#"
+								title="Cho thuê phòng trọ sạch sẽ, an ninh, cách mặt tiền đường Nguyễn Duy Trinh 50m">
+								<img class=""
+								data-src="https://img.homedy.com/store/images/2018/11/22/1-636784879280933592.jpg_200x200.jpg"
+								alt="Cho thuê phòng trọ sạch sẽ, an ninh, cách mặt tiền đường Nguyễn Duy Trinh 50m"
+								src="https://img.homedy.com/store/images/2018/11/22/1-636784879280933592.jpg_200x200.jpg">
+							</a>
+							<div class="distance">
+								<span class="ic-distance"></span> <span class="number">6.6
+									km</span>
+							</div>
+							<div class="price">0.1 tr/m2/tháng</div>
+							<div class="status"></div>
+							<div class="bg-opacity"></div>
+						</div>
+						<div class="info">
+							<a href="#"
+								title="Cho thuê phòng trọ sạch sẽ, an ninh, cách mặt tiền đường Nguyễn Duy Trinh 50m">
+								<div class="name">Cho thuê phòng trọ sạch sẽ, an ninh,
+									cách mặt tiền đường Nguyễn Duy Trinh 50m</div>
+							</a>
+							<div class="description">Địa chỉ: 120/6 đường 06 phường
+								Bình Trưng Tây Quận 2, TPHCM. (Đối diện trường tiểu học Giồng
+								Ông Tố). ✨&nbsp;&nbsp;Vị trí tiện ích. - Cách Mặt tiền Đường
+								Nguyễn Duy...</div>
+							<div class="address">6, Bình Trưng Tây, Quận 2, TP Hồ Chí
+								Minh</div>
+							<div class="date">5 ngày trước</div>
+							<!-- Show only mobile -->
+							<div class="distance-price-mobile" style="display: none">
+								<span>6.6 km</span> <span>0.1 - 0.13 Triệu/m2/tháng</span>
+							</div>
+							<!-- End -->
+							<div class="detail">
+								<div class="col price">
+									<span>2.8 - 5</span> <span>Triệu/tháng</span>
+								</div>
+								<div class="col acreage">
+									<span>27 - 40</span> <span>m2</span>
+								</div>
+								<div class="col name">
+									<div class="fullname">
+										<a href="#" title="Trần Tiến Đạt">Trần Tiến Đạt</a> &nbsp;|
+									</div>
+									<div class="mobile mobile-counter"
+										onclick="{ $(this).hide(); $(this).next().show(); }"
+										id="739096" data-type="2">
+										<span class="mobile-visible-part">0888992</span><span
+											class="mobile-star">***</span>
+									</div>
+									<a href="tel:0888992345" class="mobile" title="0888992345"
+										style="display: none">0888992345</a>
+									<!-- Show only mobile -->
+									<div class="date-mobile" style="display: none">5 ngày
+										trước</div>
+									<!-- End -->
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="post-item color-red">
+						<div class="thumb-image">
+							<a href="#"
+								title="Cho thuê phòng trọ sạch sẽ, an ninh, cách mặt tiền đường Nguyễn Duy Trinh 50m">
+								<img class=""
+								data-src="https://img.homedy.com/store/images/2018/11/22/1-636784879280933592.jpg_200x200.jpg"
+								alt="Cho thuê phòng trọ sạch sẽ, an ninh, cách mặt tiền đường Nguyễn Duy Trinh 50m"
+								src="https://img.homedy.com/store/images/2018/11/22/1-636784879280933592.jpg_200x200.jpg">
+							</a>
+							<div class="distance">
+								<span class="ic-distance"></span> <span class="number">6.6
+									km</span>
+							</div>
+							<div class="price">0.1 tr/m2/tháng</div>
+							<div class="status"></div>
+							<div class="bg-opacity"></div>
+						</div>
+						<div class="info">
+							<a href="#"
+								title="Cho thuê phòng trọ sạch sẽ, an ninh, cách mặt tiền đường Nguyễn Duy Trinh 50m">
+								<div class="name">Cho thuê phòng trọ sạch sẽ, an ninh,
+									cách mặt tiền đường Nguyễn Duy Trinh 50m</div>
+							</a>
+							<div class="description">Địa chỉ: 120/6 đường 06 phường
+								Bình Trưng Tây Quận 2, TPHCM. (Đối diện trường tiểu học Giồng
+								Ông Tố). ✨&nbsp;&nbsp;Vị trí tiện ích. - Cách Mặt tiền Đường
+								Nguyễn Duy...</div>
+							<div class="address">6, Bình Trưng Tây, Quận 2, TP Hồ Chí
+								Minh</div>
+							<div class="date">5 ngày trước</div>
+							<!-- Show only mobile -->
+							<div class="distance-price-mobile" style="display: none">
+								<span>6.6 km</span> <span>0.1 - 0.13 Triệu/m2/tháng</span>
+							</div>
+							<!-- End -->
+							<div class="detail">
+								<div class="col price">
+									<span>2.8 - 5</span> <span>Triệu/tháng</span>
+								</div>
+								<div class="col acreage">
+									<span>27 - 40</span> <span>m2</span>
+								</div>
+								<div class="col name">
+									<div class="fullname">
+										<a href="#" title="Trần Tiến Đạt">Trần Tiến Đạt</a> &nbsp;|
+									</div>
+									<div class="mobile mobile-counter"
+										onclick="{ $(this).hide(); $(this).next().show(); }"
+										id="739096" data-type="2">
+										<span class="mobile-visible-part">0888992</span><span
+											class="mobile-star">***</span>
+									</div>
+									<a href="tel:0888992345" class="mobile" title="0888992345"
+										style="display: none">0888992345</a>
+									<!-- Show only mobile -->
+									<div class="date-mobile" style="display: none">5 ngày
+										trước</div>
+									<!-- End -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-		    <p class="last-content">&copy; 2018 BookingRoom, all rights received</p>
-		</footer>
-		
-	</body>
+			<div class="col-sm-3 block-right">
+				<h3>Tin tức mới</h3>
+				<div class="sidebar_list_box_content">
+					<ul>
+						<li>
+							<div class="news_item clearfix">
+								<div class="news_item_image">
+									<div class="news_item_image_url"
+										style="background: url(https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&amp;gadget=a&amp;no_expand=1&amp;refresh=604800&amp;url=https://static.phongtro123.com/uploads/2018/09/Bds123-giao-dien-150x150.png?id=270239) center no-repeat; background-size: cover;">
+										<a
+											href="https://phongtro123.com/kinh-nghiem/dang-tin-cho-thue-mat-bang-o-dau-nhanh-chong-va-hieu-qua-nhat.html"></a>
+									</div>
+								</div>
+								<div class="news_item_content">
+									<div class="news_item_category">Kinh nghiệm</div>
+									<div class="news_item_title">
+										<a
+											href="https://phongtro123.com/kinh-nghiem/dang-tin-cho-thue-mat-bang-o-dau-nhanh-chong-va-hieu-qua-nhat.html">Đăng
+											tin cho thuê mặt bằng ở đâu nhanh chóng và hiệu quả nhất?</a>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="news_item clearfix">
+								<div class="news_item_image">
+									<div class="news_item_image_url"
+										style="background: url(https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&amp;gadget=a&amp;no_expand=1&amp;refresh=604800&amp;url=https://static.phongtro123.com/uploads/2018/09/Bds123-cho-thue-van-phong-150x150.png?id=270273) center no-repeat; background-size: cover;">
+										<a
+											href="https://phongtro123.com/kinh-nghiem/dang-tin-cho-thue-van-phong-o-dau-hieu-qua-nhat.html"></a>
+									</div>
+								</div>
+								<div class="news_item_content">
+									<div class="news_item_category">Kinh nghiệm</div>
+									<div class="news_item_title">
+										<a
+											href="https://phongtro123.com/kinh-nghiem/dang-tin-cho-thue-van-phong-o-dau-hieu-qua-nhat.html">Đăng
+											tin cho thuê văn phòng ở đâu hiệu quả nhất?</a>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="news_item clearfix">
+								<div class="news_item_image">
+									<div class="news_item_image_url"
+										style="background: url(https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&amp;gadget=a&amp;no_expand=1&amp;refresh=604800&amp;url=https://static.phongtro123.com/uploads/2018/11/dau-tu-dat-xay-phong-tro-150x150.jpg?id=272907) center no-repeat; background-size: cover;">
+										<a
+											href="https://phongtro123.com/kinh-nghiem/kinh-nghiem-chon-dat-dau-tu-xay-phong-tro-khong-bao-gio-lo.html"></a>
+									</div>
+								</div>
+								<div class="news_item_content">
+									<div class="news_item_category">Kinh nghiệm</div>
+									<div class="news_item_title">
+										<a
+											href="https://phongtro123.com/kinh-nghiem/kinh-nghiem-chon-dat-dau-tu-xay-phong-tro-khong-bao-gio-lo.html">Kinh
+											nghiệm chọn đất đầu tư xây phòng trọ không bao giờ lỗ</a>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="news_item clearfix">
+								<div class="news_item_image">
+									<div class="news_item_image_url"
+										style="background: url(https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&amp;gadget=a&amp;no_expand=1&amp;refresh=604800&amp;url=https://static.phongtro123.com/uploads/2018/03/Dang-tin-bat-dong-san-tại-bds123.vn_-150x150.png?id=269106) center no-repeat; background-size: cover;">
+										<a
+											href="https://phongtro123.com/kinh-nghiem/top-3-website-dang-tin-tim-nguoi-o-ghep-hieu-qua-nhat.html"></a>
+									</div>
+								</div>
+								<div class="news_item_content">
+									<div class="news_item_category">Kinh nghiệm</div>
+									<div class="news_item_title">
+										<a
+											href="https://phongtro123.com/kinh-nghiem/top-3-website-dang-tin-tim-nguoi-o-ghep-hieu-qua-nhat.html">Top
+											3 website đăng tin tìm người ở ghép hiệu quả nhất</a>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="news_item clearfix">
+								<div class="news_item_image">
+									<div class="news_item_image_url"
+										style="background: url(https://images2-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&amp;gadget=a&amp;no_expand=1&amp;refresh=604800&amp;url=https://static.phongtro123.com/uploads/2017/08/Kinh-nghiem-cho-sinh-vien-khi-di-thue-phong-tro-150x150.jpg?id=269109) center no-repeat; background-size: cover;">
+										<a
+											href="https://phongtro123.com/kinh-nghiem/chia-se-10-kinh-nghiem-khi-thue-phong-tro-cho-sinh-vien.html"></a>
+									</div>
+								</div>
+								<div class="news_item_content">
+									<div class="news_item_category">Kinh nghiệm</div>
+									<div class="news_item_title">
+										<a
+											href="https://phongtro123.com/kinh-nghiem/chia-se-10-kinh-nghiem-khi-thue-phong-tro-cho-sinh-vien.html">Chia
+											sẻ 10 kinh nghiệm khi thuê phòng trọ cho Sinh Viên</a>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="whyus_block" style="text-align: center;">
+			<div class="whyus_header">
+				<h3>Bạn đang có phòng trọ cần cho thuê?</h3>
+			</div>
+			<div class="whyus_body">
+				<p>Không phải lo tìm người cho thuê, phòng trống kéo dài</p>
+				<a type="button" class="btn btn-danger" href="postNews.html"
+					th:href="@{/postNews}">Đăng tin ngay</a>
+			</div>
+		</div>
+	</div>
+	<footer th:fragment="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-3">
+					<div class="logo">
+						<a class="logo" href="#"></a>
+					</div>
+					<p class="content-1-footer">BookingRoom là một nền tảng trực
+						tuyến cho các nhu cầu về vấn đề thuê trọ hiện nay. Chúng tôi đang
+						làm việc trên một ứng dụng web để tạo điều kiện cho các khách hàng
+						có nhu cầu cho thuê trọ và tìm kiếm phòng trọ.</p>
+				</div>
+				<div
+					class="col-xs-12 col-sm-12 col-md-2 col-md-offset-1 menu-footer">
+					<h3>Hữu ích</h3>
+					<span><a href="index.html" th:href="@{/index}">Trang chủ</a></span>
+					<span><a href="seeNews.html" th:href="@{/seeNews}">Xem
+							tin</a></span> <span><a href="#" th:href="@{/login}">Tìm kiếm
+							phòng trọ</a></span> <span><a href="postNews.html"
+						th:href="@{/postNews}">Đăng tin cho thuê trọ</a></span> <span><a
+						href="introduce.html" th:href="@{/introduce}">Giới thiệu</a></span> <span><a
+						href="#" th:href="@{/login}">Terms and conditions</a></span> <span><a
+						href="#" th:href="@{/login}">Cookies policy</a></span> <span><a
+						href="#" th:href="@{/index}">Kết nối với chúng tôi</a></span>
+				</div>
+				<div
+					class="col-xs-12 col-sm-12 col-md-2 col-md-offset-0.5  menu-footer">
+					<h3>Tài khoản</h3>
+					<span><a href="register.html" th:href="@{/register}">Đăng
+							ký tài khoản mới</a> </span> <span><a href="manage-account.html"
+						th:href="@{/manage-account}">Quản lý tài khoản</a></span> <span><a
+						href="manage-account.html" th:href="@{/manage-account}">Đổi
+							mật khẩu</a></span> <span><a href="#" th:href="@{/index}">Xóa tài
+							khoản</a> </span> <span><a href="index.html" th:href="@{/index}">Bảng
+							tin</a></span>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-4 menu-footer">
+					<h3 class="center-h3">We are social</h3>
+					<a href="#" th:href="@{/index}"><span
+						class="icon-in-footer icon-1-in-footer"></span></a> <a href="#"
+						th:href="@{/index}"><span
+						class="icon-in-footer icon-2-in-footer"></span></a> <a href="#"
+						th:href="@{/index}"><span
+						class="icon-in-footer icon-3-in-footer"></span></a> <a href="#"
+						th:href="@{/index}"><span
+						class="icon-in-footer icon-4-in-footer"></span></a>
+					<p class="subcribe-label">Phản hồi cho chúng tôi</p>
+					<div class="form-group">
+						<input type="text" name="email" class="form-control" id="email"
+							placeholder="Email address">
+					</div>
+				</div>
+			</div>
+		</div>
+		<p class="last-content">&copy; 2018 BookingRoom, all rights
+			received</p>
+	</footer>
+
+</body>
 </html>
