@@ -46,8 +46,9 @@
 								<li><a><span class="glyphicon glyphicon-modal-window"></span> Tên tài khoản:<strong th:utext="${#request.userPrincipal.name}"></strong></a></li>
 								<li role="separator" class="divider"></li>
 								<li><a rel="nofollow" href="postNews.html" th:href="@{/postNews}"><span class="glyphicon glyphicon-plus-sign"></span> Đăng tin cho thuê</a></li>
-								<li><a rel="nofollow" href="manage-account.html" th:href="@{/manage-account}"><span class="glyphicon glyphicon-calendar"></span> Quản lý tin đăng</a></li>
-								<li><a rel="nofollow" href="manage-account.html" th:href="@{/manage-account}" ><span class="glyphicon glyphicon-user"></span> Thông tin cá nhân</a></li>
+								<li><a rel="nofollow" href="manage-account.html" th:href="@{/manage-account/manage-posts}"><span class="glyphicon glyphicon-calendar"></span> Quản lý tin đăng</a></li>
+								<li><a rel="nofollow" href="manage-account.html" th:href="@{/manage-account/profile}" ><span class="glyphicon glyphicon-user"></span> Thông tin cá nhân</a></li>
+								<li><a rel="nofollow" href="manage-account.html" th:href="@{/list-account}" ><span class="glyphicon glyphicon-calendar"></span> Admin</a></li>
 								<li>
 									<a rel="nofollow" th:href="@{/j_spring_security_logout}">
 										<span class="glyphicon glyphicon-log-out"></span>
@@ -478,9 +479,9 @@
 					<h3>Tài khoản</h3>
 					<span><a href="register.html" th:href="@{/register}">Đăng
 							ký tài khoản mới</a> </span> <span><a href="manage-account.html"
-						th:href="@{/manage-account}">Quản lý tài khoản</a></span> <span><a
-						href="manage-account.html" th:href="@{/manage-account}">Đổi
-							mật khẩu</a></span> <span><a href="#" th:href="@{/index}">Xóa tài
+						th:href="@{/manage-account/profile}">Quản lý tài khoản</a></span> <span><a
+						href="manage-account.html" th:href="@{/manage-account/profile}">Đổi
+							mật khẩu</a></span> <span><a href="#" th:href="@{/manage-account/profile}">Xóa tài
 							khoản</a> </span> <span><a href="index.html" th:href="@{/index}">Bảng
 							tin</a></span>
 				</div>

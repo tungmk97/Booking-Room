@@ -6,4 +6,5 @@ import cnpm.domain.Account;
 
 public interface UserRepository extends JpaRepository<Account, Integer> {
 	Account findByUsername(String username);
+	Account findByEmail(String email);
 }

@@ -1,10 +1,12 @@
 package cnpm.domain;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -56,16 +58,19 @@ public class Account implements Serializable {
 	    
 	    //cho liên kết nhieefu nhiều
 	    //https://stackoverflow.com/questions/22821695/how-to-fix-hibernate-lazyinitializationexception-failed-to-lazily-initialize-a?rq=1
-	    @ManyToMany(fetch =FetchType.EAGER)
+	    @ManyToMany(fetch =FetchType.EAGER, cascade = {
+                CascadeType.PERSIST,
+                CascadeType.MERGE
+        })
 	    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-	    private Set<AppRole> roles;
+	    private Collection<AppRole> roles;
 	    
 	    public Account() {
 			super();
 		}
 
 		public Account(final int user_id,final String username,final String name,final String password,final String email,final int phone_number,final
-				String address,final Boolean enabled,final Set<AppRole> roles) {
+				String address,final Boolean enabled,final Collection<AppRole> roles) {
 			super();
 			this.user_id = user_id;
 			this.username = username;
@@ -143,15 +148,23 @@ public class Account implements Serializable {
 		}
 
 		
-		public Set<AppRole> getRoles() {
+		public Collection<AppRole> getRoles() {
 			return roles;
 		}
 
-		public void setRoles(Set<AppRole> roles) {
+		public void setRoles(Collection<AppRole> roles) {
 			this.roles = roles;
 		}
 
 		public static long getSerialversionuid() {
 			return serialVersionUID;
 		}
+
+		@Override
+		public String toString() {
+			return "Account [user_id=" + user_id + ", username=" + username + ", name=" + name + ", password="
+					+ password + ", email=" + email + ", phone_number=" + phone_number + ", address=" + address
+					+ ", enabled=" + enabled + "]";
+		}
+		
 }

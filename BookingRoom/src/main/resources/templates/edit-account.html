@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="head">
+<head th:fragment="head" lang="vi">
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Sửa tài khoản</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -35,7 +35,7 @@
 					<div class="group-tabs"></div>
 					<div class="user_profile_form">
 						<form class="form-horizontal" th:action="@{/updateAccount}" th:object="${account}"
-		    method="POST" novalidate="novalidate">
+		    method="POST" novalidate="novalidate" th:fragment="th-form-edit-account">
 							<div class="form-group">
 								<label
 									class="title_label control-label col-md-3 col-sm-4 col-xs-12"
@@ -111,13 +111,13 @@
 							</div>
 							<br>
 							<div class="form-group">
-								<label
+								<!-- <label
 									class="title_label control-label col-md-3 col-sm-4 col-xs-12"
-									for="password_old">Mật khẩu</label>
+									for="password_old">Mật khẩu</label> -->
 								<div class=" col-md-9 col-sm-8 col-xs-12">
 									<div class="input-group">
-										<input class="form-control txt pass" type="password" readonly="readonly"
-											id="password_old" name="password_old"  th:field="*{password}" th:value="${account.password}" />
+										<input class="form-control txt pass" type="hidden" readonly="readonly"
+											id="password" name="password"  th:field="*{password}" th:value="${account.password}" />
 									</div>
 								</div>
 							</div>

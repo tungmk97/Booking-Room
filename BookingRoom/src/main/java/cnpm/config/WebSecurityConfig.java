@@ -50,16 +50,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         
      // Trang /userInfo yêu cầu phải login với vai trò ROLE_USER hoặc ROLE_ADMIN.
         // Nếu chưa login, nó sẽ redirect tới trang /login.
-        http.authorizeRequests().antMatchers("/manage-account", "/postNews").access("hasAnyRole('USER', 'ADMIN')");
+        http.authorizeRequests().antMatchers("/manage-account/profile", "/postNews").access("hasAnyRole('USER', 'ADMIN')");
         
 		// Chỉ cho phép user có quyền ADMIN truy cập đường dẫn /admin/**
 //		http.authorizeRequests().antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')");
-		http.authorizeRequests().antMatchers("/admin/**").hasAnyAuthority("ADMIN");
+		http.authorizeRequests().antMatchers("/admin/**", "/list-account").hasAnyAuthority("ADMIN");
 
 		// Chỉ cho phép user có quyền ADMIN hoặc USER truy cập đường dẫn
 		// /user/**
 //		http.authorizeRequests().antMatchers("/user/**").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')");
-		http.authorizeRequests().antMatchers("/user/**","/manage-account", "/postNews").hasAnyAuthority("ADMIN", "USER");
+		http.authorizeRequests().antMatchers("/user/**","/manage-account", "/manage-account/profile", "/manage-account/manage-posts", "/postNews").hasAnyAuthority("ADMIN", "USER");
 
 		// Khi người dùng đã login, với vai trò USER, Nhưng truy cập vào trang
 		// yêu cầu vai trò ADMIN, sẽ chuyển hướng tới trang /403
@@ -70,7 +70,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.loginProcessingUrl("/j_spring_security_login")//
 				.loginPage("/login")//
 //				.defaultSuccessUrl("/user")//
-				.defaultSuccessUrl("/manage-account")//
+				.defaultSuccessUrl("/manage-account/profile")//
 				.failureUrl("/login?message=error")//
 				.usernameParameter("username")//
 				.passwordParameter("password")

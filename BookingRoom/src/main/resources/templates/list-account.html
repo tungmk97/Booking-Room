@@ -20,7 +20,7 @@
 	    </div>
     	
     	<th:block th:if="${#lists.isEmpty(accounts)}" th:fragment="th-list-account-2">
-		    <h3>Chưa có thành viên nào!</h3>
+		    <h3>Bạn không có quyền truy cập quản lý thành viên!</h3>
 		</th:block>
 		
         <th:block th:unless="${#lists.isEmpty(accounts)}" th:fragment="th-list-account-3">

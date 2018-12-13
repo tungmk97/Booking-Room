@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="head">
+<head th:fragment="head" lang="vi">
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Quản lý tài khoản</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -34,156 +34,38 @@
 					<div class="title-section">
 						<h1 class="title-page">Quản lý tài khoản</h1>
 						<div class="group-tabs"></div>
+					</div>
 				</li>
-				<li role="presentation" class="active"><a href="#profile"
-					aria-controls="profile" role="tab" data-toggle="tab"
-					class="title-tab">Thông tin cá nhân</a></li>
-				<li role="presentation"><a href="#manage-posts"
-					aria-controls="manage-posts" role="tab" data-toggle="tab"
-					class="title-tab">Quản lý tin đăng</a></li>
-				<li role="presentation"><a href="#transaction-history"
-					aria-controls="transaction-history" role="tab" data-toggle="tab"
-					class="title-tab">Lịch sử giao dịch</a></li>
-				<li role="presentation"><a href="#post-news"
-					aria-controls="post-news" role="tab" data-toggle="tab"
-					class="title-tab">Đăng tin mới</a></li>
-				<li role="presentation"><a href="#manage-list-accounts"
-					aria-controls="manage-list-accounts" role="tab" data-toggle="tab"
-					class="title-tab">Quản lý thành viên</a></li>
+				<li role="presentation" th:classappend="${#request.getRequestURI() == '/manage-account/profile' ? 'active':''}">
+					<a href="#profile" th:href="@{/#profile}" aria-controls="profile" role="tab" data-toggle="tab" class="title-tab">Thông tin cá nhân</a>
+				</li>
+				<li role="presentation" th:classappend="${#request.getRequestURI() == '/manage-account/manage-posts' ? 'active':''}">
+					<a href="#manage-posts" th:href="@{/#manage-posts}" aria-controls="manage-posts" role="tab" data-toggle="tab" class="title-tab">Quản lý tin đăng</a>
+				</li>
+				<li role="presentation" th:classappend="${#request.getRequestURI() == '/manage-account/transaction-history' ? 'active':''}">
+					<a href="#transaction-history" th:href="@{/#transaction-history}" aria-controls="transaction-history" role="tab" data-toggle="tab" class="title-tab">Lịch sử giao dịch</a>
+				</li>
+				<li role="presentation">
+					<a href="#post-news" th:href="@{/#post-news}" aria-controls="post-news" role="tab" data-toggle="tab" class="title-tab">Đăng tin mới</a>
+				</li>
+				<!-- <li role="presentation" th:classappend="${#request.getRequestURI() == '/#manage-list-accounts' ? 'active':''}">
+					<a href="#manage-list-accounts" th:href="@{/#manage-list-accounts}" aria-controls="manage-list-accounts" role="tab" data-toggle="tab" class="title-tab">Quản lý thành viên</a>
+				</li> -->
 			</ul>
 			<!-- Tab panes -->
 			<div class="tab-content  col-md-9">
 				<!-- profile -->
-				<div role="tabpanel" class="tab-pane active content-in-tab"
-					id="profile">
+				<div role="tabpanel" class="tab-pane content-in-tab"
+					id="profile" th:classappend="${#request.getRequestURI() == '/manage-account/profile' ? 'active':''}">
 					<div class="user_profile_left" th:fragment="th-edit-account">
 						<div class="user_profile_form">
-							<form class="form-horizontal" th:action="@{/updateAccount}"
-								 method="POST" novalidate="novalidate">
-								<div class="form-group">
-									<label
-										class="title_label control-label col-md-3 col-sm-4 col-xs-12"
-										for="userid">Mã thành viên</label>
-									<div class=" col-md-9 col-sm-8 col-xs-12">
-										<div class="input-group">
-											<input
-												class="form-control disabled txt disabled-input user-id"
-												type="text" id="userid" readonly="readonly"
-												 />
-										</div>
-									</div>
-								</div>
-								<div class="form-group">
-									<label
-										class="title_label control-label col-md-3 col-sm-4 col-xs-12"
-										for="user-name">Tên đăng nhập</label>
-									<div class=" col-md-9 col-sm-8 col-xs-12">
-										<div class="input-group">
-											<input class="form-control disabled txt disabled-input user"
-												type="text" id="user-name" readonly="readonly"
-												 />
-										</div>
-									</div>
-								</div>
-								<div class="form-group">
-									<label
-										class="title_label control-label col-md-3 col-sm-4 col-xs-12"
-										for="phone-number">Số điện thoại</label>
-									<div class=" col-md-9 col-sm-8 col-xs-12">
-										<div class="input-group">
-											<input class="form-control disabled txt disabled-input phone"
-												type="text" id="phone-number"
-												placeholder="Số điện thoại của bạn"
-												>
-										</div>
-									</div>
-								</div>
-								<div class="form-group">
-									<label
-										class="title_label control-label col-md-3 col-sm-4 col-xs-12"
-										for="fullname">Họ tên</label>
-									<div class=" col-md-9 col-sm-8 col-xs-12">
-										<div class="input-group">
-											<input class="form-control txt user" type="text"
-												id="fullname" placeholder="Họ tên của bạn" name="fullname"
-												/> 
-												<!-- <em th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></em> -->
-										</div>
-									</div>
-								</div>
-								<div class="form-group">
-									<label
-										class="title_label control-label col-md-3 col-sm-4 col-xs-12"
-										for="email">Email</label>
-									<div class=" col-md-9 col-sm-8 col-xs-12">
-										<div class="input-group">
-											<input class="form-control txt email" type="email"
-												placeholder="Email của bạn" name="email" />
-											<!-- <em th:if="${#fields.hasErrors('email')}"
-												th:errors="*{email}"></em> -->
-										</div>
-									</div>
-								</div>
-								<div class="form-group">
-									<label
-										class="title_label control-label col-md-3 col-sm-4 col-xs-12"
-										for="address">Địa chỉ</label>
-									<div class=" col-md-9 col-sm-8 col-xs-12">
-										<div class="input-group">
-											<input class="form-control txt addresss" type="text"
-											name="address" placeholder="Địa chỉ của bạn"/>
-										</div>
-									</div>
-								</div>
-								<br>
-								<div class="form-group">
-									<label
-										class="title_label control-label col-md-3 col-sm-4 col-xs-12"
-										for="password_old">Mật khẩu cũ</label>
-									<div class=" col-md-9 col-sm-8 col-xs-12">
-										<div class="input-group">
-											<input class="form-control txt pass" type="password" readonly="readonly"
-											id="password_old" name="password_old"  />
-										</div>
-									</div>
-								</div>
-								<!-- <div class="form-group">
-									<label
-										class="title_label control-label col-md-3 col-sm-4 col-xs-12"
-										for="password_new">Mật khẩu mới</label>
-									<div class=" col-md-9 col-sm-8 col-xs-12">
-										<div class="input-group">
-											<input class="form-control txt pass" type="password"
-												name="password_change" value="" id="password_new"
-												placeholder="Mật khẩu mới"> <input
-												class="form-control txt pass" type="password"
-												placeholder="Nhập lại mật khẩu mới">
-										</div>
-									</div>
-								</div> -->
-								<div class="form-group">
-								<div class="col-md-9 col-md-offset-3 col-sm-8 col-xs-12">
-									<div class="input-group">
-										<select class="txt" id="enabled" name="type_account">
-											<option value="1" class="active">1</option>
-										</select>
-									</div>
-								</div>
-							</div>
-								<div class="form-group">
-									<div class="col-md-9 col-md-offset-3 col-sm-8 col-xs-12">
-										<button type="submit" name="wp-submit-update-profile"
-											class="btn btn-default btn_save_profile btn-submit" th:onclick="'alert(\'Cập nhật thành công!\');'">Cập
-											nhật</button>
-									</div>
-								</div>
-							</form>
+							<form  th:replace="edit-account :: th-form-edit-account"></form>
 						</div>
 					</div>
 				</div>
 				<!-- manage-posts -->
 				<div role="tabpanel" class="tab-pane content-in-tab"
-					id="manage-posts">
+					id="manage-posts" th:classappend="${#request.getRequestURI() == '/manage-account/manage-posts' ? 'active':''}">
 					<table class="table table-bordered table-hover">
 						<thead>
 							<tr>
@@ -200,7 +82,7 @@
 					</table>
 				</div>
 				<div role="tabpanel" class="tab-pane content-in-tab"
-					id="transaction-history">Coming soon!</div>
+					id="transaction-history"  th:classappend="${#request.getRequestURI() == '/manage-account/transaction-history' ? 'active':''}">Coming soon!</div>
 				<div role="tabpanel" class="tab-pane content-in-tab" id="post-news">
 					<div class="col-md-9 col-sm-8 col-xs-12"
 						th:replace="postNews :: th-postNews-1"></div>
@@ -210,15 +92,15 @@
 						th:replace="postNews :: th-postNews-3"></div>
 				</div>
 				<!-- manage-list-accounts -->
-				<div role="tabpanel" class="tab-pane content-in-tab"
-					id="manage-list-accounts">
+				<!-- <div role="tabpanel" class="tab-pane content-in-tab"
+					id="manage-list-accounts"  th:classappend="${#request.getRequestURI() == '/manage-account/manage-list-accounts' ? 'active':''}">
 					<div class="col-md-9 col-sm-8 col-xs-12"
 						th:replace="list-account :: th-list-account-1"></div>
 					<th:block class="col-md-9 col-sm-8 col-xs-12"
 						th:replace="list-account :: th-list-account-2"></th:block>
 					<th:block class="col-md-9 col-sm-8 col-xs-12"
 						th:replace="list-account :: th-list-account-3"></th:block>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
