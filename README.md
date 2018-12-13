@@ -22,9 +22,15 @@
 
 >> -- Chức năng sửa, xóa bài đăng
 
->> -- Chức năng quản lý bài đăng
+>> -- Chức năng quản lý bài đăng của mình
 
->> -- Chức năng đăng tin lên top 
+>> -- Chức năng đăng tin lên top
+
+> * Người có quyền admin sẽ có thêm các tính năng:
+
+>> -- Chức năng sửa, xóa thành viên
+
+>> -- Chức năng quản lý tất cả các bài đăng
 
 ## Wiki
 
