@@ -1,6 +1,9 @@
 package cnpm.service;
 
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +34,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
 
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-        Set<AppRole> roles = user.getRoles();
+        Collection<AppRole> roles = user.getRoles();
 
         if (roles != null) {
             for (AppRole role : roles) {

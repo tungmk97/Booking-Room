@@ -26,22 +26,15 @@ public class AppRole implements Serializable{
 	@Column(name = "name")
     private String name;
 	
-	@ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY,
-            cascade = {
-                    CascadeType.PERSIST,
-                    CascadeType.MERGE
-            })
-	private Set<Account> accounts;
+	
 	
 	public AppRole() {
 		super();
 	}
 
-	public AppRole(int id, String name, Set<Account> accounts) {
+	public AppRole(String name) {
 		super();
-		this.id = id;
 		this.name = name;
-		this.accounts = accounts;
 	}
 
 	public int getId() {
@@ -58,14 +51,6 @@ public class AppRole implements Serializable{
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public Set<Account> getAccounts() {
-		return accounts;
-	}
-
-	public void setAccounts(Set<Account> accounts) {
-		this.accounts = accounts;
 	}
 
 	public static long getSerialversionuid() {
