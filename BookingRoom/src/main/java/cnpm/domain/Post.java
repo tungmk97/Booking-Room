@@ -12,14 +12,14 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name = "tbl_posts")
+@Table(name = "tbl_posts", catalog = "booking_room")
 
 public class Post implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_post", nullable = false)
     private int id_post;
     
@@ -152,6 +152,7 @@ public class Post implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-    
+
+	
 
 }

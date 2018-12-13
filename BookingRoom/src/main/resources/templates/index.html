@@ -80,36 +80,28 @@
 	<div th:replace="search :: th-search"></div>
 	<div class="container hot-news-section section">
 		<h3 class="title">Tin nổi bật</h3>
-		<div class="row hot-news-content">
+		<div class="row hot-news-content" th:each="post : ${post}">
 			<div class="col-sm-6 col-xs-12 item item-left">
 				<div class="item_thumb _lazy"
 					style="display: block; background-image: url(https://static123.com/phongtro123/uploads/images/thumbs/250x150/fit/2018/10/15/p-20160406-141302_1539572310.jpg);">
-					<a
-						href="https://phongtro123.com/tinh-thanh/ho-chi-minh/phong-dep-may-lanh-cua-so-chi-2-7-trieuthang.html"></a>
+					<a th:text="${post.id_post}">#</a>
 				</div>
 				<div class="item_info">
 					<h3 class="title">
-						<a
-							href="https://phongtro123.com/tinh-thanh/ho-chi-minh/phong-dep-may-lanh-cua-so-chi-2-7-trieuthang.html"
-							title="Phòng TIỆN NGHI, Máy Lạnh, Cửa Sổ, chỉ 2.8tr/tháng, NGAY BÀ QUẸO">Phòng
-							TIỆN NGHI, Máy Lạnh, Cửa Sổ, chỉ 2.8tr/tháng, NGAY BÀ QUẸO</a>
+						<a th:text="${post.title}"></a>
 					</h3>
 					<div class="clearfix">
 						<div class="item_price_area clearfix">
-							<div class="price">2.8 Triệu/tháng</div>
-							<div class="area">
-								20m<sup>2</sup>
+							<div class="price" th:text="${post.price}"></div>
+							<div class="area" th:text="${post.acreage}">
+								m<sup>2</sup>
 							</div>
 						</div>
 						<div class="location">
-							<a
-								href="https://phongtro123.com/tinh-thanh/ho-chi-minh/quan-tan-phu"
-								title="Quận Tân Phú, Hồ Chí Minh">Quận Tân Phú, Hồ Chí Minh</a>
+							<a th:text="${post.address}"></a>
 						</div>
 					</div>
-					<p class="p_content">CHO THUÊ PHÒNG VIP TIỆN NGHI TỰ DO GIỜ
-						GIẤC, KHÔNG CHUNG CHỦ: ***TIỆN ÍCH: - Chỉ 2 phút ra tới chợ VÕ
-						THÀNH TRANG giúp bạn luôn mua được thực phẩm tươi ngon.…</p>
+					<p class="p_content" th:text="${post.description}"></p>
 				</div>
 			</div>
 			<div class="col-sm-6 col-xs-12 item item-right">

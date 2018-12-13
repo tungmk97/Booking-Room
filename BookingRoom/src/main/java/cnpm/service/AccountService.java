@@ -20,8 +20,8 @@ public class AccountService {
 		return accountRepository.findAll();
 	}
 
-	public Account findById(final int id_user) {
-		return accountRepository.findById(id_user);
+	public Account findById(final int user_id) {
+		return accountRepository.findById(user_id);
 	}
 
 	public void save(final Account account) {
