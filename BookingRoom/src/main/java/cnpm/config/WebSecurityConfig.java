@@ -46,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		 // Các trang không yêu cầu login
-        http.authorizeRequests().antMatchers("/","/index", "/errors", "/introduce", "/register", "/search", "/seeNews",   "/login", "/logout").permitAll();
+        http.authorizeRequests().antMatchers("/","/index", "/errors", "/introduce", "/register", "/search", "/seeNews",  "/login", "/logout").permitAll();
         
      // Trang /userInfo yêu cầu phải login với vai trò ROLE_USER hoặc ROLE_ADMIN.
         // Nếu chưa login, nó sẽ redirect tới trang /login.
@@ -59,7 +59,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		// Chỉ cho phép user có quyền ADMIN hoặc USER truy cập đường dẫn
 		// /user/**
 //		http.authorizeRequests().antMatchers("/user/**").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')");
-		http.authorizeRequests().antMatchers("/user/**","/manage-account", "/manage-account/profile", "/manage-account/manage-posts", "/postNews").hasAnyAuthority("ADMIN", "USER");
+		http.authorizeRequests().antMatchers("/user/**","/manage-account", "/manage-account/profile", "/manage-account/manage-posts","/list-post", "/postNews").hasAnyAuthority("ADMIN", "USER");
 
 		// Khi người dùng đã login, với vai trò USER, Nhưng truy cập vào trang
 		// yêu cầu vai trò ADMIN, sẽ chuyển hướng tới trang /403

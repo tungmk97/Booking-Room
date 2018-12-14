@@ -17,7 +17,6 @@ public class AccountRepository {
 	@PersistenceContext	
 	private EntityManager entityManager;
 	
-
 	public void persist(final Account account) {
 		entityManager.persist(account);
 	}

@@ -1,7 +1,6 @@
 package cnpm.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,8 +19,6 @@ import cnpm.validator.AppUserValidator;
 
 @Controller
 public class AccountController {
-	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	@Autowired
     private AccountService accountService;
 	@Autowired
@@ -67,19 +64,7 @@ public class AccountController {
             return "register";
         }
         try {
-	    	Account user = new Account();
-	    	String encodedPassword = bCryptPasswordEncoder.encode(account.getPassword());
-	        user.setUser_id(account.getUser_id());
-	        user.setUsername(account.getUsername());
-	        user.setName(account.getName());
-	        user.setPassword(encodedPassword);
-	        user.setEmail(account.getEmail());
-	        user.setAddress(account.getAddress());
-	        user.setPhone_number(account.getPhone_number());
-	        user.setEnabled(account.getEnabled());
-	//        user.setRoles(Arrays.asList(new AppRole("USER")));
-	        accountService.save(user);
-//	        redirectAttributes.addFlashAttribute("flashUser", user);
+	        accountService.save(account);
 	        model.addAttribute("listAccount", accountService.findAll());
 	        return "redirect:login";
         }
@@ -94,7 +79,7 @@ public class AccountController {
 	public String doDeleteAccount(@PathVariable int user_id, Model model) {
     	accountService.delete(user_id);
 		model.addAttribute("listAccount", accountService.findAll());
-		return "redirect:/manage-account";
+		return "redirect:/list-post";
 	}
     
     @RequestMapping("/account-update/{user_id}")
