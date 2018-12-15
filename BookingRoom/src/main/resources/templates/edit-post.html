@@ -115,11 +115,14 @@
 							data-val-required="The price field is required." id="price sel5"
 							maxlength="100" name="price" placeholder="Vui lòng nhập giá tiền"
 							type="text" th:field="*{price}" th:value="${post.price}"/>
-						<!-- <label for="sel6">Ngày hết hạn (*)</label>
+						<label for="start-date">Ngày đăng bài</label>
+						<p>Vui lòng nhập đúng định dạng: YYYY-MM-DD hh:mm:ss</p>
+						<input class="txt form-control datetime" id="start-date" readonly="readonly" type="datetime" th:field="*{start_date}" th:value="${post.start_date}"/>
+						<label for="end-date">Ngày hết hạn (*)</label>
+						<p>Vui lòng nhập đúng định dạng: YYYY-MM-DD hh:mm:ss</p>
 						<input
-							class="txt form-control price-icon" data-val="true"
-							data-val-required="The EXP field is required." id="end-date sel6"
-							maxlength="100" name="price" type="date" th:field="*{end_date}"/> -->
+							class="txt form-control datetime" id="end-date"
+							name="end-date" type="datetime" th:field="*{end_date}" th:value="${post.end_date}"/>
 					</div>
 					<div class="note">
 						<h3 class="text-uppercase note-1 title">* Lưu ý</h3>

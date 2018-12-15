@@ -8,6 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @Entity
 @Table(name = "tbl_posts")
@@ -27,11 +32,15 @@ public class Post implements Serializable{
     @Column(name = "status_id", nullable = false)
     private int status_id;
     
-//    @Column(name = "start_date", nullable = false)
-//    private Date start_date;
-//    
-//    @Column(name = "end_date", nullable = false)
-//    private Date end_date;
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(iso=ISO.DATE)
+    @Column(name = "start_date")
+    private Date start_date;
+    
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(iso=ISO.DATE)
+    @Column(name = "end_date")
+    private Date end_date;
     
     @Column(name = "acreage", nullable = false)
     private int acreage;
@@ -52,16 +61,14 @@ public class Post implements Serializable{
 		super();
 	}
 
-//	public Post(int post_id, String title, int status_id, Date start_date, Date end_date, int acreage,
-//			String address, int price, String description, int user_id) {
-	public Post(int post_id, String title, int status_id, int acreage,
+	public Post(int post_id, String title, int status_id, Date start_date, Date end_date, int acreage,
 			String address, int price, String description, int user_id) {
 		super();
 		this.post_id = post_id;
 		this.title = title;
 		this.status_id = status_id;
-//		this.start_date = start_date;
-//		this.end_date = end_date;
+		this.start_date = start_date;
+		this.end_date = end_date;
 		this.acreage = acreage;
 		this.address = address;
 		this.price = price;
@@ -93,21 +100,21 @@ public class Post implements Serializable{
 		this.status_id = status_id;
 	}
 
-//	public Date getStart_date() {
-//		return start_date;
-//	}
-//
-//	public void setStart_date(Date start_date) {
-//		this.start_date = start_date;
-//	}
-//
-//	public Date getEnd_date() {
-//		return end_date;
-//	}
-//
-//	public void setEnd_date(Date end_date) {
-//		this.end_date = end_date;
-//	}
+	public Date getStart_date() {
+		return start_date;
+	}
+
+	public void setStart_date(Date start_date) {
+		this.start_date = start_date;
+	}
+
+	public Date getEnd_date() {
+		return end_date;
+	}
+
+	public void setEnd_date(Date end_date) {
+		this.end_date = end_date;
+	}
 
 	public int getAcreage() {
 		return acreage;

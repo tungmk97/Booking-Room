@@ -1,4 +1,4 @@
-/* Đăng tin */
+/* Ä�Äƒng tin */
 .title{
 	font-family: Calibri Light;
 	font-weight: bold;
@@ -67,6 +67,9 @@ label{
 }
 .tag-icon{
 	background: url(/img/tag-icon.png) no-repeat 8px 18px;
+}
+.datetime{
+	background: url(/img/datetime-icon.png) no-repeat 10px 21px;
 }
 .form-control:focus{
   -webkit-box-shadow: none;

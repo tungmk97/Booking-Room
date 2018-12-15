@@ -1,13 +1,18 @@
 package cnpm.service;
 
 import java.security.Principal;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.ServletRequestDataBinder;
 
 import cnpm.domain.Account;
 import cnpm.domain.Post;
@@ -31,8 +36,6 @@ public class PostService {
 
 	public void save(final Post post, Principal principal) {
 		// check if exist -> throw exception
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		String dateString = format.format( new Date()   );
 		Account account = userDetailsServiceImpl.findByUsername(principal.getName());
 		Post newPost = new Post();
 		newPost.setPost_id(post.getPost_id());
@@ -43,8 +46,18 @@ public class PostService {
 		newPost.setPrice(post.getPrice());
 		newPost.setId_user(account.getUser_id());
 		newPost.setStatus_id(1);
-//		newPost.setEnd_date(post.getEnd_date());
-//		newPost.setStart_date(dateString);
+		newPost.setStart_date(post.getStart_date());
+		Date finalStartDate = null;
+		Date finalEndDate = null;
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		try {
+		    finalStartDate = df.parse(df.format(post.getStart_date()));
+		    finalEndDate = df.parse(df.format(post.getEnd_date()));
+		} catch (ParseException pe) {
+		    System.out.println("ParserException while attempting to establish date");
+		}
+		newPost.setStart_date(finalStartDate);
+		newPost.setEnd_date(finalEndDate);
 		postRepository.persist(newPost);
 	}
 
@@ -58,8 +71,17 @@ public class PostService {
 		postDb.setDescription(post.getDescription());
 		postDb.setPrice(post.getPrice());
 		postDb.setStatus_id(1);
-//		newPost.setEnd_date(post.getEnd_date());
-//		newPost.setStart_date(dateString);
+		Date finalStartDate = null;
+		Date finalEndDate = null;
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		try {
+		    finalStartDate = df.parse(df.format(post.getStart_date()));
+		    finalEndDate = df.parse(df.format(post.getEnd_date()));
+		} catch (ParseException pe) {
+		    System.out.println("ParserException while attempting to establish date");
+		}
+		postDb.setStart_date(finalStartDate);
+		postDb.setEnd_date(finalEndDate);
 		postRepository.persist(postDb);
 	}
 
@@ -68,5 +90,8 @@ public class PostService {
 		if (post != null) {
 			postRepository.delete(post);
 		}
+	}
+	public void getTime() {
+		
 	}
 }

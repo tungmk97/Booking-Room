@@ -42,8 +42,8 @@
 								<th class="td-title">Tiêu đề</th>
 								<th class="td-title">Diện tích</th>
 								<th class="td-title">Giá tiền</th>
-								<!-- <th class="td-title">Ngày đăng</th>
-								<th class="td-title">Ngày hết hạn</th> -->
+								<th class="td-title">Ngày đăng</th>
+								<th class="td-title">Ngày hết hạn</th>
 								<th class="td-title">Mô tả</th>
 								<th class="td-title">Sửa</th>
 								<th class="td-title">Xóa</th>
@@ -56,8 +56,8 @@
                             <td th:text="${post.title}"></td>
                             <td th:text="${post.acreage}"></td>
                             <td th:text="${post.price}"></td>
-                            <!-- <td th:text="${post.start_date}"></td>
-                            <td th:text="${post.end_date}"></td> -->
+                           	<td th:text="${post.start_date}"></td>
+                            <td th:text="${post.end_date}"></td>
                             <td th:text="${post.description}"></td>
                             <td><a th:href="@{/post-update/} + ${post.post_id}"><span class="glyphicon glyphicon-pencil"></span></a></td>
                             <td><a th:href="@{/postDelete/} + ${post.post_id}" th:onclick="'alert(\'Xóa bài đăng thành công!\');'"><span class="glyphicon glyphicon-trash"></span></a></td>

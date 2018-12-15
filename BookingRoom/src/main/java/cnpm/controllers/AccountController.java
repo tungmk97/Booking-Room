@@ -79,7 +79,7 @@ public class AccountController {
 	public String doDeleteAccount(@PathVariable int user_id, Model model) {
     	accountService.delete(user_id);
 		model.addAttribute("listAccount", accountService.findAll());
-		return "redirect:/list-post";
+		return "redirect:/list-account";
 	}
     
     @RequestMapping("/account-update/{user_id}")
@@ -93,7 +93,7 @@ public class AccountController {
 	public String doUpdateAccount(@ModelAttribute("Account") Account account, Model model) {
     	accountService.update(account);
 		model.addAttribute("listAccount", accountService.findAll());
-		return "redirect:/manage-account";
+		return "redirect:/index";
 	}
     
     @RequestMapping("/403")
