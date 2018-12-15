@@ -30,7 +30,10 @@
 }
 
 .form-horizontal .control-label {
-	padding-top: 18px;
+	padding-top: 12px;
+	color: #EE7C6B;
+	font-family: Calibri Light;
+	font-size: 18px;
 }
 
 }
@@ -57,17 +60,17 @@
 	background: url(/img/email-icon.png) no-repeat 6px 9px;
 }
 .addresss{
-	background: url(/img/address-icon.png) no-repeat 7px 19px;
+	background: url(/img/address-icon.png) no-repeat 6px 7px;
 }
 .user {
 	background: url(/img/user-icon.png) no-repeat 5px 6px;
 }
 
 .disabled-input.phone {
-	background: url(/img/phone-icon.png) no-repeat 5px 19px;
+	background: url(/img/phone-icon.png) no-repeat 5px 7px;
 }
 .disabled-input.user-id {
-	background: url(/img/number-sign-icon.png) no-repeat 6px 19px;
+	background: url(/img/number-sign-icon.png) no-repeat 6px 9px;
 }
 .tab-content{
 	padding-top: 100px;
@@ -75,4 +78,8 @@
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
     background-color: rgba(255,255,255,0);
     opacity: 1;
+}
+.last-content{
+    margin-bottom: 0px;
+    padding-top: 20px;
 }

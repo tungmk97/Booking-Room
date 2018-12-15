@@ -549,3 +549,6 @@ a:link {
 	padding: 15px 0px !important;
 	min-width: 250px !important;
 }
+form span{
+	color: red;
+}

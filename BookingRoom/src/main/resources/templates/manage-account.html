@@ -17,9 +17,6 @@
 	href="/BookingRoom/src/main/resources/static/css/style-manage-account.css"
 	th:href="@{/css/style-manage-account.css}">
 <link rel="stylesheet" type="text/css"
-	href="/BookingRoom/src/main/resources/static/css/style-postNews.css"
-	th:href="@{/css/style-postNews.css}">
-<link rel="stylesheet" type="text/css"
 	href="/BookingRoom/src/main/resources/static/css/style-list-account.css"
 	th:href="@{/css/style-list-account.css}">
 </head>
@@ -27,7 +24,6 @@
 	<nav th:replace="index :: header"></nav>
 	<div th:fragment="th-manage-account">
 		<div class="container">
-
 			<!-- Nav tabs -->
 			<ul class="nav nav-pills  nav-stacked col-md-3" role="tablist">
 				<li>
@@ -45,12 +41,6 @@
 				<li role="presentation" th:classappend="${#request.getRequestURI() == '/manage-account/transaction-history' ? 'active':''}">
 					<a href="#transaction-history" th:href="@{/#transaction-history}" aria-controls="transaction-history" role="tab" data-toggle="tab" class="title-tab">Lịch sử giao dịch</a>
 				</li>
-				<li role="presentation">
-					<a href="#post-news" th:href="@{/#post-news}" aria-controls="post-news" role="tab" data-toggle="tab" class="title-tab">Đăng tin mới</a>
-				</li>
-				<!-- <li role="presentation" th:classappend="${#request.getRequestURI() == '/#manage-list-accounts' ? 'active':''}">
-					<a href="#manage-list-accounts" th:href="@{/#manage-list-accounts}" aria-controls="manage-list-accounts" role="tab" data-toggle="tab" class="title-tab">Quản lý thành viên</a>
-				</li> -->
 			</ul>
 			<!-- Tab panes -->
 			<div class="tab-content  col-md-9">
@@ -66,44 +56,17 @@
 				<!-- manage-posts -->
 				<div role="tabpanel" class="tab-pane content-in-tab"
 					id="manage-posts" th:classappend="${#request.getRequestURI() == '/manage-account/manage-posts' ? 'active':''}">
-					<table class="table table-bordered table-hover">
-						<thead>
-							<tr>
-								<th class="td-title td_center">Mã số</th>
-								<th class="td-title">Tiêu đề</th>
-								<th class="td-title">Ngày đăng</th>
-								<th class="td-title">Ngày hết hạn</th>
-								<th class="td-title">Thao tác</th>
-							</tr>
-						</thead>
-						<tbody>
-
-						</tbody>
-					</table>
+					<div class="col-md-9 col-sm-8 col-xs-12"
+						th:replace="list-post :: th-list-post-1"></div>
+					<th:block class="col-md-9 col-sm-8 col-xs-12"
+						th:replace="list-post :: th-list-post-2"></th:block>
+					<th:block class="col-md-9 col-sm-8 col-xs-12"
+						th:replace="list-post :: th-list-post-3"></th:block>
 				</div>
 				<div role="tabpanel" class="tab-pane content-in-tab"
 					id="transaction-history"  th:classappend="${#request.getRequestURI() == '/manage-account/transaction-history' ? 'active':''}">Coming soon!</div>
-				<div role="tabpanel" class="tab-pane content-in-tab" id="post-news">
-					<div class="col-md-9 col-sm-8 col-xs-12"
-						th:replace="postNews :: th-postNews-1"></div>
-					<div class="col-md-9 col-sm-8 col-xs-12"
-						th:replace="postNews :: th-postNews-2"></div>
-					<div class="col-md-9 col-sm-8 col-xs-12"
-						th:replace="postNews :: th-postNews-3"></div>
-				</div>
-				<!-- manage-list-accounts -->
-				<!-- <div role="tabpanel" class="tab-pane content-in-tab"
-					id="manage-list-accounts"  th:classappend="${#request.getRequestURI() == '/manage-account/manage-list-accounts' ? 'active':''}">
-					<div class="col-md-9 col-sm-8 col-xs-12"
-						th:replace="list-account :: th-list-account-1"></div>
-					<th:block class="col-md-9 col-sm-8 col-xs-12"
-						th:replace="list-account :: th-list-account-2"></th:block>
-					<th:block class="col-md-9 col-sm-8 col-xs-12"
-						th:replace="list-account :: th-list-account-3"></th:block>
-				</div> -->
 			</div>
 		</div>
-	</div>
 	</div>
 	<footer th:replace="index :: footer"></footer>
 </body>

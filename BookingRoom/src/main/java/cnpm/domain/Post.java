@@ -1,5 +1,6 @@
 package cnpm.domain;
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,9 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @Entity
 @Table(name = "tbl_posts")
@@ -19,21 +22,25 @@ public class Post implements Serializable{
 	private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_post", nullable = false)
-    private int id_post;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "post_id", nullable = false)
+    private int post_id;
     
     @Column(name = "title", nullable = false)
     private String title;
     
-    @Column(name = "id_status", nullable = false)
-    private int id_status;
+    @Column(name = "status_id", nullable = false)
+    private int status_id;
     
-    @Column(name = "start_date", nullable = false)
-    private String start_date;
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(iso=ISO.DATE)
+    @Column(name = "start_date")
+    private Date start_date;
     
-    @Column(name = "end_date", nullable = false)
-    private String end_date;
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(iso=ISO.DATE)
+    @Column(name = "end_date")
+    private Date end_date;
     
     @Column(name = "acreage", nullable = false)
     private int acreage;
@@ -54,12 +61,12 @@ public class Post implements Serializable{
 		super();
 	}
 
-	public Post(int id_post, String title, int id_status, String start_date, String end_date, int acreage,
+	public Post(int post_id, String title, int status_id, Date start_date, Date end_date, int acreage,
 			String address, int price, String description, int user_id) {
 		super();
-		this.id_post = id_post;
+		this.post_id = post_id;
 		this.title = title;
-		this.id_status = id_status;
+		this.status_id = status_id;
 		this.start_date = start_date;
 		this.end_date = end_date;
 		this.acreage = acreage;
@@ -69,12 +76,12 @@ public class Post implements Serializable{
 		this.user_id = user_id;
 	}
 
-	public int getId_post() {
-		return id_post;
+	public int getPost_id() {
+		return post_id;
 	}
 
-	public void setId_post(int id_post) {
-		this.id_post = id_post;
+	public void setPost_id(int post_id) {
+		this.post_id = post_id;
 	}
 
 	public String getTitle() {
@@ -85,27 +92,27 @@ public class Post implements Serializable{
 		this.title = title;
 	}
 
-	public int getId_status() {
-		return id_status;
+	public int getStatus_id() {
+		return status_id;
 	}
 
-	public void setId_status(int id_status) {
-		this.id_status = id_status;
+	public void setStatus_id(int status_id) {
+		this.status_id = status_id;
 	}
 
-	public String getStart_date() {
+	public Date getStart_date() {
 		return start_date;
 	}
 
-	public void setStart_date(String start_date) {
+	public void setStart_date(Date start_date) {
 		this.start_date = start_date;
 	}
 
-	public String getEnd_date() {
+	public Date getEnd_date() {
 		return end_date;
 	}
 
-	public void setEnd_date(String end_date) {
+	public void setEnd_date(Date end_date) {
 		this.end_date = end_date;
 	}
 
