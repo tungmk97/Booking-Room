@@ -42,9 +42,13 @@ public class PostService {
 		newPost.setTitle(post.getTitle());
 		newPost.setAcreage(post.getAcreage());
 		newPost.setAddress(post.getAddress());
+		newPost.setProvinceid(post.getProvinceid());
+		newPost.setDistrictid(post.getDistrictid());
+		newPost.setWardid(post.getWardid());
+		newPost.setVillageid(post.getVillageid());
 		newPost.setDescription(post.getDescription());
 		newPost.setPrice(post.getPrice());
-		newPost.setId_user(account.getUser_id());
+		newPost.setUser_id(account.getUser_id());
 		newPost.setStatus_id(1);
 		newPost.setStart_date(post.getStart_date());
 		Date finalStartDate = null;
@@ -68,6 +72,10 @@ public class PostService {
 		postDb.setTitle(post.getTitle());
 		postDb.setAcreage(post.getAcreage());
 		postDb.setAddress(post.getAddress());
+		postDb.setProvinceid(post.getProvinceid());
+		postDb.setDistrictid(post.getDistrictid());
+		postDb.setWardid(post.getWardid());
+		postDb.setVillageid(post.getVillageid());
 		postDb.setDescription(post.getDescription());
 		postDb.setPrice(post.getPrice());
 		postDb.setStatus_id(1);

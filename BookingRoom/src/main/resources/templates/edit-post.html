@@ -65,50 +65,39 @@
 							data-val-required="The FullName field is required." id="acreage"
 							maxlength="100" name="acreage"
 							placeholder="Vui lòng nhập diện tích phòng" type="text" th:field="*{acreage}" th:value="${post.acreage}"/>
-						<!-- <label for="sel1">Tỉnh/Thành phố (*)</label>
-						<select
-							class="form-control" id="sel1" th:field="*{city}">
-							<option disabled selected hidden>--- Vui lòng chọn
-								tỉnh/thành ---</option>
-							<option value="1">Hồ Chí Minh</option>
-							<option value="2">Hà Nội</option>
-							<option value="4">Đà Nắng</option>
-							<option value="3">Hải Phòng</option>
-							<option value="54">Hải Dương</option>
-						</select>
-						<label for="sel2">Quận/huyện (*)</label>
-						<select
-							class="form-control" id="sel2" th:field="*{district}">
-							<option disabled selected hidden>--- Vui lòng chọn
-								quận/huyện ---</option>
-							<option value="1">Hoàn Kiếm</option>
-							<option value="2">Ba Đình</option>
-							<option value="4">Đống Đa</option>
-							<option value="3">Thanh Xuân</option>
-						</select>
-						<label for="sel3">Phường/xã (*)</label>
-						<select
-							class="form-control" id="sel3" th:field="*{ward}">
-							<option disabled selected hidden>--- Vui lòng chọn
-								phường/xã ---</option>
-							<option value="1">Đồng Tâm</option>
-							<option value="2">Giải Phóng</option>
-							<option value="4">Thái Thịnh</option>
-						</select>
-						<label for="sel4">Đường (*)</label>
-						<select
-							class="form-control" id="sel4" th:field="*{village}">
-							<option disabled selected hidden>--- Vui lòng chọn
-								đường/phố ---</option>
-							<option value="1">Đồng Tâm</option>
-							<option value="2">Giải Phóng</option>
-							<option value="4">Thái Thịnh</option>
-						</select> -->
 						<label for="address">Địa chỉ (*)</label>
 						<input
 							class="txt form-control" id="address"
 							maxlength="100" name="address" placeholder="Vui lòng nhập địa chỉ"
 							type="text" th:field="*{address}" th:value="${post.address}"/>
+						<label for="province">Tỉnh/Thành phố (*)</label>
+						<select
+							class="form-control" id="province" th:field="*{province}" th:each="province,iterStat : ${provinces}">
+							<option disabled selected hidden>--- Vui lòng chọn
+								tỉnh/thành ---</option>
+							<option th:value="${province.name}"></option>
+						</select>
+						<label for="district">Quận/huyện (*)</label>
+						<select
+							class="form-control" id="district" th:field="*{district}" th:each="district,iterStat : ${districts}">
+							<option disabled selected hidden>--- Vui lòng chọn
+								quận/huyện ---</option>
+							<option th:value="${district.name}"></option>
+						</select>
+						<label for="ward">Phường/xã (*)</label>
+						<select
+							class="form-control" id="ward" th:field="*{ward}" th:each="ward,iterStat : ${wards}">
+							<option disabled selected hidden>--- Vui lòng chọn
+								phường/xã ---</option>
+							<option th:value="${ward.name}"></option>
+						</select>
+						<label for="village">Đường/phố (*)</label>
+						<select
+							class="form-control" id="village" th:field="*{village}" th:each="village,iterStat : ${villages}">
+							<option disabled selected hidden>--- Vui lòng chọn
+								đường/phố ---</option>
+							<option th:value="${village.name}"></option>
+						</select>
 						<label for="sel5">Giá Tiền (*)</label>
 						<input
 							class="txt form-control price-icon" data-val="true"

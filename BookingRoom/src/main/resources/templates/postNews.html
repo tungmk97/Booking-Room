@@ -66,50 +66,44 @@
 							data-val-required="The FullName field is required." id="acreage"
 							maxlength="100" name="acreage"
 							placeholder="Vui lòng nhập diện tích phòng" type="text" th:field="*{acreage}"/>
-						<!-- <label for="sel1">Tỉnh/Thành phố (*)</label>
-						<select
-							class="form-control" id="sel1" th:field="*{city}">
-							<option disabled selected hidden>--- Vui lòng chọn
-								tỉnh/thành ---</option>
-							<option value="1">Hồ Chí Minh</option>
-							<option value="2">Hà Nội</option>
-							<option value="4">Đà Nắng</option>
-							<option value="3">Hải Phòng</option>
-							<option value="54">Hải Dương</option>
-						</select>
-						<label for="sel2">Quận/huyện (*)</label>
-						<select
-							class="form-control" id="sel2" th:field="*{district}">
-							<option disabled selected hidden>--- Vui lòng chọn
-								quận/huyện ---</option>
-							<option value="1">Hoàn Kiếm</option>
-							<option value="2">Ba Đình</option>
-							<option value="4">Đống Đa</option>
-							<option value="3">Thanh Xuân</option>
-						</select>
-						<label for="sel3">Phường/xã (*)</label>
-						<select
-							class="form-control" id="sel3" th:field="*{ward}">
-							<option disabled selected hidden>--- Vui lòng chọn
-								phường/xã ---</option>
-							<option value="1">Đồng Tâm</option>
-							<option value="2">Giải Phóng</option>
-							<option value="4">Thái Thịnh</option>
-						</select>
-						<label for="sel4">Đường (*)</label>
-						<select
-							class="form-control" id="sel4" th:field="*{village}">
-							<option disabled selected hidden>--- Vui lòng chọn
-								đường/phố ---</option>
-							<option value="1">Đồng Tâm</option>
-							<option value="2">Giải Phóng</option>
-							<option value="4">Thái Thịnh</option>
-						</select> -->
 						<label for="address">Địa chỉ (*)</label>
 						<input
 							class="txt form-control" id="address"
 							maxlength="100" name="address" placeholder="Vui lòng nhập địa chỉ"
 							type="text" th:field="*{address}"/>
+						<label for="province">Tỉnh/Thành phố (*)</label>
+						<select
+							class="form-control" id="province" th:field="*{provinceid}" th:value="${post.provinceid}" onchange="run()">
+							<option th:value="0" disabled selected hidden>--- Vui lòng chọn tỉnh/thành ---</option>
+							<div th:each="province,iterStat : ${provinces}" >
+								<option th:value="${province.provinceid}" th:text="${province.name}"></option>
+							</div>
+						</select>
+						<input id="province-input-value" type="text" readonly="readonly" /><br>
+						<label for="district">Quận/huyện (*)</label>
+						<select
+							class="form-control" id="district" th:field="*{districtid}" th:value="${post.districtid}" onchange="run()">
+							<div th:each="district: ${districts}">
+								<!-- <div th:if="${district.provinceid} == '02TTT'"> -->
+									<option th:value="${district.districtid}" th:selected="${district.provinceid} == $(#province-input-value)" th:text="${district.name}"></option>
+								<!-- </div> -->
+							</div>
+							<option th:value="0" disabled selected hidden>--- Vui lòng chọn quận/huyện ---</option>
+							
+						</select>
+						<input id="district-input-value" type="text" readonly="readonly" /><br>
+						<!-- <label for="ward">Phường/xã (*)</label>
+						<select
+							class="form-control" id="ward" th:field="*{wardid}">
+							<option th:value="0" disabled selected hidden>--- Vui lòng chọn phường/xã ---</option> 
+							<option th:each="ward,iterStat : ${wards}" th:value="${ward.name}"></option>
+						</select>
+						<label for="village">Đường/phố (*)</label>
+						<select
+							class="form-control" id="village" th:field="*{villageid}">
+							<option th:value="0" disabled selected hidden>--- Vui lòng chọn đường/phố ---</option> 
+							<option th:each="village,iterStat : ${villages}" th:value="${village.name}"></option>
+						</select> -->
 						<label for="sel5">Giá Tiền (*)</label>
 						<input
 							class="txt form-control price-icon" data-val="true"
@@ -188,6 +182,12 @@
 	today = new Date();
 	var sDate = today.getFullYear() + "-" + d2(parseInt(today.getMonth()+1)) + "-" + d2(today.getDate()) + " " + d2(today.getHours()) + ":" + d2(today.getMinutes()) + ":" + d2(today.getSeconds());
 	document.getElementById('startDate').value = sDate;
+	
+	function run() {
+		document.getElementById("province-input-value").value = document.getElementById("province").value;
+		document.getElementById("district-input-value").value = document.getElementById("district").value;
+		
+	}
 	/*]]>*/
 </script>
 </body>

@@ -33,10 +33,13 @@ select.form-control{
   	outline: none;
     font-size: 15px;
     font-weight: 400;
-    color: #A0A0A0;
+    color: #fff;
     width: 100%;
     display: inline-block;
     background: rgba(255,255,255,0);
+}
+.form-control option{
+	color: #000;
 }
 .btn-submit{
 	width: 30%;
