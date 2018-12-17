@@ -99,7 +99,12 @@ public class PostService {
 			postRepository.delete(post);
 		}
 	}
-	public void getTime() {
-		
+
+	public List<Post> findAllLimit6() {
+		return postRepository.findAllLimit6();
+	}
+	
+	public List<Post> findAllLimit2() {
+		return postRepository.findAllLimit2();
 	}
 }

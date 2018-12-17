@@ -32,4 +32,12 @@ public class PostRepository {
 	public List<Post> findAll() {
 		return entityManager.createQuery("FROM Post").getResultList();
 	}
+	
+	public List<Post> findAllLimit6() {
+		return entityManager.createQuery("FROM Post").setMaxResults(6).getResultList();
+	}
+	
+	public List<Post> findAllLimit2() {
+		return entityManager.createQuery("FROM Post").setMaxResults(2).getResultList();
+	}
 }
