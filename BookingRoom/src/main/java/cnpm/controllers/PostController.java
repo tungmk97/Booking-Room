@@ -18,8 +18,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import cnpm.domain.Account;
 import cnpm.domain.Post;
 import cnpm.service.AccountService;
+import cnpm.service.DistrictService;
 import cnpm.service.PostService;
+import cnpm.service.ProvinceService;
 import cnpm.service.UserDetailsServiceImpl;
+import cnpm.service.VillageService;
+import cnpm.service.WardService;
 
 @Controller
 public class PostController {
@@ -29,6 +33,14 @@ public class PostController {
     private UserDetailsServiceImpl userDetailsServiceImpl;
 	@Autowired
     private AccountService accountService;
+	@Autowired
+    private ProvinceService provinceService;
+	@Autowired
+    private DistrictService districtService;
+	@Autowired
+    private WardService wardService;
+	@Autowired
+    private VillageService villageService;
 	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
@@ -40,6 +52,10 @@ public class PostController {
 	@RequestMapping("/postNews")
     public String postNews(Model model) {
 		model.addAttribute("post", new Post());
+		model.addAttribute("provinces", provinceService.findAll());
+		model.addAttribute("districts", districtService.findAll());
+		model.addAttribute("wards", wardService.findAll());
+		model.addAttribute("villages", villageService.findAll());
 	return "postNews";
     }
 	
@@ -59,20 +75,24 @@ public class PostController {
 		model.addAttribute("account", account);
 		model.addAttribute("accounts", accountService.findAll());
 //		return "list-post";
-		return "redirect:/manage-account/manage-posts";
+		return "redirect:/index";
 	}
 	
 	@RequestMapping("/postDelete/{post_id}")
 	public String doDeleteAccount(@PathVariable int post_id, Model model) {
 		postService.delete(post_id);
 		model.addAttribute("posts", postService.findAll());
-		return "redirect:/manage-account/manage-posts";
+		return "redirect:/list-post";
 	}
     
     @RequestMapping("/post-update/{post_id}")
 	public String updateCustomer(@PathVariable int post_id, Model model) {
     	Post post = postService.findById(post_id);
 		model.addAttribute("post", post);
+		model.addAttribute("provinces", provinceService.findAll());
+		model.addAttribute("districts", districtService.findAll());
+		model.addAttribute("wards", wardService.findAll());
+		model.addAttribute("villages", villageService.findAll());
 		return "edit-post";
 	}
     
@@ -80,6 +100,12 @@ public class PostController {
 	public String doUpdateAccount(@ModelAttribute("post") Post post, Model model) {
     	postService.update(post);
 		model.addAttribute("listPost", postService.findAll());
-		return "redirect:/manage-account/manage-posts";
+		return "redirect:/list-post";
 	}
+    
+//    @RequestMapping(value = "/list-post", method = RequestMethod.GET)
+//	 public String manageListPost(Model model){
+//  	 model.addAttribute("posts", accountService.findAll());
+//		return "list-post";
+//	}
 }

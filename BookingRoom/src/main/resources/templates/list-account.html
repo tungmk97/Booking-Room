@@ -12,8 +12,10 @@
 </head>
 <body>
 	<nav th:replace="index :: header"></nav>
-	
-	<div class="container main-content list">
+	<div class="header-title">
+			<h1>Quản lý thành viên</h1>
+		</div>
+	<div class="container">
     	<div th:if="${success}" class="row alert alert-success alert-dismissible" th:fragment="th-list-account-1">
 	        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	        <span th:text="${success}"></span>
