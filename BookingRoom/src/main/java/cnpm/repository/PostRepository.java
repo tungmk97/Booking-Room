@@ -34,10 +34,10 @@ public class PostRepository {
 	}
 	
 	public List<Post> findAllLimit6() {
-		return entityManager.createQuery("FROM Post").setMaxResults(6).getResultList();
+		return entityManager.createQuery("SELECT p FROM Post p ORDER BY p.price ASC").setMaxResults(6).getResultList();
 	}
 	
 	public List<Post> findAllLimit2() {
-		return entityManager.createQuery("FROM Post").setMaxResults(2).getResultList();
+		return entityManager.createQuery("SELECT p FROM Post p ORDER BY p.post_id DESC").setMaxResults(2).getResultList();
 	}
 }

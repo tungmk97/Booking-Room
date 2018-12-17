@@ -217,9 +217,6 @@ select.form-control{
     background-color: hsla(0, 100%, 90%, 0.15);
     border: 1px solid hsla(0, 100%, 90%, 0.3);
 }
-.hot-news-section .title{
-    text-transform: uppercase;
-}
 .item{
     background-color: #fff;
     width: 48%;
@@ -227,7 +224,7 @@ select.form-control{
     padding: 10px;
     border-bottom: 1px solid #e73f3f;
     margin: 11px;
-    height: 210px;
+    height: 190px;
 }
 .item-left{
     float: left;
@@ -385,7 +382,7 @@ a:link {
     overflow: hidden;
 }
 .post-item .info .address {
-    width: 80%;
+    width: 40%;
     float: left;
     margin-bottom: 8px;
     font-size: 14px;
