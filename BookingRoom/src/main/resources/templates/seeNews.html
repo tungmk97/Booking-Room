@@ -75,12 +75,11 @@
 						<div class="info">
 							<a  th:href="@{/seePost/} + ${post.post_id}"
 								title="Cho thuê phòng trọ sạch sẽ, an ninh, cách mặt tiền đường Nguyễn Duy Trinh 50m">
-								<div class="name" th:text="${post.title}">Cho thuê phòng trọ sạch sẽ, an ninh,
-									cách mặt tiền đường Nguyễn Duy Trinh 50m</div>
+								<div class="name" th:text="${post.title}"></div>
 							</a>
 							<div class="description" th:text="${post.description}"></div>
 							<div class="address" th:text="${post.address}"></div>
-							<div class="date">5 ngày trước</div>
+							<div class="date">Ngày đăng: <span th:text="${post.start_date}"></span></div>
 							<!-- Show only mobile -->
 							<div class="distance-price-mobile" style="display: none">
 								<span>6.6 km</span> <span><span th:text="${post.price}"></span>m<sup>2</sup>/tháng</span>
@@ -91,11 +90,11 @@
 									<span th:text="${post.price}"></span> <span>VNĐ/tháng</span>
 								</div>
 								<div class="col acreage">
-									<span>27 - 40</span> <span>m<sup>2</sup></span>
+									<span th:text="${post.acreage}"></span> <span>m<sup>2</sup></span>
 								</div>
 								<div class="col name">
 									<div class="fullname">
-										<a href="#" title="Trần Tiến Đạt" th:text="${account.name}">Trần Tiến Đạt</a> &nbsp;|
+										<a href="#" th:title="${account.name}" th:text="${account.name}">Trần Tiến Đạt</a> &nbsp;|
 									</div>
 									<div class="mobile mobile-counter" data-type="2">
 										<span class="mobile-visible-part" th:text="${account.phone_number}">0888992</span>
@@ -103,8 +102,7 @@
 									<a href="tel:${account.phone_number}" class="mobile" title="${account.phone_number}"
 										style="display: none" th:text="${account.phone_number}">0888992345</a>
 									<!-- Show only mobile -->
-									<div class="date-mobile" style="display: none">5 ngày
-										trước</div>
+									<div class="date-mobile" style="display: none">Ngày đăng: <span th:if="${post.start_date}"></span></div>
 									<!-- End -->
 								</div>
 							</div>
