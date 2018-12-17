@@ -46,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		 // Các trang không yêu cầu login
-        http.authorizeRequests().antMatchers("/","/index", "/errors", "/introduce", "/register", "/search", "/seeNews",  "/login", "/logout").permitAll();
+        http.authorizeRequests().antMatchers("/","/index", "/errors", "/introduce", "/register", "/search", "/seePost",  "/login", "/logout").permitAll();
         
      // Trang /userInfo yêu cầu phải login với vai trò ROLE_USER hoặc ROLE_ADMIN.
         // Nếu chưa login, nó sẽ redirect tới trang /login.

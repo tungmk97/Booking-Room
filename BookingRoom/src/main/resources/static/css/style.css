@@ -226,6 +226,8 @@ select.form-control{
     margin-bottom: 20px;
     padding: 10px;
     border-bottom: 1px solid #e73f3f;
+    margin: 11px;
+    height: 210px;
 }
 .item-left{
     float: left;
@@ -411,7 +413,8 @@ a:link {
     padding: 8px 0;
 }
 .post-item .info .detail .col.price {
-    font-size: 20px;
+    font-size: 15px;
+    color: darkred;
 }
 .post-item .info .detail .col {
     font-size: 15px;

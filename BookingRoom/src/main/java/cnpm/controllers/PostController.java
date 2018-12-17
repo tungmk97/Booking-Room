@@ -64,7 +64,8 @@ public class PostController {
 		
 		try {
 			postService.save(post, principal);
-			model.addAttribute("posts", postService.findAll());
+			model.addAttribute("postsLimit6", postService.findAllLimit6());
+			model.addAttribute("postsLimit2", postService.findAllLimit2());
 		}
 	     // Other error!!
 	        catch (Exception e) {

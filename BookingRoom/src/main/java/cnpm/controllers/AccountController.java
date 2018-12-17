@@ -42,11 +42,6 @@ public class AccountController {
         // ...
     }
     
-	@RequestMapping("/index")
-    public String home(){
-        return "index";
-    }
-    
     @RequestMapping("/register")
 	public String insertCustomer(Model model) {
 		model.addAttribute("account", new Account());

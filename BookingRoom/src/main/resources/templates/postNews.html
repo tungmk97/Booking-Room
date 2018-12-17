@@ -82,11 +82,11 @@
 						<input id="province-input-value" type="text" readonly="readonly" /><br>
 						<label for="district">Quận/huyện (*)</label>
 						<select
-							class="form-control" id="district" th:field="*{districtid}" th:value="${post.districtid}" onchange="run()">
+							class="form-control" id="district" th:field="*{districtid}" th:value="${post.districtid}" onchange="run2()">
 							<div th:each="district: ${districts}">
-								<!-- <div th:if="${district.provinceid} == '02TTT'"> -->
-									<option th:value="${district.districtid}" th:selected="${district.provinceid} == $(#province-input-value)" th:text="${district.name}"></option>
-								<!-- </div> -->
+								<div th:if="${district.provinceid} == '01TTT'">
+									<option th:value="${district.districtid}" th:text="${district.name}"></option>
+								</div>
 							</div>
 							<option th:value="0" disabled selected hidden>--- Vui lòng chọn quận/huyện ---</option>
 							
@@ -186,7 +186,11 @@
 	function run() {
 		document.getElementById("province-input-value").value = document.getElementById("province").value;
 		document.getElementById("district-input-value").value = document.getElementById("district").value;
-		
+	
+	}
+	function run2() {
+		document.getElementById("district-input-value").value = document.getElementById("district").value;
+	
 	}
 	/*]]>*/
 </script>
