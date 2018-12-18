@@ -47,6 +47,7 @@ public class AccountController {
 		model.addAttribute("account", new Account());
 		return "register";
 	}
+    
  // Phương thức này được gọi để lưu thông tin đăng ký.
     // @Validated: Để đảm bảo rằng Form này
     // đã được Validate trước khi phương thức này được gọi.
@@ -88,9 +89,15 @@ public class AccountController {
 	public String doUpdateAccount(@ModelAttribute("Account") Account account, Model model) {
     	accountService.update(account);
 		model.addAttribute("listAccount", accountService.findAll());
-		return "redirect:/index";
+		return "redirect:/";
 	}
     
+    @RequestMapping(value = "/list-account", method = RequestMethod.GET)
+	 public String manageListAccount(Model model){
+   	 model.addAttribute("accounts", accountService.findAll());
+		return "/list-account";
+	}
+	
     @RequestMapping("/403")
     public String accessDenied(Model model) {
         model.addAttribute("error", errorServiceImp.getOne("403"));

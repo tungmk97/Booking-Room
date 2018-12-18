@@ -107,4 +107,8 @@ public class PostService {
 	public List<Post> findAllLimit2() {
 		return postRepository.findAllLimit2();
 	}
+
+	public List<Post> findAllByUserId(int user_id) {
+		return postRepository.findAllByUserId(user_id);
+	}
 }

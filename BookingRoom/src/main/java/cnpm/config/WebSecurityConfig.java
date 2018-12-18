@@ -59,7 +59,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		// Chỉ cho phép user có quyền ADMIN hoặc USER truy cập đường dẫn
 		// /user/**
 //		http.authorizeRequests().antMatchers("/user/**").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')");
-		http.authorizeRequests().antMatchers("/user/**","/manage-account", "/manage-account/profile", "/manage-account/manage-posts","/list-post", "/postNews").hasAnyAuthority("ADMIN", "USER");
+		http.authorizeRequests().antMatchers("/user/**","/manage-account", "/manage-account/profile", "/manage-account/manage-posts", "/postNews").hasAnyAuthority("ADMIN", "USER");
 
 		// Khi người dùng đã login, với vai trò USER, Nhưng truy cập vào trang
 		// yêu cầu vai trò ADMIN, sẽ chuyển hướng tới trang /403
