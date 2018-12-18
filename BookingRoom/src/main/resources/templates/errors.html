@@ -29,9 +29,9 @@
 	<div id="notfound">
 		<div class="notfound">
 			<div class="notfound-404">
-				<h2 th:utext="${#request.userPrincipal.name} + ' - you do not have permission to access this page'"></h2>
+				<h2 th:utext="${#request.userPrincipal.name} + ' - you do not have permission to access this page!'"></h2>
 			</div>
-			<a th:href="@{/index}">Homepage</a>
+			<a th:href="@{/}">Homepage</a>
 			<h3 style="color:white;">
 				Hi : <span th:utext="${#request.userPrincipal.name}"></span>
 			</h3>

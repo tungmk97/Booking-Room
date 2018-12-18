@@ -40,4 +40,8 @@ public class PostRepository {
 	public List<Post> findAllLimit2() {
 		return entityManager.createQuery("SELECT p FROM Post p ORDER BY p.post_id DESC").setMaxResults(2).getResultList();
 	}
+	
+	public List<Post> findAllByUserId(int user_id) {
+		return entityManager.createQuery("SELECT p FROM Post p WHERE p.user_id = " + user_id).getResultList();
+	}
 }

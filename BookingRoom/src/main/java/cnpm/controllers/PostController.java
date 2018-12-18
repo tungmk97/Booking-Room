@@ -104,9 +104,11 @@ public class PostController {
 		return "redirect:/list-post";
 	}
     
-//    @RequestMapping(value = "/list-post", method = RequestMethod.GET)
-//	 public String manageListPost(Model model){
-//  	 model.addAttribute("posts", accountService.findAll());
-//		return "list-post";
-//	}
+    @RequestMapping(value = "/list-post", method = RequestMethod.GET)
+    public String managePostNews(Model model, Principal principal) {
+		Account account = userDetailsServiceImpl.findByUsername(principal.getName());
+		model.addAttribute("posts", postService.findAll());
+		model.addAttribute("account", account);
+        return "list-post";
+    }
 }

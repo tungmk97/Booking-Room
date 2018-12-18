@@ -22,28 +22,19 @@ public class ManageAccountController {
 	@Autowired
     private AccountService accountService;
 	
-	@RequestMapping(value = "/list-post", method = RequestMethod.GET)
+	@RequestMapping(value = "/manage-account/manage-posts", method = RequestMethod.GET)
     public String managePostNews(Model model, Principal principal) {
 		Account account = userDetailsServiceImpl.findByUsername(principal.getName());
-		model.addAttribute("posts", postService.findAll());
+		model.addAttribute("posts", postService.findAllByUserId(account.getUser_id()));
 		model.addAttribute("account", account);
-		model.addAttribute("accounts", accountService.findAll());
-        return "list-post";
+        return "/manage-account";
     }
 	
 	@RequestMapping(value = "/manage-account/profile", method = RequestMethod.GET)
     public String profile(Model model, Principal principal) {
 		Account account = userDetailsServiceImpl.findByUsername(principal.getName());
+		model.addAttribute("posts", postService.findAllByUserId(account.getUser_id()));
 		model.addAttribute("account", account);
-		model.addAttribute("accounts", accountService.findAll());
         return "/manage-account";
     }
-
-	@RequestMapping(value = "/list-account", method = RequestMethod.GET)
-	 public String manageListAccount(Model model){
-    	 model.addAttribute("accounts", accountService.findAll());
-		return "/list-account";
-	}
-	
-	
 }
