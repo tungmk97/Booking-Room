@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head" lang="vi">
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Sửa tài khoản</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="/BookingRoom/src/main/resources/static/css/style.css"
+	th:href="@{/css/style.css}" />
+<link rel="stylesheet" type="text/css"
+	href="/BookingRoom/src/main/resources/static/css/style-manage-account.css"
+	th:href="@{/css/style-manage-account.css}" />
+<link rel="stylesheet" type="text/css"
+	href="/BookingRoom/src/main/resources/static/css/style-list-account.css"
+	th:href="@{/css/style-list-account.css}" />
+	<link rel="stylesheet" type="text/css"
+	href="/BookingRoom/src/main/resources/static/css/style-edit-account.css"
+	th:href="@{/css/style-edit-account.css}" />
+</head>
+<body>
+	<nav th:replace="index :: header"></nav>
+	<div class="container">
+		<div class="row">
+			<div
+				class="user_profile_left col-md-9 col-md-offset-2 col-sm-8 col-xs-12"
+				th:fragment="th-edit-account">
+				<div class="title-section">
+					<h1 class="title-page">Sửa tài khoản</h1>
+					<div class="group-tabs"></div>
+					<div class="user_profile_form">
+						<form class="form-horizontal" th:action="@{/updateAccount}" th:object="${account}"
+		    method="POST" novalidate="novalidate" th:fragment="th-form-edit-account">
+							<div class="form-group">
+								<label
+									class="title_label control-label col-md-3 col-sm-4 col-xs-12"
+									for="userid">Mã thành viên</label>
+								<div class=" col-md-9 col-sm-8 col-xs-12">
+									<div class="input-group">
+										<input
+											class="form-control disabled txt disabled-input user-id"
+										 type="text" id="userid" readonly="readonly"
+											th:field="*{user_id}" th:value="${account.user_id}" />
+											
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label
+									class="title_label control-label col-md-3 col-sm-4 col-xs-12"
+									for="user-name">Tên đăng nhập</label>
+								<div class=" col-md-9 col-sm-8 col-xs-12">
+									<div class="input-group">
+										<input class="form-control disabled txt disabled-input user"
+											type="text" id="user-name" readonly="readonly"
+											th:field="*{username}" th:value="${account.username}" />
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label
+									class="title_label control-label col-md-3 col-sm-4 col-xs-12"
+									for="phone-number">Số điện thoại</label>
+								<div class=" col-md-9 col-sm-8 col-xs-12">
+									<div class="input-group">
+										<input class="form-control disabled txt disabled-input phone"
+											type="text" id="phone-number"
+											th:field="*{phone_number}" />
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label
+									class="title_label control-label col-md-3 col-sm-4 col-xs-12"
+									for="fullname">Họ tên</label>
+								<div class=" col-md-9 col-sm-8 col-xs-12">
+									<div class="input-group">
+										<input class="form-control txt user" type="text" id="fullname"
+											name="fullname" th:field="*{name}" />
+											<em th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></em>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label
+									class="title_label control-label col-md-3 col-sm-4 col-xs-12"
+									for="email">Email</label>
+								<div class=" col-md-9 col-sm-8 col-xs-12">
+									<div class="input-group">
+										<input class="form-control txt email" type="email"
+											name="email" th:field="*{email}" />
+											<em th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></em>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label
+									class="title_label control-label col-md-3 col-sm-4 col-xs-12"
+									for="address">Địa chỉ</label>
+								<div class=" col-md-9 col-sm-8 col-xs-12">
+									<div class="input-group">
+										<input class="form-control txt addresss" type="text"
+											name="address" th:field="*{address}" />
+									</div>
+								</div>
+							</div>
+							<br>
+							<div class="form-group">
+								<!-- <label
+									class="title_label control-label col-md-3 col-sm-4 col-xs-12"
+									for="password_old">Mật khẩu</label> -->
+								<div class=" col-md-9 col-sm-8 col-xs-12">
+									<div class="input-group">
+										<input class="form-control txt pass" type="hidden" readonly="readonly"
+											id="password" name="password"  th:field="*{password}" th:value="${account.password}" />
+									</div>
+								</div>
+							</div>
+							<!-- <div class="form-group">
+								<label
+									class="title_label control-label col-md-3 col-sm-4 col-xs-12"
+									for="password_new1">Mật khẩu mới</label>
+								<div class=" col-md-9 col-sm-8 col-xs-12">
+									<div class="input-group">
+										<input class="form-control txt pass" type="password"
+											name="password_change" value="" id="password_new1"
+											placeholder="Mật khẩu mới" /> <input
+											class="form-control txt pass" type="password"
+											name="password_change" value="" id="password_new2"
+											placeholder="Nhập lại mật khẩu mới" th:field="*{password}" />
+									</div>
+								</div>
+							</div>  -->
+							<div class="form-group">
+								<div class="col-md-9 col-md-offset-3 col-sm-8 col-xs-12">
+									<div class="input-group">
+										<select class="txt" id="enabled" name="type_account" th:field="*{enabled}">
+											<option value="1" class="active">1</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-md-9 col-md-offset-3 col-sm-8 col-xs-12">
+									<button type="submit" name="wp-submit-update-profile"
+										class="btn btn-default btn_save_profile btn-submit"
+										th:onclick="'alert(\'Cập nhật thành công!\');'">Cập
+										nhật</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<footer th:replace="index :: footer"></footer>
+</body>
+</html>

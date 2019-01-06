@@ -1,27 +1,48 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head th:replace="login :: head">
-		<title>Đăng kí tài khoản</title>
+	<head th:fragment="head" lang="vi">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Đăng ký tài khoản</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      	<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style.css" th:href="@{/css/style.css}">
 	</head>
 	<body>
-		<nav th:replace="postNews :: header"></nav>
+		<nav th:replace="index :: header"></nav>
 		<div class="header-title">
-			<h1>Đăng kí tài khoản</h1>
+			<h1>Đăng ký tài khoản</h1>
 		</div>
 		<div class="login container" th:fragment="th-register">
 			<div class="row">
+			<div th:if="${errorMessage != null}" th:utext="${errorMessage}" class="error"></div>
+       
 				<div class="col-sm-4 col-xs-3 col-md-4"></div>
-				<form class="col-sm-4 col-xs-6 col-md-4">
-					<input class="user txt" type="text" placeholder="Tên tài khoản" name="user"><br>
-					<input class="pass txt" type="password" placeholder="Mật khẩu" name="password"><br>
-					<input class="pass txt" type="password" placeholder="Nhập lại mật khẩu" name="password"><br>
-					<input class="email txt" type="email" placeholder="Email" name="email"><br>
-					<input class="phone txt" type="tel" placeholder="Số điện thoại" name="phone"><br>
-					<input class="btn-submit" type="button" value="Đăng ký">
+				<form name="form-register" class="col-sm-4 col-xs-6 col-md-4" th:action="@{/saveAccount}" method="POST" th:object="${account}">
+					<input class="user txt" type="hidden" name="id" th:field="*{user_id}"/>
+					<input class="user txt" type="text" placeholder="Tên tài khoản" name="username" th:field="*{username}" required="required"/>
+					<span th:if="${#fields.hasErrors('username')}">Tên đăng nhập đã được sử dụng!</span><br>
+					<input class="pass txt" type="password" placeholder="Mật khẩu" name="password" th:field="*{password}" required="required"/>
+					<span th:if="${#fields.hasErrors('password')}"></span><br>
+					<input class="pass txt" type="password" placeholder="Nhập lại mật khẩu" name="conpassword" required="required"/><br>
+					<input class="user txt" type="text" placeholder="Họ và tên" name="name" th:field="*{name}" required="required"/>
+					<span th:if="${#fields.hasErrors('name')}"></span><br>
+					<input class="email txt" type="email" placeholder="Email" name="email" th:field="*{email}" required="required"/>
+					<span th:if="${#fields.hasErrors('email')}">Email đã được sử dụng, vui lòng nhập email khác!</span><br>
+					<input class="phone txt" type="tel" placeholder="Số điện thoại" name="phone" th:field="*{phone_number}" required="required"/>
+					<span th:if="${#fields.hasErrors('phone_number')}"></span><br>
+					<input class="address-input txt" type="text" placeholder="Địa chỉ" name="address" th:field="*{address}" required="required"/>
+					<span th:if="${#fields.hasErrors('address')}"></span><br>
+					<select class="txt" id="enabled" name="type_account" th:field="*{enabled}">
+						<option value="1" class="active">1</option>
+					</select>
+					<input class="btn-submit" type="submit" value="Đăng ký"	/><br>
+					<a th:href="@{/}">Cancel</a>
 				</form>
 				<div class="col-sm-4 col-xs-3 col-md-4"></div>
 			</div>
-			<div class="didnt-have-account container">Bạn đã có tài khoản? <a href="#" th:href="@{#}">Đăng nhập ngay!</a></div>
+			<div class="didnt-have-account container">Bạn đã có tài khoản? <a href="login.html" th:href="@{/login}">Đăng nhập ngay!</a></div>
 		</div>
 		<footer th:replace="index :: footer"></footer>
 	</body>

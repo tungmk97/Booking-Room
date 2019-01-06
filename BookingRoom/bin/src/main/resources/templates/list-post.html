@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Quản lý bài đăng</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style.css" th:href="@{css/style.css}">
+	<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-list-account.css"  th:href="@{css/style-list-account.css}">
+</head>
+<body>
+	<nav th:replace="index :: header"></nav>
+	<div class="header-title">
+			<h1>Quản lý bài đăng</h1>
+		</div>
+	<div class="container">
+    	<div th:if="${success}" class="row alert alert-success alert-dismissible" th:fragment="th-list-post-1">
+	        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <span th:text="${success}"></span>
+	    </div>
+    	
+    	<th:block th:if="${#lists.isEmpty(posts)}" th:fragment="th-list-post-2">
+		    <h3>Không có bài đăng nào!</h3>
+		</th:block>
+		
+        <th:block th:unless="${#lists.isEmpty(posts)}" th:fragment="th-list-post-3">
+            <div class="row">
+                <!-- <form class="form-inline pull-right" action="#" th:action="@{/account/search}" method="GET">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="q" 
+                            placeholder="Nhập tên tài khoản..." />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Tìm</button>
+                </form> -->
+            </div>
+            <div class="row">
+                <table class="table table-bordered table-hover">
+                    <thead>
+							<tr class="table-title">
+							 	<th>STT</th>
+								<th class="td-title td_center">Mã số</th>
+								<th class="td-title">Tiêu đề</th>
+								<th class="td-title">Diện tích</th>
+								<th class="td-title">Giá tiền</th>
+								<th class="td-title">Ngày đăng</th>
+								<th class="td-title">Ngày hết hạn</th>
+								<th class="td-title">Mô tả</th>
+								<th class="td-title">Sửa</th>
+								<th class="td-title">Xóa</th>
+							</tr>
+						</thead>
+                    <tbody>
+                        <tr th:each="post,iterStat : ${posts}">
+                            <td th:text="${iterStat.count}"></td>
+                            <td th:text="${post.post_id}"></td>
+                            <td th:text="${post.title}"></td>
+                            <td th:text="${post.acreage}"></td>
+                            <td th:text="${post.price}"></td>
+                           	<td th:text="${post.start_date}"></td>
+                            <td th:text="${post.end_date}"></td>
+                            <td th:text="${post.description}"></td>
+                            <td><a th:href="@{/post-update/} + ${post.post_id}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                            <td><a th:href="@{/postDelete/} + ${post.post_id}" th:onclick="'alert(\'Xóa bài đăng thành công!\');'"><span class="glyphicon glyphicon-trash"></span></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </th:block>
+    </div>
+    
+    <footer th:replace="index :: footer"></footer>
+</body>
+</html>

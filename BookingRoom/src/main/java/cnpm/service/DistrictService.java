@@ -23,4 +23,12 @@ public class DistrictService {
 	public District findById(final int districtid) {
 		return districtRepository.findById(districtid);
 	}
+	/*public List<District> getCitiesByCountry(int countryId) {
+		return cityDao.getCitiesByCountry(countryId);
+	}*/
+	public List<District> findAllLimitDis() {
+		return districtRepository.findAllLimitDis();
+	}
+	
+	
 }

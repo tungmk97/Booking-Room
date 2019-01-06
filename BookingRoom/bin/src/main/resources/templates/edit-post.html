@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Sửa bài đăng</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="/BookingRoom/src/main/resources/static/css/style.css"
+	th:href="@{/css/style.css}">
+<link rel="stylesheet" type="text/css"
+	href="/BookingRoom/src/main/resources/static/css/style-postNews.css"
+	th:href="@{/css/style-postNews.css}">
+</head>
+</head>
+<body>
+	<nav th:fragment="header"
+		class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container menu">
+			<div class="menu-bar">
+				<ul class="nav navbar-nav navbar-center"
+					th:fragment="th-navbar-center">
+					<li><a class="items" href="index.html" th:href="@{/}">Trang
+							chủ</a></li>
+					<li><a class="items" href="seeNews.html" th:href="@{/seeNews}">Xem
+							tin</a></li>
+					<li><a class="items" href="search.html" th:href="@{/search}">Tìm
+							kiếm phòng trọ</a></li>
+					<li><a class="items" href="#">Tin khuyến mãi</a></li>
+					<li><a class="items" href="introduce.html"
+						th:href="@{/introduce}">Giới thiệu</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li th:replace="index :: th-form-dropdown"></li>
+				</ul>
+
+			</div>
+		</div>
+	</nav>
+	<div class="header-title" th:fragment="th-postNews-1">
+		<h1>Đăng Tin Mới</h1>
+	</div>
+	<div class="header-title container-fluid" th:fragment="th-postNews-2">
+		<form class="container" th:action="@{/updatePost}" method="POST" th:object="${post}">
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-5 col-xs-12">
+					<h3 class="text-uppercase title">Thông tin cơ bản</h3>
+					<div class="form-group">
+						<input class="txt form-control id-post" name="post_id" type="hidden" th:field="*{post_id}" th:value="${post.post_id}"/>
+						<label for="sel2">Tiêu đề tin: (*)</label>
+						<input
+							class="txt form-control tag-icon" data-val="true"
+							data-val-required="The Title field is required." id="title"
+							name="title" placeholder="Vui lòng nhập tiêu đề tin" type="text"
+							th:field="*{title}"/>
+						<label for="sel5">Diệc tích(m2) (*)</label>
+						<input
+							class="txt form-control acreage-icon" data-val="true"
+							data-val-required="The FullName field is required." id="acreage"
+							maxlength="100" name="acreage"
+							placeholder="Vui lòng nhập diện tích phòng" type="text" th:field="*{acreage}" th:value="${post.acreage}"/>
+						<label for="address">Địa chỉ (*)</label>
+						<input
+							class="txt form-control" id="address"
+							maxlength="100" name="address" placeholder="Vui lòng nhập địa chỉ"
+							type="text" th:field="*{address}" th:value="${post.address}"/>
+						<label for="province">Tỉnh/Thành phố (*)</label>
+						<select
+							class="form-control" id="province" th:field="*{province}" th:each="province,iterStat : ${provinces}">
+							<option disabled selected hidden>--- Vui lòng chọn
+								tỉnh/thành ---</option>
+							<option th:value="${province.name}"></option>
+						</select>
+						<label for="district">Quận/huyện (*)</label>
+						<select
+							class="form-control" id="district" th:field="*{district}" th:each="district,iterStat : ${districts}">
+							<option disabled selected hidden>--- Vui lòng chọn
+								quận/huyện ---</option>
+							<option th:value="${district.name}"></option>
+						</select>
+						<label for="ward">Phường/xã (*)</label>
+						<select
+							class="form-control" id="ward" th:field="*{ward}" th:each="ward,iterStat : ${wards}">
+							<option disabled selected hidden>--- Vui lòng chọn
+								phường/xã ---</option>
+							<option th:value="${ward.name}"></option>
+						</select>
+						<label for="village">Đường/phố (*)</label>
+						<select
+							class="form-control" id="village" th:field="*{village}" th:each="village,iterStat : ${villages}">
+							<option disabled selected hidden>--- Vui lòng chọn
+								đường/phố ---</option>
+							<option th:value="${village.name}"></option>
+						</select>
+						<label for="sel5">Giá Tiền (*)</label>
+						<input
+							class="txt form-control price-icon" data-val="true"
+							data-val-required="The price field is required." id="price sel5"
+							maxlength="100" name="price" placeholder="Vui lòng nhập giá tiền"
+							type="text" th:field="*{price}" th:value="${post.price}"/>
+						<label for="start-date">Ngày đăng bài</label>
+						<p>Vui lòng nhập đúng định dạng: YYYY-MM-DD hh:mm:ss</p>
+						<input class="txt form-control datetime" id="start-date" readonly="readonly" type="datetime" th:field="*{start_date}" th:value="${post.start_date}"/>
+						<label for="end-date">Ngày hết hạn (*)</label>
+						<p>Vui lòng nhập đúng định dạng: YYYY-MM-DD hh:mm:ss</p>
+						<input
+							class="txt form-control datetime" id="end-date"
+							name="end-date" type="datetime" th:field="*{end_date}" th:value="${post.end_date}"/>
+					</div>
+					<div class="note">
+						<h3 class="text-uppercase note-1 title">* Lưu ý</h3>
+						<p>- Thông tin có dấu (*) là bắt buộc.</p>
+						<p>- Nội dung phải viết bằng tiếng Việt có dấu</p>
+						<p>- Tiêu đề tin không dài quá 100 kí tự</p>
+						<p>- Các bạn nên điền đầy đủ thông tin vào các mục để tin đăng
+							có hiệu quả hơn.</p>
+						<p>Để tăng độ tin cậy và tin rao được nhiều người quan tâm
+							hơn, hãy sửa vị trí tin rao của bạn trên bản đồ bằng cách kéo
+							icon tới đúng vị trí của tin rao.</p>
+						<p>Tin đăng có hình ảnh rõ ràng sẽ được xem và gọi gấp nhiều
+							lần so với tin rao không có ảnh. Hãy đăng ảnh để được giao dịch
+							nhanh chóng!</p>
+					</div>
+				</div>
+				<div class="col-md-5 col-xs-12">
+					<h3 class="text-uppercase title">Thông tin mô tả (*)</h3>
+					<div class="form-group">
+						<textarea class="txt form-control" cols="20" data-val="true"
+							data-val-required="The Detail field is required." id="Detail"
+							name="Detail" placeholder="Vui lòng nhập nội dung" rows="2"
+							style="width: 100%; height: 250px" th:field="*{description}" th:value="${post.description}"></textarea>
+					</div>
+				</div>
+			</div>
+			<!-- <div th:fragment="th-postNews-2">
+				<h3 class="text-uppercase title">Hình ảnh (Nếu có)</h3>
+				<div class="alert alert-success">Tin đăng có hình ảnh rõ ràng
+					sẽ được xem và gọi gấp nhiều lần so với tin rao không có ảnh. Hãy
+					đăng ảnh để được giao dịch nhanh chóng. Bạn có thể tải 16 ảnh và
+					mỗi ảnh dung lượng không quá 4MB</div>
+				<label for="thumbnail-post" class="col-sm-12 control-label">Chọn
+					hình ảnh để đăng</label>
+				<div class="alert alert-info">
+					<h5 class="">Định dạng ảnh hỗ trợ: .jpg .png .jpeg .gif</h5>
+					<div id="fileupload alert-danger">
+						<div id="uploadimage" class="clearfix default-theme ">
+							<input type="hidden" name="Images" id="BDSGuestUploadNonFlash">
+							<input id="secleimg" multiple="" class="fileupload" type="file"
+								name="userfile">
+							<div class="upload-item working-upload-item"></div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+			<div class="row">
+				<div class="col-sm-4"></div>
+				<button type="submit" class="btn btn-submit col-sm-4">Đăng
+					tin ngay</button>
+				<div class="col-sm-4"></div>
+			</div>
+			</form>
+		</div>
+	<footer th:replace="index :: footer"></footer>
+</body>
+</html>

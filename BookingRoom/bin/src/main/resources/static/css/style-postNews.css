@@ -1,4 +1,4 @@
-/* Đăng tin */
+/* Ä�Äƒng tin */
 .title{
 	font-family: Calibri Light;
 	font-weight: bold;
@@ -33,10 +33,13 @@ select.form-control{
   	outline: none;
     font-size: 15px;
     font-weight: 400;
-    color: #A0A0A0;
+    color: #fff;
     width: 100%;
     display: inline-block;
     background: rgba(255,255,255,0);
+}
+.form-control option{
+	color: #000;
 }
 .btn-submit{
 	width: 30%;
@@ -67,6 +70,9 @@ label{
 }
 .tag-icon{
 	background: url(/img/tag-icon.png) no-repeat 8px 18px;
+}
+.datetime{
+	background: url(/img/datetime-icon.png) no-repeat 10px 21px;
 }
 .form-control:focus{
   -webkit-box-shadow: none;

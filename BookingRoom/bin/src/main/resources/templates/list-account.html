@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Quản lý thành viên</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style.css" th:href="@{css/style.css}">
+	<link rel="stylesheet" type="text/css" href="/BookingRoom/src/main/resources/static/css/style-list-account.css"  th:href="@{css/style-list-account.css}">
+</head>
+<body>
+	<nav th:replace="index :: header"></nav>
+	<div class="header-title">
+			<h1>Quản lý thành viên</h1>
+		</div>
+	<div class="container">
+    	<div th:if="${success}" class="row alert alert-success alert-dismissible" th:fragment="th-list-account-1">
+	        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <span th:text="${success}"></span>
+	    </div>
+    	
+    	<th:block th:if="${#lists.isEmpty(accounts)}" th:fragment="th-list-account-2">
+		    <h3>Bạn không có quyền truy cập quản lý thành viên!</h3>
+		</th:block>
+		
+        <th:block th:unless="${#lists.isEmpty(accounts)}" th:fragment="th-list-account-3">
+            <div class="row">
+                <form class="form-inline pull-right" action="#" th:action="@{/account/search}" method="GET">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="q" 
+                            placeholder="Nhập tên tài khoản..." />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Tìm</button>
+                </form>
+            </div>
+            <div class="row">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr class="table-title">
+                            <th>STT</th>
+                            <th>ID</th>
+                            <th>Tên tài khoản</th>
+                            <th>Họ và tên</th>
+                            <th>Email</th>
+                            <th>Số điện thoại</th>
+                            <th>Địa chỉ</th>
+                             <!-- <th>Level</th> -->
+                            <th>Cập nhật</th>
+                            <th>Xóa tài khoản</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="account,iterStat : ${accounts}">
+                            <td th:text="${iterStat.count}"></td>
+                            <td th:text="${account.user_id}"></td>
+                            <td th:text="${account.username}"></td>
+                            <td th:text="${account.name}"></td>
+                            <td th:text="${account.email}"></td>
+                            <td th:text="${account.phone_number}"></td>
+                            <td th:text="${account.address}"></td>
+                            <!-- <td th:text="${account.id_type_account}"></td> -->
+                            <td><a th:href="@{/account-update/} + ${account.user_id}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                            <td><a th:href="@{/accountDelete/} + ${account.user_id}" th:onclick="'alert(\'Xóa tài khoản thành công!\');'"><span class="glyphicon glyphicon-trash"></span></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </th:block>
+    </div>
+    
+    <footer th:replace="index :: footer"></footer>
+</body>
+</html>

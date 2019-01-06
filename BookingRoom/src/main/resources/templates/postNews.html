@@ -73,24 +73,39 @@
 							type="text" th:field="*{address}"/>
 						<label for="province">Tỉnh/Thành phố (*)</label>
 						<select
-							class="form-control" id="province" th:field="*{provinceid}" th:value="${post.provinceid}" onchange="run()">
+							class="form-control" id="province" th:field="*{provinceid}" onchange="" >
 							<option th:value="0" disabled selected hidden>--- Vui lòng chọn tỉnh/thành ---</option>
 							<div th:each="province,iterStat : ${provinces}" >
 								<option th:value="${province.provinceid}" th:text="${province.name}"></option>
-							</div>
+							</div>						
 						</select>
 						<input id="province-input-value" type="text" readonly="readonly" /><br>
 						<label for="district">Quận/huyện (*)</label>
-						<select
-							class="form-control" id="district" th:field="*{districtid}" th:value="${post.districtid}" onchange="run2()">
-							<div th:each="district: ${districts}">
-								<div th:if="${district.provinceid} == '01TTT'">
+						<select class="form-control" id="district" th:field="*{districtid}" th:value="${post.districtid}" onchange="run2()" >
+							<div th:each="district,iterStat: ${districts}">
+								 <div th:if="${district.privinceid} == ${province.provinceid} ">
 									<option th:value="${district.districtid}" th:text="${district.name}"></option>
+								</div>
+							</div>
+							<option th:value="0" disabled selected hidden>--- Vui lòng chọn quận/huyện ---</option>			
+						</select>
+						<!-- <div id="district" style="visibility:hidden;">
+							<label for="district">Quận/huyện (*)</label>
+							<select
+							class="form-control"  th:field="*{provinceid}"  onchange="run2()">
+							<div th:each="district: ${districts}" >
+								<div th:if="${district.provinceid} == '01TTT'">
+									<option th:value="${district.provinceid}" th:text="${district.name}"></option>
+									
 								</div>
 							</div>
 							<option th:value="0" disabled selected hidden>--- Vui lòng chọn quận/huyện ---</option>
 							
-						</select>
+							</select>
+						</div>
+						 -->
+						
+							
 						<input id="district-input-value" type="text" readonly="readonly" /><br>
 						<!-- <label for="ward">Phường/xã (*)</label>
 						<select
@@ -175,6 +190,7 @@
 	<footer th:replace="index :: footer"></footer>
 	<script th:inline="javascript">
 /*<![CDATA[*/
+	
 	function d2(n) {
 		if(n<9) return "0"+n;
 		return n;
@@ -185,12 +201,44 @@
 	
 	function run() {
 		document.getElementById("province-input-value").value = document.getElementById("province").value;
-		document.getElementById("district-input-value").value = document.getElementById("district").value;
+		
+		//document.getElementById("district-input-value").value = document.getElementById("district").value;
 	
 	}
 	function run2() {
 		document.getElementById("district-input-value").value = document.getElementById("district").value;
 	
+	}
+	/* var province = document.getElementById("province").value;
+	var distric = document.getElementById("district").value;
+	if(province == distric){
+		document.getElementById("district")
+	} */
+	
+	$(document).ready(function() { // for client name 
+
+		$('#province').change(function(event) {
+			var country = $("select#province").val(); // country = define value of selected option
+			$.getJSON('ajaxAction0', {
+				ptype : country
+			}, function(data) {
+				var select = $('#district');
+				select.find('option').remove();
+				$.each(data, function(key, value) {
+					$('<option>').val(key).text(value).appendTo(select);
+				});
+			});
+		});
+	});
+	
+	function showProvince(){
+		var selectBox = document.getElementById("district");
+		var userInput = selectBox.options[selectBox.selectedIndex].value;
+		if(userInput == "01TTT"){
+			document.getElementById("district").style.visibility='visible';
+		}else {
+			document.getElementById("district").style.visibility='hidden';
+		}
 	}
 	/*]]>*/
 </script>

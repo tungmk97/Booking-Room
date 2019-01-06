@@ -23,4 +23,9 @@ public class ProvinceService {
 	public Province findById(final int provinceid) {
 		return provinceRepository.findById(provinceid);
 	}
+	public List<Province> findAllLimit() {
+		return provinceRepository.findAllLimit();
+	}
+	
+	
 }
