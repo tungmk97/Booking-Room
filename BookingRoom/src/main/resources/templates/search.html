@@ -24,32 +24,17 @@
 					<form class="form-group form-search-group container" th:fragment="th-search" th:action="@{/search-by-address}" method="POST">
 						<h3 class="title">Tìm kiếm theo khu vực</h3>
 						<div class="row bs-content">
-							<div class="col-sm-2">
+							<div class="col-sm-4">
 								
 								<input  class="txt" id="city-search" type="text" placeholder="Tỉnh/thành phố" name="city"/>
 							</div>
-							<div class="col-sm-2">
+							<div class="col-sm-4">
 								
 								<input  class=" txt" id="district-search" type="text" placeholder="Quận/huyện" name="district"/>
 							</div>
-							<div class="col-sm-2">
+							<div class="col-sm-4">
 								
 								<input  class=" txt" id="block-search" type="text" placeholder="Phường/xã" name="block"/>
-							</div>
-							<div class="col-sm-2">
-								<select class="form-control col-sm-2" id="area-search">
-									<option disabled selected hidden>Diện tích (m<sup>2</sup>)</option>
-									<option>50-70</option>
-								</select>
-							</div>
-							<div class="col-sm-2">
-								<select class="form-control col-sm-2" id="price-search">
-									<option disabled selected hidden>Mức giá (VND)</option>
-									<option>5000000-7000000</option>
-								</select>
-							</div>
-							<div class="col-sm-2">
-								<input id="id-room" class="id-txt txt" type="text" placeholder="Tìm theo mã phòng" name="id-room">
 							</div>
 						</div>
 						<div class="row bs-search">

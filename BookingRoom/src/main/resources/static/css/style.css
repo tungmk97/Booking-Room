@@ -57,11 +57,11 @@ a.items:hover{
     font-family: Calibri Light;
 }
 .header-title h1{
-    margin-top: 25px;
-    color: #EE7C6B;
+    margin-top: 50px;
+    color: red;
     font-size: 55px;
     font-weight: bold;
-    margin-bottom:30px;
+    margin-bottom:50px;
 }
 .header-title h2{
     color: #83C75D;
@@ -552,4 +552,7 @@ a:link {
 }
 form span{
 	color: red;
+}
+.title-1{
+	margin-top:98px;
 }
