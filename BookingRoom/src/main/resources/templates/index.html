@@ -79,7 +79,6 @@
 			cận với nhiều khách hàng hơn, do đó giao dịch nhanh hơn, tiết kiệm
 			chi phí hơn.</p>
 	</div>
-	<div th:replace="search :: th-search"></div>
 	<div th:replace="seeNews :: th-seeNews-1"></div>
 	<div th:replace="seeNews :: th-seeNews-2"></div>
 	<footer th:fragment="footer">
@@ -99,8 +98,8 @@
 					<h3>Hữu ích</h3>
 					<span><a href="index.html" th:href="@{/}">Trang chủ</a></span>
 					<span><a href="seeNews.html" th:href="@{/seeNews}">Xem
-							tin</a></span> <span><a href="#" th:href="@{/login}">Tìm kiếm
-							phòng trọ</a></span> <span><a href="postNews.html"
+							tin</a></span> <span><a href="#" th:href="@{/search}">Tìm kiếm
+							phòng trọ</a></span> <span><a href="search.html"
 						th:href="@{/postNews}">Đăng tin cho thuê trọ</a></span> <span><a
 						href="introduce.html" th:href="@{/introduce}">Giới thiệu</a></span> <span><a
 						href="#" th:href="@{/login}">Terms and conditions</a></span> <span><a
@@ -115,7 +114,7 @@
 						th:href="@{/manage-account/profile}">Quản lý tài khoản</a></span> <span><a
 						href="manage-account.html" th:href="@{/manage-account/profile}">Đổi
 							mật khẩu</a></span> <span><a href="#" th:href="@{/manage-account/profile}">Xóa tài
-							khoản</a> </span> <span><a href="index.html" th:href="@{/index}">Bảng
+							khoản</a> </span> <span><a href="#" th:href="@{/}">Bảng
 							tin</a></span>
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-4 menu-footer">

@@ -57,10 +57,11 @@ a.items:hover{
     font-family: Calibri Light;
 }
 .header-title h1{
-    margin-top: 70px;
+    margin-top: 25px;
     color: #EE7C6B;
     font-size: 55px;
     font-weight: bold;
+    margin-bottom:30px;
 }
 .header-title h2{
     color: #83C75D;
@@ -212,7 +213,7 @@ select.form-control{
     padding-top: 30px;
     font-size: 15px;
 }
-/*Pháº§n tin ná»•i báº­t*/
+/*PhÃ¡ÂºÂ§n tin nÃ¡Â»â€¢i bÃ¡ÂºÂ­t*/
 .hot-news-section{
     background-color: hsla(0, 100%, 90%, 0.15);
     border: 1px solid hsla(0, 100%, 90%, 0.3);
@@ -294,7 +295,7 @@ a:link {
     overflow: hidden;
     white-space: nowrap;
 }
-/*Pháº§n tin má»›i*/
+/*PhÃ¡ÂºÂ§n tin mÃ¡Â»â€ºi*/
 .block-left, .block-right{
     background-color: hsla(0, 100%, 90%, 0.15);
     border: 1px solid hsla(0, 100%, 90%, 0.3);
@@ -456,7 +457,7 @@ a:link {
     padding-right: 0;
     padding-left: 0;
 }
- /*Pháº§n tin tá»©c má»›i*/
+ /*PhÃ¡ÂºÂ§n tin tÃ¡Â»Â©c mÃ¡Â»â€ºi*/
 .sidebar_list_box_content ul {
     padding: 0;
 }
@@ -527,7 +528,7 @@ a:link {
     font-weight: bold;
 }
 /* */
-/* Đăng ký */
+/* Ä�Äƒng kÃ½ */
 .label-type-account{
 	color: #EE7C6B;
     font-family: Calibri Light;

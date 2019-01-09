@@ -113,6 +113,15 @@
 							class="txt form-control datetime" id="end-date"
 							name="end-date" type="datetime" th:field="*{end_date}" th:value="${post.end_date}"/>
 					</div>
+				</div>
+				<div class="col-md-5 col-xs-12">
+					<h3 class="text-uppercase title">Thông tin mô tả (*)</h3>
+					<div class="form-group">
+						<textarea class="txt form-control" cols="20" data-val="true"
+							data-val-required="The Detail field is required." id="Detail"
+							name="Detail" placeholder="Vui lòng nhập nội dung" rows="2"
+							style="width: 100%; height: 250px" th:field="*{description}" th:value="${post.description}"></textarea>
+					</div>
 					<div class="note">
 						<h3 class="text-uppercase note-1 title">* Lưu ý</h3>
 						<p>- Thông tin có dấu (*) là bắt buộc.</p>
@@ -123,18 +132,9 @@
 						<p>Để tăng độ tin cậy và tin rao được nhiều người quan tâm
 							hơn, hãy sửa vị trí tin rao của bạn trên bản đồ bằng cách kéo
 							icon tới đúng vị trí của tin rao.</p>
-						<p>Tin đăng có hình ảnh rõ ràng sẽ được xem và gọi gấp nhiều
+						<!-- <p>Tin đăng có hình ảnh rõ ràng sẽ được xem và gọi gấp nhiều
 							lần so với tin rao không có ảnh. Hãy đăng ảnh để được giao dịch
-							nhanh chóng!</p>
-					</div>
-				</div>
-				<div class="col-md-5 col-xs-12">
-					<h3 class="text-uppercase title">Thông tin mô tả (*)</h3>
-					<div class="form-group">
-						<textarea class="txt form-control" cols="20" data-val="true"
-							data-val-required="The Detail field is required." id="Detail"
-							name="Detail" placeholder="Vui lòng nhập nội dung" rows="2"
-							style="width: 100%; height: 250px" th:field="*{description}" th:value="${post.description}"></textarea>
+							nhanh chóng!</p> -->
 					</div>
 				</div>
 			</div>

@@ -73,7 +73,7 @@ public class PostController {
 		model.addAttribute("account", account);
 		model.addAttribute("accounts", accountService.findAll());
 //		return "list-post";
-		return "redirect:/index";
+		return "redirect:/";
 	}
 	
 	@RequestMapping("/postDelete/{post_id}")
