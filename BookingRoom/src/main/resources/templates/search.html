@@ -15,34 +15,37 @@
 		<div class="header">
 			<h1>Tìm kiếm khu vực</h1>
 		</div>
-		<form class="form-group form-search-group container"th:fragment="th-search">
+		<form class="form-group form-search-group container" th:fragment="th-search" th:action="@{/search-by-address}" method="POST">
 			<h3 class="title">Tìm kiếm nhanh</h3>
 			<div class="row bs-content">
 				<div class="col-sm-2">
-					<select class="form-control" id="city-search">
+					<!-- <select class="form-control" id="city-search">
 						<option disabled selected hidden>Tỉnh/thành</option>
 				        <option>Hà Nội</option>
 				        <option>Hồ Chí Minh</option>
 				        <option>Hải Phòng</option>
 				        <option>Nha Trang</option>
-				    </select>
+				    </select> -->
+				    <input  class="txt" id="city-search" type="text" placeholder="Tỉnh/thành phố" name="city"/>
 				</div>
 			    <div class="col-sm-2">
-					<select class="form-control" id="district-search">
+					<!-- <select class="form-control" id="district-search">
 						<option disabled selected hidden>Quận/huyện</option>
 				        <option>Hoàn Kiếm</option>
 				        <option>Cầu giấy</option>
 				        <option>Hà Đông</option>
 				        <option>Bắc Từ Liêm</option>
-				    </select>
+				    </select> -->
+				    <input  class=" txt" id="district-search" type="text" placeholder="Quận/huyện" name="district"/>
 				</div>
 			    <div class="col-sm-2">
-			    	<select class="form-control col-sm-2" id="block-search">
+			    	<!-- <select class="form-control col-sm-2" id="block-search">
 						<option disabled selected hidden>Phường/xã</option>
 				        <option>Quan Hoa</option>
 				        <option>Dịch Vọng</option>
 				        <option>Cầu diễn</option>
-				    </select>	
+				    </select> -->
+				    <input  class=" txt" id="block-search" type="text" placeholder="Phường/xã" name="block"/>
 				</div>
 				<div class="col-sm-2">
 					<select class="form-control col-sm-2" id="area-search">
@@ -61,9 +64,68 @@
 				</div>
 			</div>
 			<div class="row bs-search">
-				<input class="btn-submit btn-search col-sm-3" type="button" value="Tìm kiếm ngay">
+				<input class="btn-submit btn-search col-sm-3" type="submit" value="Tìm kiếm ngay">
 			</div>
 		</form>
+		
+		<div class="container">
+			<div class="tab-content">
+			<h3>Kết quả</h3>
+				<div class="post-item color-red" th:each="post,iterStat : ${posts}">
+					<div class="thumb-image">
+						<a th:href="@{/seePost/} + ${post.post_id}"
+							title="Cho thuê phòng trọ sạch sẽ, an ninh, cách mặt tiền đường Nguyễn Duy Trinh 50m">
+							<img class=""
+							data-src="https://img.homedy.com/store/images/2018/11/22/1-636784879280933592.jpg_200x200.jpg"
+							alt="Cho thuê phòng trọ sạch sẽ, an ninh, cách mặt tiền đường Nguyễn Duy Trinh 50m"
+							src="https://img.homedy.com/store/images/2018/11/22/1-636784879280933592.jpg_200x200.jpg">
+						</a>
+						<div class="distance">
+							<span class="ic-distance"></span> <span class="number">6.6
+								km</span>
+						</div>
+						<div class="price" ><span th:text="${post.price}"></span>m<sup>2</sup>/tháng</div>
+						<div class="status"></div>
+						<div class="bg-opacity"></div>
+					</div>
+					<div class="info">
+						<a  th:href="@{/seePost/} + ${post.post_id}"
+							title="Cho thuê phòng trọ sạch sẽ, an ninh, cách mặt tiền đường Nguyễn Duy Trinh 50m">
+							<div class="name" th:text="${post.title}"></div>
+						</a>
+						<div class="description" th:text="${post.description}"></div>
+						<div class="address" th:text="${post.address}"></div>
+						<div class="date">Ngày đăng: <span th:text="${post.start_date}"></span></div>
+						<!-- Show only mobile -->
+						<div class="distance-price-mobile" style="display: none">
+							<span>6.6 km</span> <span><span th:text="${post.price}"></span>m<sup>2</sup>/tháng</span>
+						</div>
+							<!-- End -->
+						<div class="detail" th:each="account,iterStat : ${listAccount}" th:if="${post.user_id} == ${account.user_id}">
+							<div class="col price">
+								<span th:text="${post.price}"></span> <span>VNĐ/tháng</span>
+							</div>
+							<div class="col acreage">
+								<span th:text="${post.acreage}"></span> <span>m<sup>2</sup></span>
+							</div>
+							<div class="col name">
+								<div class="fullname">
+									<a href="#" th:title="${account.name}" th:text="${account.name}">Trần Tiến Đạt</a> &nbsp;|
+								</div>
+								<div class="mobile mobile-counter" data-type="2">
+									<span class="mobile-visible-part" th:text="${account.phone_number}">0888992</span>
+								</div>
+								<a href="tel:${account.phone_number}" class="mobile" title="${account.phone_number}"
+										style="display: none" th:text="${account.phone_number}">0888992345</a>
+									<!-- Show only mobile -->
+								<div class="date-mobile" style="display: none">Ngày đăng: <span th:if="${post.start_date}"></span></div>
+									<!-- End -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 		<footer th:replace="index :: footer"></footer>
 	</body>
 </html>

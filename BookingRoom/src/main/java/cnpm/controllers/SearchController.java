@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class SearchController {
-	@RequestMapping("/search")
-    public String search() {
-	return "search";
-    }
+//	@RequestMapping("/search")
+//    public String search() {
+//	return "search";
+//    }
 }
