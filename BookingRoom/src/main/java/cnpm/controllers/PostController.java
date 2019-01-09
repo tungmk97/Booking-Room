@@ -120,4 +120,18 @@ public class PostController {
     	model.addAttribute("listAccount", accountService.findAll());
     	return "search";
     }
+    
+    @RequestMapping(value = "/search-by-acreage", method = RequestMethod.POST, produces="application/x-www-form-urlencoded;charset=UTF-8")
+    public String findPostByAcreage(@RequestParam("minAcreage") int minAcreage, @RequestParam("maxAcreage") int maxAcreage, Model model) {
+    	model.addAttribute("posts", postService.findAllByAcreage(minAcreage, maxAcreage));
+    	model.addAttribute("listAccount", accountService.findAll());
+    	return "search";
+    }
+    
+    @RequestMapping(value = "/search-by-price", method = RequestMethod.POST, produces="application/x-www-form-urlencoded;charset=UTF-8")
+    public String findPostByPrice(@RequestParam("minPrice") int minPrice, @RequestParam("maxPrice") int maxPrice, Model model) {
+    	model.addAttribute("posts", postService.findAllByPrice(minPrice, maxPrice));
+    	model.addAttribute("listAccount", accountService.findAll());
+    	return "search";
+    }
 }

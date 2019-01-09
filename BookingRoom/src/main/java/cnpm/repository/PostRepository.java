@@ -44,7 +44,16 @@ public class PostRepository {
 	public List<Post> findAllByUserId(int user_id) {
 		return entityManager.createQuery("SELECT p FROM Post p WHERE p.user_id = " + user_id).getResultList();
 	}
+	
 	public List<Post> findAllByAddress(String city, String district, String block) {
 		return entityManager.createQuery("SELECT p FROM Post p WHERE p.address LIKE '%" + block + "%" + district + "%" + city+ "%'").getResultList();
+	}
+	
+	public List<Post> findAllByPrice(int minPrice, int maxPrice) {
+		return entityManager.createQuery("SELECT p FROM Post p WHERE p.price BETWEEN " + minPrice + " AND " + maxPrice).getResultList();
+	}
+	
+	public List<Post> findAllByAcreage(int minAcreage, int maxAcreage) {
+		return entityManager.createQuery("SELECT p FROM Post p WHERE p.acreage BETWEEN " + minAcreage + " AND " + maxAcreage).getResultList();
 	}
 }

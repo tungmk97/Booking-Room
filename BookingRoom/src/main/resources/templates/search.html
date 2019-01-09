@@ -12,11 +12,8 @@
 		</head>
 	<body>
 		<nav th:replace="index :: header"></nav>
-		<div class="header">
-			<h1>Tìm kiếm khu vực</h1>
-		</div>
 		<form class="form-group form-search-group container" th:fragment="th-search" th:action="@{/search-by-address}" method="POST">
-			<h3 class="title">Tìm kiếm nhanh</h3>
+			<h3 class="title">Tìm kiếm theo khu vực</h3>
 			<div class="row bs-content">
 				<div class="col-sm-2">
 					<!-- <select class="form-control" id="city-search">
@@ -67,7 +64,42 @@
 				<input class="btn-submit btn-search col-sm-3" type="submit" value="Tìm kiếm ngay">
 			</div>
 		</form>
-		
+		<form class="form-group form-search-group container" th:action="@{/search-by-acreage}" method="POST">
+			<h3 class="title">Tìm kiếm theo diện tích</h3>
+				<h3 class="title col-sm-1">Từ</h3>
+			<div class="col-sm-2">
+					<!-- <select class="form-control col-sm-2" id="area-search">
+						<option disabled selected hidden>Diện tích (m<sup>2</sup>)</option>
+				        <option>50-70</option>
+				    </select> -->
+				    <input class=" txt" id="min-acreage-search" type="text" name="minAcreage" />
+				</div>
+				    <h3 class="title col-sm-1">Đến</h3>
+				    <div class="col-sm-2">
+				    <input class=" txt" id="max-acreage-search" type="text" name="maxAcreage" />
+				    </div>
+				<div class="row bs-search">
+				<input class="btn-submit btn-search col-sm-3" type="submit" value="Tìm kiếm ngay">
+			</div>
+		</form>
+		<form class="form-group form-search-group container" th:action="@{/search-by-price}" method="POST">
+			<h3 class="title">Tìm kiếm theo giá tiền</h3>
+				    <h3 class="title col-sm-1">Từ</h3>
+			<div class="col-sm-2">
+					<!-- <select class="form-control col-sm-2" id="price-search">
+						<option disabled selected hidden>Mức giá (VND)</option>
+				        <option>5000000-7000000</option>
+				    </select> -->
+				    <input class=" txt" id="min-price-search" type="text" name="minPrice" />
+				</div>
+				    <h3 class="title col-sm-1">Đến</h3>
+				    <div class="col-sm-2">
+				    <input class=" txt" id="max-price-search" type="text" name="maxPrice" />
+				    </div>
+				<div class="row bs-search">
+				<input class="btn-submit btn-search col-sm-3" type="submit" value="Tìm kiếm ngay">
+			</div>
+		</form>
 		<div class="container">
 			<div class="tab-content">
 			<h3>Kết quả</h3>
