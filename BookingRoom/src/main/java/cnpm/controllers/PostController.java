@@ -14,16 +14,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import cnpm.domain.Account;
 import cnpm.domain.Post;
 import cnpm.service.AccountService;
-import cnpm.service.DistrictService;
 import cnpm.service.PostService;
-import cnpm.service.ProvinceService;
 import cnpm.service.UserDetailsServiceImpl;
-import cnpm.service.VillageService;
-import cnpm.service.WardService;
 
 @Controller
 public class PostController {
@@ -33,14 +30,14 @@ public class PostController {
     private UserDetailsServiceImpl userDetailsServiceImpl;
 	@Autowired
     private AccountService accountService;
-	@Autowired
-    private ProvinceService provinceService;
-	@Autowired
-    private DistrictService districtService;
-	@Autowired
-    private WardService wardService;
-	@Autowired
-    private VillageService villageService;
+//	@Autowired
+//    private ProvinceService provinceService;
+//	@Autowired
+//    private DistrictService districtService;
+//	@Autowired
+//    private WardService wardService;
+//	@Autowired
+//    private VillageService villageService;
 	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
@@ -52,10 +49,10 @@ public class PostController {
 	@RequestMapping("/postNews")
     public String postNews(Model model) {
 		model.addAttribute("post", new Post());
-		model.addAttribute("provinces", provinceService.findAll());
-		model.addAttribute("districts", districtService.findAll());
-		model.addAttribute("wards", wardService.findAll());
-		model.addAttribute("villages", villageService.findAll());
+//		model.addAttribute("provinces", provinceService.findAll());
+//		model.addAttribute("districts", districtService.findAll());
+//		model.addAttribute("wards", wardService.findAll());
+//		model.addAttribute("villages", villageService.findAll());
 	return "postNews";
     }
 	
@@ -90,10 +87,10 @@ public class PostController {
 	public String updateCustomer(@PathVariable int post_id, Model model) {
     	Post post = postService.findById(post_id);
 		model.addAttribute("post", post);
-		model.addAttribute("provinces", provinceService.findAll());
-		model.addAttribute("districts", districtService.findAll());
-		model.addAttribute("wards", wardService.findAll());
-		model.addAttribute("villages", villageService.findAll());
+//		model.addAttribute("provinces", provinceService.findAll());
+//		model.addAttribute("districts", districtService.findAll());
+//		model.addAttribute("wards", wardService.findAll());
+//		model.addAttribute("villages", villageService.findAll());
 		return "edit-post";
 	}
     
@@ -110,5 +107,17 @@ public class PostController {
 		model.addAttribute("posts", postService.findAll());
 		model.addAttribute("account", account);
         return "list-post";
+    }
+    
+    @RequestMapping("/search")
+    public String search(Model model) {
+	return "search";
+    }
+    
+    @RequestMapping(value = "/search-by-address", method = RequestMethod.POST, produces="application/x-www-form-urlencoded;charset=UTF-8")
+    public String findPostByAddress(@RequestParam("city") String city, @RequestParam("district") String district, @RequestParam("block") String block, Model model) {
+    	model.addAttribute("posts", postService.findAllByAddress(city, district, block));
+    	model.addAttribute("listAccount", accountService.findAll());
+    	return "search";
     }
 }

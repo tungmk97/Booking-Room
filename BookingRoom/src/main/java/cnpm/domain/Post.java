@@ -48,17 +48,17 @@ public class Post implements Serializable{
     @Column(name = "address", nullable = false)
     private String address;
     
-    @Column(name = "provinceid", nullable = false)
-    private String provinceid;
-    
-    @Column(name = "districtid", nullable = false)
-    private String districtid;
-    
-    @Column(name = "wardid", nullable = false)
-    private String wardid;
-    
-    @Column(name = "villageid", nullable = false)
-    private String villageid;
+//    @Column(name = "provinceid", nullable = false)
+//    private String provinceid;
+//    
+//    @Column(name = "districtid", nullable = false)
+//    private String districtid;
+//    
+//    @Column(name = "wardid", nullable = false)
+//    private String wardid;
+//    
+//    @Column(name = "villageid", nullable = false)
+//    private String villageid;
     
     @Column(name = "price", nullable = false)
     private int price;
@@ -74,7 +74,7 @@ public class Post implements Serializable{
 	}
 
 	public Post(int post_id, String title, int status_id, Date start_date, Date end_date, int acreage, String address,
-			String provinceid, String districtid, String wardid, String villageid, int price, String description, int user_id) {
+			 int price, String description, int user_id) {
 		super();
 		this.post_id = post_id;
 		this.title = title;
@@ -83,10 +83,6 @@ public class Post implements Serializable{
 		this.end_date = end_date;
 		this.acreage = acreage;
 		this.address = address;
-		this.provinceid = provinceid;
-		this.districtid = districtid;
-		this.wardid = wardid;
-		this.villageid = villageid;
 		this.price = price;
 		this.description = description;
 		this.user_id = user_id;
@@ -148,37 +144,37 @@ public class Post implements Serializable{
 		this.address = address;
 	}
 
-	public final String getProvinceid() {
-		return provinceid;
-	}
-
-	public final void setProvinceid(String provinceid) {
-		this.provinceid = provinceid;
-	}
-
-	public final String getDistrictid() {
-		return districtid;
-	}
-
-	public final void setDistrictid(String districtid) {
-		this.districtid = districtid;
-	}
-
-	public final String getWardid() {
-		return wardid;
-	}
-
-	public final void setWardid(String wardid) {
-		this.wardid = wardid;
-	}
-
-	public final String getVillageid() {
-		return villageid;
-	}
-
-	public final void setVillageid(String villageid) {
-		this.villageid = villageid;
-	}
+//	public final String getProvinceid() {
+//		return provinceid;
+//	}
+//
+//	public final void setProvinceid(String provinceid) {
+//		this.provinceid = provinceid;
+//	}
+//
+//	public final String getDistrictid() {
+//		return districtid;
+//	}
+//
+//	public final void setDistrictid(String districtid) {
+//		this.districtid = districtid;
+//	}
+//
+//	public final String getWardid() {
+//		return wardid;
+//	}
+//
+//	public final void setWardid(String wardid) {
+//		this.wardid = wardid;
+//	}
+//
+//	public final String getVillageid() {
+//		return villageid;
+//	}
+//
+//	public final void setVillageid(String villageid) {
+//		this.villageid = villageid;
+//	}
 
 	public final int getUser_id() {
 		return user_id;

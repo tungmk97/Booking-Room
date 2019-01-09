@@ -71,39 +71,7 @@
 							class="txt form-control" id="address"
 							maxlength="100" name="address" placeholder="Vui lòng nhập địa chỉ"
 							type="text" th:field="*{address}"/>
-						<label for="province">Tỉnh/Thành phố (*)</label>
-						<select
-							class="form-control" id="province" th:field="*{provinceid}" th:value="${post.provinceid}" onchange="run()">
-							<option th:value="0" disabled selected hidden>--- Vui lòng chọn tỉnh/thành ---</option>
-							<div th:each="province,iterStat : ${provinces}" >
-								<option th:value="${province.provinceid}" th:text="${province.name}"></option>
-							</div>
-						</select>
-						<input id="province-input-value" type="text" readonly="readonly" /><br>
-						<label for="district">Quận/huyện (*)</label>
-						<select
-							class="form-control" id="district" th:field="*{districtid}" th:value="${post.districtid}" onchange="run2()">
-							<div th:each="district: ${districts}">
-								<div th:if="${district.provinceid} == '01TTT'">
-									<option th:value="${district.districtid}" th:text="${district.name}"></option>
-								</div>
-							</div>
-							<option th:value="0" disabled selected hidden>--- Vui lòng chọn quận/huyện ---</option>
-							
-						</select>
-						<input id="district-input-value" type="text" readonly="readonly" /><br>
-						<!-- <label for="ward">Phường/xã (*)</label>
-						<select
-							class="form-control" id="ward" th:field="*{wardid}">
-							<option th:value="0" disabled selected hidden>--- Vui lòng chọn phường/xã ---</option> 
-							<option th:each="ward,iterStat : ${wards}" th:value="${ward.name}"></option>
-						</select>
-						<label for="village">Đường/phố (*)</label>
-						<select
-							class="form-control" id="village" th:field="*{villageid}">
-							<option th:value="0" disabled selected hidden>--- Vui lòng chọn đường/phố ---</option> 
-							<option th:each="village,iterStat : ${villages}" th:value="${village.name}"></option>
-						</select> -->
+						
 						<label for="sel5">Giá Tiền (*)</label>
 						<input
 							class="txt form-control price-icon" data-val="true"
