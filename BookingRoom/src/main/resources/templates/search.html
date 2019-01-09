@@ -12,94 +12,87 @@
 		</head>
 	<body>
 		<nav th:replace="index :: header"></nav>
-		<form class="form-group form-search-group container" th:fragment="th-search" th:action="@{/search-by-address}" method="POST">
-			<h3 class="title">Tìm kiếm theo khu vực</h3>
-			<div class="row bs-content">
-				<div class="col-sm-2">
-					<!-- <select class="form-control" id="city-search">
-						<option disabled selected hidden>Tỉnh/thành</option>
-				        <option>Hà Nội</option>
-				        <option>Hồ Chí Minh</option>
-				        <option>Hải Phòng</option>
-				        <option>Nha Trang</option>
-				    </select> -->
-				    <input  class="txt" id="city-search" type="text" placeholder="Tỉnh/thành phố" name="city"/>
+		<h2 class="title">Tìm kiếm nhanh</h2>
+		<div class="container menu-1 row" >
+			<ul class="nav nav-tabs tab-1 ">
+				<li class="active"><a data-toggle="tab" href="#address">Tìm kiếm theo địa chỉ khu vực</a></li>
+				<li><a data-toggle="tab" href="#acreage">Tìm kiếm theo diện tích</a></li>
+				<li><a data-toggle="tab" href="#price">Tìm kiếm theo giá tiền</a></li>
+			</ul>
+			<div class="tab-content ">
+				<div id="address" class="tab-pane fade in active">
+					<form class="form-group form-search-group container" th:fragment="th-search" th:action="@{/search-by-address}" method="POST">
+						<h3 class="title">Tìm kiếm theo khu vực</h3>
+						<div class="row bs-content">
+							<div class="col-sm-2">
+								
+								<input  class="txt" id="city-search" type="text" placeholder="Tỉnh/thành phố" name="city"/>
+							</div>
+							<div class="col-sm-2">
+								
+								<input  class=" txt" id="district-search" type="text" placeholder="Quận/huyện" name="district"/>
+							</div>
+							<div class="col-sm-2">
+								
+								<input  class=" txt" id="block-search" type="text" placeholder="Phường/xã" name="block"/>
+							</div>
+							<div class="col-sm-2">
+								<select class="form-control col-sm-2" id="area-search">
+									<option disabled selected hidden>Diện tích (m<sup>2</sup>)</option>
+									<option>50-70</option>
+								</select>
+							</div>
+							<div class="col-sm-2">
+								<select class="form-control col-sm-2" id="price-search">
+									<option disabled selected hidden>Mức giá (VND)</option>
+									<option>5000000-7000000</option>
+								</select>
+							</div>
+							<div class="col-sm-2">
+								<input id="id-room" class="id-txt txt" type="text" placeholder="Tìm theo mã phòng" name="id-room">
+							</div>
+						</div>
+						<div class="row bs-search">
+							<input class="btn-submit btn-search col-sm-3" type="submit" value="Tìm kiếm ngay">
+						</div>
+					</form>
 				</div>
-			    <div class="col-sm-2">
-					<!-- <select class="form-control" id="district-search">
-						<option disabled selected hidden>Quận/huyện</option>
-				        <option>Hoàn Kiếm</option>
-				        <option>Cầu giấy</option>
-				        <option>Hà Đông</option>
-				        <option>Bắc Từ Liêm</option>
-				    </select> -->
-				    <input  class=" txt" id="district-search" type="text" placeholder="Quận/huyện" name="district"/>
+				<div id="acreage" class="tab-pane fade">
+					<form class="form-group form-search-group container" th:action="@{/search-by-acreage}" method="POST">
+						<h3 class="title">Tìm kiếm theo diện tích</h3>
+							<h4 class="title col-sm-1">Từ</h4>
+						<div class="col-sm-2">
+								
+								<input class=" txt" id="min-acreage-search" type="text" name="minAcreage" placeholder="m2" />
+							</div>
+								<h4 class="title col-sm-1">Đến</h4>
+								<div class="col-sm-2">
+								<input class=" txt" id="max-acreage-search" type="text" name="maxAcreage" placeholder="m2"/>
+								</div>
+							<div class="row bs-search">
+							<input class="btn-submit btn-search col-sm-3" type="submit" value="Tìm kiếm ngay">
+						</div>
+					</form>
 				</div>
-			    <div class="col-sm-2">
-			    	<!-- <select class="form-control col-sm-2" id="block-search">
-						<option disabled selected hidden>Phường/xã</option>
-				        <option>Quan Hoa</option>
-				        <option>Dịch Vọng</option>
-				        <option>Cầu diễn</option>
-				    </select> -->
-				    <input  class=" txt" id="block-search" type="text" placeholder="Phường/xã" name="block"/>
-				</div>
-				<div class="col-sm-2">
-					<select class="form-control col-sm-2" id="area-search">
-						<option disabled selected hidden>Diện tích (m<sup>2</sup>)</option>
-				        <option>50-70</option>
-				    </select>
-				</div>
-				<div class="col-sm-2">
-					<select class="form-control col-sm-2" id="price-search">
-						<option disabled selected hidden>Mức giá (VND)</option>
-				        <option>5000000-7000000</option>
-				    </select>
-				</div>
-				<div class="col-sm-2">
-					<input id="id-room" class="id-txt txt" type="text" placeholder="Tìm theo mã phòng" name="id-room">
+				<div id="price" class="tab-pane fade">
+					<form class="form-group form-search-group container" th:action="@{/search-by-price}" method="POST">
+						<h3 class="title">Tìm kiếm theo giá tiền</h3>
+								<h4 class="title col-sm-1">Từ</h4>
+						<div class="col-sm-2">
+								
+								<input class=" txt" id="min-price-search" type="text" name="minPrice" placeholder="VND" />
+							</div>
+								<h4 class="title col-sm-1">Đến</h4>
+								<div class="col-sm-2">
+								<input class=" txt" id="max-price-search" type="text" name="maxPrice" placeholder="VND"/>
+								</div>
+							<div class="row bs-search">
+							<input class="btn-submit btn-search col-sm-3" type="submit" value="Tìm kiếm ngay">
+						</div>
+					</form>
 				</div>
 			</div>
-			<div class="row bs-search">
-				<input class="btn-submit btn-search col-sm-3" type="submit" value="Tìm kiếm ngay">
-			</div>
-		</form>
-		<form class="form-group form-search-group container" th:action="@{/search-by-acreage}" method="POST">
-			<h3 class="title">Tìm kiếm theo diện tích</h3>
-				<h3 class="title col-sm-1">Từ</h3>
-			<div class="col-sm-2">
-					<!-- <select class="form-control col-sm-2" id="area-search">
-						<option disabled selected hidden>Diện tích (m<sup>2</sup>)</option>
-				        <option>50-70</option>
-				    </select> -->
-				    <input class=" txt" id="min-acreage-search" type="text" name="minAcreage" />
-				</div>
-				    <h3 class="title col-sm-1">Đến</h3>
-				    <div class="col-sm-2">
-				    <input class=" txt" id="max-acreage-search" type="text" name="maxAcreage" />
-				    </div>
-				<div class="row bs-search">
-				<input class="btn-submit btn-search col-sm-3" type="submit" value="Tìm kiếm ngay">
-			</div>
-		</form>
-		<form class="form-group form-search-group container" th:action="@{/search-by-price}" method="POST">
-			<h3 class="title">Tìm kiếm theo giá tiền</h3>
-				    <h3 class="title col-sm-1">Từ</h3>
-			<div class="col-sm-2">
-					<!-- <select class="form-control col-sm-2" id="price-search">
-						<option disabled selected hidden>Mức giá (VND)</option>
-				        <option>5000000-7000000</option>
-				    </select> -->
-				    <input class=" txt" id="min-price-search" type="text" name="minPrice" />
-				</div>
-				    <h3 class="title col-sm-1">Đến</h3>
-				    <div class="col-sm-2">
-				    <input class=" txt" id="max-price-search" type="text" name="maxPrice" />
-				    </div>
-				<div class="row bs-search">
-				<input class="btn-submit btn-search col-sm-3" type="submit" value="Tìm kiếm ngay">
-			</div>
-		</form>
+		</div>
 		<div class="container">
 			<div class="tab-content">
 			<h3>Kết quả</h3>
@@ -159,5 +152,6 @@
 			</div>
 		</div>
 		<footer th:replace="index :: footer"></footer>
+	</body>
 	</body>
 </html>
