@@ -115,4 +115,12 @@ public class PostService {
 	public List<Post> findAllByAddress(String city, String district, String block) {
 		return postRepository.findAllByAddress(city, district, block);
 	}
+	
+	public List<Post> findAllByPrice(int minPrice, int maxPrice) {
+		return postRepository.findAllByPrice(minPrice, maxPrice);
+	}
+	
+	public List<Post> findAllByAcreage(int minAcreage, int maxAcreage) {
+		return postRepository.findAllByAcreage(minAcreage, maxAcreage);
+	}
 }

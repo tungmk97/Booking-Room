@@ -1,6 +1,10 @@
 footer{
 	margin-top: 200px;
 }
+body{
+	margin-top: 100px;
+}
+
 select.form-control{
 	width: 100%;
 }
@@ -64,4 +68,7 @@ label, h3{
 .bs-search{
 	width: 130px;
     float: right;
+}
+h3.title{
+	margin-top: 10px;
 }
